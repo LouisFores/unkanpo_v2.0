@@ -4,20 +4,20 @@ import com.unkanpo.model.Game;
 import com.unkanpo.model.Type;
 import com.unkanpo.repository.GameRepository;
 import com.unkanpo.repository.TypeRepository;
+import com.unkanpo.service.imp.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 @RequestMapping("/admin/games")
 public class GameController {
+    @Autowired
+    private GameService gameService;
     @Autowired
     private GameRepository gameRepository;
     @Autowired
@@ -32,7 +32,16 @@ public class GameController {
     public ModelAndView showListGame() {
         ModelAndView modelAndView = new ModelAndView("/game/list");
         List<Game> games = (List<Game>) gameRepository.findAll();
-
+        for (int i = 0; i < games.size(); i++) {
+            Game game = games.get(i);
+            Set<Type> types = gameService.getTypesByGameId(game.getIdGame());
+            game.setTypes(types);
+            games.set(i, game);
+        }
+//        for (Game game : games) {
+//            Set<Type> types = gameService.getTypesByGameId(game.getIdGame());
+//            game.setTypes(types);
+//        }
         modelAndView.addObject("games", games);
         return modelAndView;
     }

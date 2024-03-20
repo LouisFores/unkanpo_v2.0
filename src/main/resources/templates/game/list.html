@@ -38,8 +38,8 @@
     <td th:text="${g.nameGame}"></td>
     <td th:text="${g.descriptionGame}"></td>
     <td>
-        <span th:each="type : ${g.types}">
-          <a th:text="${type.nameType}"></a>
+        <span th:each="type : ${g.getTypes()}">
+          <a th:text="${type.getNameType()}"></a>
         </span>
     </td>
   </tr>

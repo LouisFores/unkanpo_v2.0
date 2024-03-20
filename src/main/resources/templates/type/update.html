@@ -13,10 +13,10 @@
 <div id="form">
     <form th:action="@{/types/update}" th:object="${type}"
           method="POST" novalidate="novalidate">
-        <input type="hidden" th:field="*{id_type}"/>
+        <input type="hidden" th:field="*{idType}"/>
         <div>
             <label for="name">Name</label>
-            <input type="text" id="name" th:field="*{name_type}"/>
+            <input type="text" id="name" th:field="*{nameType}"/>
         </div>
         <input type="submit" value="Save"/>
     </form>
