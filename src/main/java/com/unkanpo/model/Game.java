@@ -20,6 +20,6 @@ public class Game {
             inverseJoinColumns = {@JoinColumn(name = "idType")})
     private Set<Type> types;
 
-    private String name_game;
-    private String description_game;
+    private String nameGame;
+    private String descriptionGame;
 }

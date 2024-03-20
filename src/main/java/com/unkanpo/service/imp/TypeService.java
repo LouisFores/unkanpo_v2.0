@@ -19,8 +19,8 @@ public class TypeService implements ITypeService {
     }
 
     @Override
-    public Iterable<Type> findAllByName_type(String key_word) {
-        return typeRepository.findAllByNameType(key_word);
+    public Iterable<Type> findAllByNameType(String keyword) {
+        return typeRepository.findAllByNameType(keyword);
     }
 
     @Override

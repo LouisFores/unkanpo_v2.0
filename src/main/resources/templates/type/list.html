@@ -11,8 +11,8 @@
 </p>
 
 <div id="form" style="margin-bottom: 20px">
-    <form th:action="@{/admin}" method="post" novalidate="novalidate">
-        <input type="text" id="numberCode" name="code"/>
+    <form th:action="@{/admin/types/filter}" method="get">
+        <input type="text" id="keyword" name="keyword"/>
         <input type="submit" value="Tìm kiếm"/>
     </form>
 </div>
@@ -28,10 +28,10 @@
     </thead>
     <tbody>
     <tr th:each="t, tStatus : ${types}">
-        <td><a th:href="@{/type/update/__${t.getId_type()}__}">Update</a></td>
-        <td><a th:href="@{/type/delete/__${t.getId_type()}__}">Delete</a></td>
-        <td th:text="${t.getId_type()}"></td>
-        <td th:text="${t.getName_type()}"></td>
+        <td><a th:href="@{/admin/types/update/__${t.getIdType()}__}">Update</a></td>
+        <td><a th:href="@{/admin/types/delete/__${t.getIdType()}__}">Delete</a></td>
+        <td th:text="${t.getIdType()}"></td>
+        <td th:text="${t.getNameType()}"></td>
     </tr>
     </tbody>
 </table>

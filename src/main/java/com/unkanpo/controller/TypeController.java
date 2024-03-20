@@ -51,14 +51,21 @@ public class TypeController {
         return "redirect:/admin/types";
     }
 
-    @GetMapping("/remove/{id}")
+    @GetMapping("/delete/{id}")
     public String removeType(@PathVariable Long id) {
-        Optional<Type> productOptional = typeService.findById(id);
-        if (!productOptional.isPresent()) {
+        Optional<Type> type = typeService.findById(id);
+        if (!type.isPresent()) {
             return "/error_404";
         }
         typeService.deleteById(id);
         return "redirect:/admin/types";
     }
 
+    @GetMapping("/filter")
+    public ModelAndView filterByKeyword(@RequestParam("keyword") String keyWord) {
+        Iterable<Type> types = typeService.findAllByNameType(keyWord);
+        ModelAndView modelAndView = new ModelAndView("/type/list");
+        modelAndView.addObject("types",types);
+        return modelAndView;
+    }
 }
