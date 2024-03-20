@@ -1,0 +1,38 @@
+<!DOCgame html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <title>Thêm trò chơi</title>
+</head>
+<body>
+<h3>Thêm trò chơi</h3>
+<p>
+    <a th:href="@{/admin/games}">
+        Quay lại danh sách trò chơi
+    </a>
+</p>
+<div id="form">
+    <form th:action="@{/admin/games/create}" th:object="${game}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id_game}"/>
+        <div>
+            <label for="name">Tên trò chơi</label>
+            <input type="text" id="name" th:field="*{name_game}"/>
+        </div>
+        <div>
+            <label for="name">Mô tả</label>
+            <input type="text" id="description" th:field="*{description_game}"/>
+        </div>
+        <div>
+            <label for="name">Thể loại: </label>
+            <label th:each="t, tStat : ${types}">
+                <input type="checkbox" th:text="${t.getName_type()}" th:value="${t.id_type}" th:field="*{types}"/>
+            </label>
+        </div>
+
+
+        <input type="submit" value="Lưu"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

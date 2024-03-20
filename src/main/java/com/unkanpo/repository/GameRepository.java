@@ -1,4 +1,7 @@
 package com.unkanpo.repository;
 
-public interface GameRepository {
+import com.unkanpo.model.Game;
+import org.springframework.data.repository.CrudRepository;
+
+public interface GameRepository extends CrudRepository<Game,Long> {
 }

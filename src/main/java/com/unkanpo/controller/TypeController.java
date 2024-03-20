@@ -54,12 +54,14 @@ public class TypeController {
 
     @GetMapping("/remove/{id}")
     public String removeType(@PathVariable Long id) {
-        Optional<Type> productOptional = typeRepository.findById(id);
-        if (!productOptional.isPresent()) {
+        Optional<Type> typeOptional = typeRepository.findById(id);
+        if (!typeOptional.isPresent()) {
             return "/error_404";
         }
-        typeRepository.delete(productOptional.get());
+        typeRepository.delete(typeOptional.get());
         return "redirect:/admin/types";
     }
+
+
 
 }

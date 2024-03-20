@@ -14,7 +14,7 @@ public class Game {
     private Long id_game;
 
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "game_type",
             joinColumns = {@JoinColumn(name = "id_game")},
             inverseJoinColumns = {@JoinColumn(name = "id_type")})
