@@ -12,7 +12,7 @@ public class GamePicture {
     private Long id_picture;
 
     @ManyToOne
-    @JoinColumn(name = "id_game")
+    @JoinColumn(name = "idGame")
     private Game game;
 
     private String picture;

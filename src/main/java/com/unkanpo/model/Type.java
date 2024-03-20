@@ -12,9 +12,9 @@ import java.util.Set;
 public class Type implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_type;
+    private Long idType;
 
-    private String name_type;
+    private String nameType;
 
     @ManyToMany(mappedBy = "types")
     @JsonBackReference

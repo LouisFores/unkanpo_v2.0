@@ -12,11 +12,11 @@ public class RentalHistory {
     private Long id_rental;
 
     @ManyToOne
-    @JoinColumn(name = "id_user")
+    @JoinColumn(name = "idUser")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "id_game")
+    @JoinColumn(name = "idGame")
     private GameAccount gameAccount;
 
     private String start_time;
