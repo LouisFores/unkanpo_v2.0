@@ -14,7 +14,9 @@ public class AdminController {
 
     @GetMapping("")
     public String showListGeneral() {
-       return "/admin/list";
+       return "admin/list";
     }
+
+
 
 }
