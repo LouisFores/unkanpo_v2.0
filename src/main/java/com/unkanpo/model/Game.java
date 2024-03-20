@@ -11,15 +11,14 @@ import java.util.Set;
 public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_game;
+    private Long idGame;
 
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "game_type",
-            joinColumns = {@JoinColumn(name = "id_game")},
-            inverseJoinColumns = {@JoinColumn(name = "id_type")})
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "gameType",
+            joinColumns = {@JoinColumn(name = "idGame")},
+            inverseJoinColumns = {@JoinColumn(name = "idType")})
     private Set<Type> types;
 
-    private String name_game;
-    private String description_game;
+    private String nameGame;
+    private String descriptionGame;
 }

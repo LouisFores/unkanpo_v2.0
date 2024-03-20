@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -30,10 +31,12 @@ public class GameController {
     @GetMapping("")
     public ModelAndView showListGame() {
         ModelAndView modelAndView = new ModelAndView("/game/list");
+        List<Game> games = (List<Game>) gameRepository.findAll();
 
-        modelAndView.addObject("games", gameRepository.findAll());
+        modelAndView.addObject("games", games);
         return modelAndView;
     }
+
     @GetMapping("/create")
     public ModelAndView showCreateGame() {
         ModelAndView modelAndView = new ModelAndView("/game/create");
@@ -46,7 +49,7 @@ public class GameController {
     public String createGame(@ModelAttribute("Game") Game game) {
         Set<Type> typeSet = new HashSet<>();
         for (Type type : game.getTypes()) {
-            System.out.println(type.getName_type());
+            System.out.println(type.getNameType());
             typeSet.add(type);
         }
         game.setTypes(typeSet);

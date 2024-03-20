@@ -29,17 +29,18 @@
   </tr>
   </thead>
   <tbody>
-  <tr th:each="g, gStatus : ${games}">
+  <tr th:each="g : ${games}">
     <td>
-      <a th:href="@{/game/update/__${g.getId_game()}__}">Update</a>
-      <a th:href="@{/game/delete/__${g.getId_game()}__}">Delete</a>
+      <a th:href="@{/game/update/__${g.idGame}__}">Update</a>
+      <a th:href="@{/game/delete/__${g.idGame}__}">Delete</a>
     </td>
-    <td th:text="${g.getId_game()}"></td>
-    <td th:text="${g.getName_game()}"></td>
-    <td th:text="${g.getDescription_game()}"></td>
-    <span th:text="${g.getTypes()}"></span>
-    <td th:each="type : ${g.getTypes()}">
-      <a th:text="${type.getName_type()}"/>
+    <td th:text="${g.idGame}"></td>
+    <td th:text="${g.nameGame}"></td>
+    <td th:text="${g.descriptionGame}"></td>
+    <td>
+        <span th:each="type : ${g.types}">
+          <a th:text="${type.nameType}"></a>
+        </span>
     </td>
   </tr>
   </tbody>

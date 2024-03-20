@@ -29,11 +29,11 @@
     <tbody>
     <tr th:each="t, tStatus : ${types}">
         <td>
-            <a th:href="@{/type/update/__${t.getId_type()}__}">Update</a>
-            <a th:href="@{/type/delete/__${t.getId_type()}__}">Delete</a>
+            <a th:href="@{/type/update/__${t.getIdType()}__}">Update</a>
+            <a th:href="@{/type/delete/__${t.getIdType()}__}">Delete</a>
         </td>
-        <td th:text="${t.getId_type()}"></td>
-        <td th:text="${t.getName_type()}"></td>
+        <td th:text="${t.getIdType()}"></td>
+        <td th:text="${t.getNameType()}"></td>
     </tr>
     </tbody>
 </table>

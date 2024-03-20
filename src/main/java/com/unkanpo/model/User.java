@@ -12,12 +12,12 @@ import java.util.Set;
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_user;
+    private Long idUser;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role",
-            joinColumns = {@JoinColumn(name = "id_user")},
-            inverseJoinColumns = {@JoinColumn(name = "id_role")})
+    @JoinTable(name = "userRole",
+            joinColumns = {@JoinColumn(name = "idUser")},
+            inverseJoinColumns = {@JoinColumn(name = "idRole")})
     private Set<Role> roles;
 
     @Column(unique = true, nullable = false)
@@ -34,7 +34,7 @@ public class User implements Serializable {
     private double coin;
     private boolean enabled = true;
     public User(Long id, String username, String password, String confirmPassword, boolean enabled, Set<Role> roles) {
-        this.id_user = id;
+        this.idUser = id;
         this.username = username;
         this.password = password;
         this.confirmPassword = confirmPassword;
@@ -54,11 +54,11 @@ public class User implements Serializable {
     }
 
     public Long getId_user() {
-        return id_user;
+        return idUser;
     }
 
     public void setId_user(Long id_user) {
-        this.id_user = id_user;
+        this.idUser = id_user;
     }
 
     public Set<Role> getRoles() {
