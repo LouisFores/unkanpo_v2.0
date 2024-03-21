@@ -38,10 +38,7 @@ public class GameController {
             game.setTypes(types);
             games.set(i, game);
         }
-//        for (Game game : games) {
-//            Set<Type> types = gameService.getTypesByGameId(game.getIdGame());
-//            game.setTypes(types);
-//        }
+//
         modelAndView.addObject("games", games);
         return modelAndView;
     }
