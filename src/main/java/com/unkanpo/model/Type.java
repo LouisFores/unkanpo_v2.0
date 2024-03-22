@@ -5,16 +5,18 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
+@Table(name = "type")
 @Data
 public class Type implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_type;
+    private Long idType;
 
-    private String name_type;
+    private String nameType;
 
     @ManyToMany(mappedBy = "types")
     @JsonBackReference

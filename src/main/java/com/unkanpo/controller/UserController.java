@@ -1,128 +1,53 @@
-//package com.unkanpo.controller;
-//
-//import com.unkanpo.model.JwtResponse;
-//import com.unkanpo.model.Role;
-//import com.unkanpo.model.User;
-//import com.unkanpo.service.imp.JwtService;
-//import com.unkanpo.service.imp.RoleService;
-//import com.unkanpo.service.imp.UserService;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.data.domain.Page;
-//import org.springframework.data.domain.PageRequest;
-//import org.springframework.data.domain.Pageable;
-//import org.springframework.http.HttpStatus;
-//import org.springframework.http.ResponseEntity;
-//import org.springframework.security.authentication.AuthenticationManager;
-//import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-//import org.springframework.security.core.Authentication;
-//import org.springframework.security.core.context.SecurityContextHolder;
-//import org.springframework.security.core.userdetails.UserDetails;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-//import org.springframework.validation.BindingResult;
-//import org.springframework.web.bind.annotation.*;
-//
-//import java.util.HashSet;
-//import java.util.Optional;
-//import java.util.Set;
-//
-//@RestController
-//@CrossOrigin("*")
-//public class UserController {
-//    @Autowired
-//    private AuthenticationManager authenticationManager;
-//
-//    @Autowired
-//    private JwtService jwtService;
-//
-//    @Autowired
-//    private UserService userService;
-//
-//    @Autowired
-//    private RoleService roleService;
-//
-//    @Autowired
-//    private PasswordEncoder passwordEncoder;
-//
-//    @GetMapping("/users/paging")
-//    public Page<User> getUsers(@RequestParam(defaultValue = "0") int page,
-//                               @RequestParam(defaultValue = "10") int size) {
-//        Pageable pageable = PageRequest.of(page, size);
-//        return userService.getAllUsers(pageable);
-//    }
-//
-//    @GetMapping("/users")
-//    public ResponseEntity<Iterable<User>> showAllUser() {
-//        Iterable<User> users = userService.findAll();
-//        return new ResponseEntity<>(users, HttpStatus.OK);
-//    }
-//
-//    @GetMapping("/admin/users")
-//    public ResponseEntity<Iterable<User>> showAllUserByAdmin() {
-//        Iterable<User> users = userService.findAll();
-//        return new ResponseEntity<>(users, HttpStatus.OK);
-//    }
-//
-//    @PostMapping("/register")
-//    public ResponseEntity createUser(@RequestBody User user, BindingResult bindingResult) {
-//        if (bindingResult.hasFieldErrors()) {
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//        }
-//        Iterable<User> users = userService.findAll();
-//        for (User currentUser : users) {
-//            if (currentUser.getUsername().equals(user.getUsername())) {
-//                return new ResponseEntity<>("Username existed", HttpStatus.OK);
-//            }
-//        }
-//        if (!userService.isCorrectConfirmPassword(user)) {
-//            return new ResponseEntity<>("Input confirm password", HttpStatus.OK);
-//        }
-//        if (user.getRoles() == null) {
-//            Role role1 = roleService.findByName("ROLE_USER");
-//            Set<Role> roles1 = new HashSet<>();
-//            roles1.add(role1);
-//            user.setRoles(roles1);
-//        }
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
-//        user.setConfirmPassword(passwordEncoder.encode(user.getConfirmPassword()));
-//        userService.save(user);
-//        return new ResponseEntity<>(user, HttpStatus.CREATED);
-//    }
-//
-//    @PostMapping("/login")
-//    public ResponseEntity<?> login(@RequestBody User user) {
-//        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
-//        String jwt = jwtService.generateTokenLogin(authentication);
-//        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-//        User currentUser = userService.findByUsername(user.getUsername());
-//        return ResponseEntity.ok(new JwtResponse(jwt, currentUser.getId_user(), userDetails.getUsername(), userDetails.getAuthorities()));
-//    }
-//
-//    @GetMapping("/hello")
-//    public ResponseEntity<String> hello() {
-//        return new ResponseEntity("Hello World", HttpStatus.OK);
-//    }
-//
-//    @GetMapping("/users/{id}")
-//    public ResponseEntity<User> getProfile(@PathVariable Long id) {
-//        Optional<User> userOptional = this.userService.findById(id);
-//        return userOptional.map(user -> new ResponseEntity<>(user, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
-//    }
-//
-//    @PutMapping("/users/{id}")
-//    public ResponseEntity<User> updateUserProfile(@PathVariable Long id, @RequestBody User user) {
-//        Optional<User> userOptional = this.userService.findById(id);
-//        if (!userOptional.isPresent()) {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//        user.setId_user(userOptional.get().getId_user());
-//        user.setUsername(userOptional.get().getUsername());
-//        user.setEnabled(userOptional.get().isEnabled());
-//        user.setPassword(userOptional.get().getPassword());
-//        user.setRoles(userOptional.get().getRoles());
-//        user.setConfirmPassword(userOptional.get().getConfirmPassword());
-//
-//        userService.save(user);
-//        return new ResponseEntity<>(user, HttpStatus.OK);
-//    }
-//}
+package com.unkanpo.controller;
+import com.unkanpo.model.User;
+import com.unkanpo.service.imp.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import java.util.Optional;
+
+@Controller
+@RequestMapping("/admin/users")
+public class UserController {
+    @Autowired
+    private UserService userService;
+    @GetMapping("")
+    public ModelAndView showListUser() {
+        ModelAndView modelAndView = new ModelAndView("/user/list");
+        modelAndView.addObject("users", userService.findAll());
+        return modelAndView;
+    }
+    @GetMapping("/create")
+    public ModelAndView showCreateUser() {
+        ModelAndView modelAndView = new ModelAndView("/user/create");
+        modelAndView.addObject("user", new User());
+        return modelAndView;
+    }
+
+    @PostMapping("/create")
+    public String createUser(@ModelAttribute("user") User user) {
+        userService.save(user);
+        return "redirect:/admin/users";
+    }
+
+    @GetMapping("/update/{id}")
+    public ModelAndView showUpdateUser(@PathVariable Long id) {
+        Optional<User> user = userService.findById(id);
+        if (user.isPresent()) {
+            ModelAndView modelAndView = new ModelAndView("/user/update");
+            modelAndView.addObject("user", user.get());
+            return modelAndView;
+        } else {
+            return new ModelAndView("/error_404");
+        }
+    }
+
+    @PostMapping("/update")
+    public String updateUser(@ModelAttribute("user") User user) {
+        userService.save(user);
+        return "redirect:/admin/users";
+    }
+
+
+}

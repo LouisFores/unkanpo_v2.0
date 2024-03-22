@@ -1,15 +1,14 @@
-<!DOCTYPE html>
+<!DOCgame html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="/layout :: head">
     <meta charset="UTF-8">
-    <title>Danh sách chủ đề</title>
+    <title>Danh sách trò chơi</title>
 </head>
 <body>
-<h3>Chủ đề</h3>
+<h3>Trò chơi</h3>
 <p>
     <a th:href="@{/admin}">Admin</a>
-    <a th:href="@{/admin/games}">Game list</a>
-    <a th:href="@{/admin/types/create}">Thêm chủ đề</a>
+    <a th:href="@{/admin/users/create}">Thêm người dùng</a>
 </p>
 
 <div id="form" style="margin-bottom: 20px">
@@ -25,17 +24,22 @@
     <tr>
         <th>Hành động</th>
         <th>STT</th>
-        <th>Tên</th>
+        <th>Avatar</th>
+        <th>Tên người dùng</th>
+        <th>Nickname</th>
+        <th>Coin</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="t, tStatus : ${types}">
+    <tr th:each="user : ${users}">
         <td>
-            <a th:href="@{/type/update/__${t.getIdType()}__}">Update</a>
-            <a th:href="@{/type/delete/__${t.getIdType()}__}">Delete</a>
+            <a th:href="@{/user/block/__${user.getId_user()}__}">Block</a>
         </td>
-        <td th:text="${t.getIdType()}"></td>
-        <td th:text="${t.getNameType()}"></td>
+        <td th:text="${user.getId_user()}"></td>
+        <td th:text="${user.getAvatar()}"></td>
+        <td th:text="${user.getUsername()}"></td>
+        <td th:text="${user.getNickname()}"></td>
+        <td th:text="${user.getCoin()}"></td>
     </tr>
     </tbody>
 </table>

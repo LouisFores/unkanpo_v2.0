@@ -12,13 +12,7 @@ import java.util.Set;
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_user;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role",
-            joinColumns = {@JoinColumn(name = "id_user")},
-            inverseJoinColumns = {@JoinColumn(name = "id_role")})
-    private Set<Role> roles;
+    private Long idUser;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -29,24 +23,21 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String confirmPassword;
 
+    private String role;
     private String nickname;
     private String avatar;
     private double coin;
-    private boolean enabled = true;
-    public User(Long id, String username, String password, String confirmPassword, boolean enabled, Set<Role> roles) {
-        this.id_user = id;
+    public User(Long id, String username, String password, String confirmPassword) {
+        this.idUser = id;
         this.username = username;
         this.password = password;
         this.confirmPassword = confirmPassword;
-        this.enabled = enabled;
-        this.roles = roles;
     }
 
-    public User(String username, String password, String confirmPassword, Set<Role> roles) {
+    public User(String username, String password, String confirmPassword) {
         this.username = username;
         this.password = password;
         this.confirmPassword = confirmPassword;
-        this.roles = roles;
     }
 
     public User() {
@@ -54,19 +45,11 @@ public class User implements Serializable {
     }
 
     public Long getId_user() {
-        return id_user;
+        return idUser;
     }
 
     public void setId_user(Long id_user) {
-        this.id_user = id_user;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+        this.idUser = id_user;
     }
 
     public String getUsername() {
@@ -117,12 +100,5 @@ public class User implements Serializable {
         this.coin = coin;
     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
 }
 

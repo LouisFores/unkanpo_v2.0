@@ -9,12 +9,12 @@ import lombok.Data;
 public class BillCoint {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_bill_coint;
+    private Long idBillCoint;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user_id;
+    @JoinColumn(name = "idUser")
+    private User idUser;
 
     private Long amount;
-    private String date_time;
+    private String dateTime;
 }
