@@ -1,14 +1,8 @@
-//package com.unkanpo.service;
-//
-//
-//import com.unkanpo.model.User;
-//import org.springframework.data.domain.Page;
-//import org.springframework.data.domain.Pageable;
-//import org.springframework.security.core.userdetails.UserDetails;
-//import org.springframework.security.core.userdetails.UserDetailsService;
-//
-//import java.util.Optional;
-//
+package com.unkanpo.service;
+import com.unkanpo.model.Type;
+import com.unkanpo.model.User;
+import java.util.Optional;
+
 //public interface IUserService extends UserDetailsService {
 //    void save(User user);
 //
@@ -28,3 +22,12 @@
 //
 //    boolean isCorrectConfirmPassword(User user);
 //}
+
+public interface IUserService {
+    Iterable<User> findAll();
+    Optional<User> findById(Long id);
+    Iterable<User> findAllByNamUser(String key_word);
+    void save(User user);
+    void deleteById(Long id);
+
+}

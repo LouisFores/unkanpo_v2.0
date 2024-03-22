@@ -14,12 +14,6 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "userRole",
-            joinColumns = {@JoinColumn(name = "idUser")},
-            inverseJoinColumns = {@JoinColumn(name = "idRole")})
-    private Set<Role> roles;
-
     @Column(unique = true, nullable = false)
     private String username;
 
@@ -29,24 +23,21 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String confirmPassword;
 
+    private String role;
     private String nickname;
     private String avatar;
     private double coin;
-    private boolean enabled = true;
-    public User(Long id, String username, String password, String confirmPassword, boolean enabled, Set<Role> roles) {
+    public User(Long id, String username, String password, String confirmPassword) {
         this.idUser = id;
         this.username = username;
         this.password = password;
         this.confirmPassword = confirmPassword;
-        this.enabled = enabled;
-        this.roles = roles;
     }
 
-    public User(String username, String password, String confirmPassword, Set<Role> roles) {
+    public User(String username, String password, String confirmPassword) {
         this.username = username;
         this.password = password;
         this.confirmPassword = confirmPassword;
-        this.roles = roles;
     }
 
     public User() {
@@ -59,14 +50,6 @@ public class User implements Serializable {
 
     public void setId_user(Long id_user) {
         this.idUser = id_user;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
     }
 
     public String getUsername() {
@@ -117,12 +100,5 @@ public class User implements Serializable {
         this.coin = coin;
     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
 }
 
