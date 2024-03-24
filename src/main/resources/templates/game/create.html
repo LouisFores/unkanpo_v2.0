@@ -24,9 +24,9 @@
         </div>
         <div>
             <label for="name">Thể loại: </label>
-            <label th:each="t, tStat : ${types}">
+            <th:block th:each="t, tStat : ${types}">
                 <input type="checkbox" th:text="${t.getNameType()}" th:value="${t.idType}" th:field="*{types}"/>
-            </label>
+            </th:block>
         </div>
 
 
