@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Danh sách chủ đề</title>
+</head>
+<body>
+<h3>Chủ đề</h3>
+<p>
+    <a th:href="@{/admin}">Admin</a>
+    <br>
+    <a th:href="@{/admin/games}">Game list</a>
+    <br>
+    <a th:href="@{/admin/types/create}">Thêm chủ đề</a>
+</p>
+
+<div id="form" style="margin-bottom: 20px">
+    <form th:action="@{/admin/types/filter}" method="get">
+        <input type="text" id="keyword" name="keyword"/>
+        <input type="submit" value="Tìm kiếm"/>
+    </form>
+</div>
+
+
+<table id = "game">
+    <thead>
+    <tr>
+        <th>Cập nhật</th>
+        <th>STT</th>
+        <th>Tên</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="t, tStatus : ${types}">
+        <td>
+            <a th:href="@{/admin/types/update/__${t.getIdType()}__}">Update</a>
+        </td>
+        <td th:text="${t.getIdType()}"></td>
+        <td th:text="${t.getNameType()}"></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

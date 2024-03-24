@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <title>Create Book</title>
+</head>
+<body>
+<h3>Add Book</h3>
+<p>
+    <a th:href="@{/types}">
+        Back to type list
+    </a>
+</p>
+<div id="form">
+    <form th:action="@{/admin/types/update}" th:object="${type}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{idType}"/>
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" th:field="*{nameType}"/>
+        </div>
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

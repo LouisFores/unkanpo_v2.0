@@ -1,0 +1,26 @@
+<!DOCgame html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <title>Create Book</title>
+</head>
+<body>
+<h3>Add Book</h3>
+<p>
+    <a th:href="@{/games}">
+        Back to game list
+    </a>
+</p>
+<div id="form">
+    <form th:action="@{/games/update}" th:object="${game}"
+          method="POST" novalidate="novalidate">
+        <input game="hidden" th:field="*{id_game}"/>
+        <div>
+            <label for="name">Name</label>
+            <input game="text" id="name" th:field="*{name_game}"/>
+        </div>
+        <input game="submit" value="Save"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
