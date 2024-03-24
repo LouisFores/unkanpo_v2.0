@@ -19,18 +19,12 @@ public class TypeService implements ITypeService {
     }
 
     @Override
-    public Iterable<Type> findAllByName_type(String key_word) {
-        return typeRepository.findAllByNameType(key_word);
+    public Iterable<Type> findAllByNameType(String keyword) {
+        return typeRepository.findAllByNameType(keyword);
     }
-
     @Override
     public void save(Type type) {
         typeRepository.save(type);
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        typeRepository.deleteById(id);
     }
 
     @Override
