@@ -31,18 +31,18 @@
   </tr>
   </thead>
   <tbody>
-  <tr th:each="g : ${games}">
+  <tr th:each="gameForm: ${listGame}">
     <td>
-      <a th:href="@{/game/update/__${g.idGame}__}">Update</a>
-      <a th:href="@{/game/delete/__${g.idGame}__}">Delete</a>
+      <a th:href="@{/game/update/__${gameForm.game.idGame}__}">Update</a>
+      <a th:href="@{/game/delete/__${gameForm.game.idGame}__}">Delete</a>
     </td>
-    <td th:text="${g.idGame}"></td>
-    <td th:text="${g.nameGame}"></td>
-    <td th:text="${g.descriptionGame}"></td>
+    <td th:text="${gameForm.game.idGame}"></td>
+    <td th:text="${gameForm.game.nameGame}"></td>
+    <td th:text="${gameForm.game.descriptionGame}"></td>
     <td>
-        <span th:each="type : ${g.getTypes()}">
-          <a th:text="${type.getNameType()}"></a>
-        </span>
+      <span th:each="type : ${gameForm.types}">
+        <a th:text="${type}"/>
+      </span>
     </td>
   </tr>
   </tbody>

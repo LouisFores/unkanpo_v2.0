@@ -34,10 +34,10 @@ public class TypeController {
 
     @GetMapping("/update/{id}")
     public ModelAndView showUpdateType(@PathVariable Long id) {
-        Optional<Type> type = typeService.findById(id);
-        if (type.isPresent()) {
+        Type type = typeService.findById(id);
+        if (type != null) {
             ModelAndView modelAndView = new ModelAndView("/type/update");
-            modelAndView.addObject("type", type.get());
+            modelAndView.addObject("type", type);
             return modelAndView;
         } else {
             return new ModelAndView("/error_404");
@@ -52,8 +52,8 @@ public class TypeController {
 
     @GetMapping("/remove/{id}")
     public String removeType(@PathVariable Long id) {
-        Optional<Type> productOptional = typeService.findById(id);
-        if (!productOptional.isPresent()) {
+        Type productOptional = typeService.findById(id);
+        if (productOptional != null) {
             return "/error_404";
         }
         typeService.deleteById(id);

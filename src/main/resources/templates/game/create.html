@@ -11,21 +11,22 @@
     </a>
 </p>
 <div id="form">
-    <form th:action="@{/admin/games/create}" th:object="${game}"
+    <form th:action="@{/admin/games/create}" th:object="${theGame}"
           method="POST" novalidate="novalidate">
-        <input type="hidden" th:field="*{idGame}"/>
+        <input type="hidden" th:field="*{game.idGame}"/>
         <div>
             <label for="name">Tên trò chơi</label>
-            <input type="text" id="name" th:field="*{nameGame}"/>
+            <input type="text" id="name" th:field="*{game.nameGame}"/>
         </div>
         <div>
             <label for="name">Mô tả</label>
-            <input type="text" id="description" th:field="*{descriptionGame}"/>
+            <input type="text" id="description" th:field="*{game.descriptionGame}"/>
+
         </div>
         <div>
             <label for="name">Thể loại: </label>
-            <label th:each="t, tStat : ${types}">
-                <input type="checkbox" th:text="${t.getNameType()}" th:value="${t.idType}" th:field="*{types}"/>
+            <label th:each="type : ${listType}" >
+                    <input type="checkbox" th:text="${type.nameType}" th:value="${type.idType}" th:field="*{types}"/>
             </label>
         </div>
 
