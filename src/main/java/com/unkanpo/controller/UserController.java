@@ -34,14 +34,14 @@ public class UserController {
         modelAndView.addObject("user", user);
         return modelAndView;
     }
-    @GetMapping("/create")
+    @GetMapping("/register")
     public ModelAndView showCreateUser() {
-        ModelAndView modelAndView = new ModelAndView("/user/create");
+        ModelAndView modelAndView = new ModelAndView("/user/register");
         modelAndView.addObject("user", new User());
         return modelAndView;
     }
 
-    @PostMapping("/create")
+    @PostMapping("/register")
     public String createUser(@ModelAttribute("user") User user) {
         userService.save(user);
         return "redirect:/admin/users";

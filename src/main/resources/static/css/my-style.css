@@ -1,0 +1,10 @@
+.back-img {
+    background-image: url("/image/backgroup-sign-image.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.icon {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+}

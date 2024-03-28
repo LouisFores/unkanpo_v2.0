@@ -23,18 +23,21 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String confirmPassword;
 
+    @Column(nullable = false)
+    private String email;
+
     private String role;
     private String nickname;
     private String avatar;
     private double coin;
-    public User(Long id, String username, String password, String confirmPassword) {
+    public User(Long id, String username, String password, String confirmPassword, String email) {
         this.idUser = id;
         this.username = username;
         this.password = password;
         this.confirmPassword = confirmPassword;
     }
 
-    public User(String username, String password, String confirmPassword) {
+    public User(String username, String password, String confirmPassword, String email) {
         this.username = username;
         this.password = password;
         this.confirmPassword = confirmPassword;
