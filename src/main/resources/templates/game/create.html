@@ -13,7 +13,6 @@
 <div id="form">
     <form th:action="@{/admin/games/create}" th:object="${theGame}"
           method="POST" novalidate="novalidate">
-        <input type="hidden" th:field="*{game.idGame}"/>
         <div>
             <label for="name">Tên trò chơi</label>
             <input type="text" id="name" th:field="*{game.nameGame}"/>
@@ -26,7 +25,7 @@
         <div>
             <label for="name">Thể loại: </label>
             <label th:each="type : ${listType}" >
-                <input type="checkbox" th:text="${type.nameType}" th:value="${type.idType}" th:field="*{types}"/>
+                <input name="types" type="checkbox" th:text="${type.nameType}" th:value="${type.idType}" />
             </label>
         </div>
 
