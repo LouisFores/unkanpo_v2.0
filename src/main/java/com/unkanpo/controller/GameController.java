@@ -30,7 +30,6 @@ public class GameController {
     @GetMapping("")
     public ModelAndView showListGame() {
         ModelAndView modelAndView = new ModelAndView("/game/list");
-        List<GameForm> gameForms = gameService.findAll();
         modelAndView.addObject("listGame", gameService.findAll());
         return modelAndView;
     }
@@ -52,10 +51,11 @@ public class GameController {
 
     @GetMapping("/update/{id}")
     public ModelAndView showUpdateGame(@PathVariable Long id) {
-        Optional<Game> game = gameService.findById(id);
-        if (game.isPresent()) {
+        GameForm game = gameService.findById(id);
+        if (game != null) {
             ModelAndView modelAndView = new ModelAndView("/game/update");
-            modelAndView.addObject("game", game.get());
+            modelAndView.addObject("gameForm",game );
+            modelAndView.addObject("listType", typeRepository.findAll());
             return modelAndView;
         } else {
             return new ModelAndView("/error_404");
@@ -68,14 +68,14 @@ public class GameController {
         return "redirect:/admin/games";
     }
 
-    @GetMapping("/remove/{id}")
+    @GetMapping("/delete/{id}")
     public String removeGame(@PathVariable Long id) {
-        Optional<Game> gameOptional = gameService.findById(id);
-        if (!gameOptional.isPresent()) {
-            return "/error_404";
+        GameForm gameForm = gameService.findById(id);
+        if (gameForm != null) {
+            gameService.delete(gameForm.getGame());
+            return "redirect:/admin/games";
         }
-        gameService.removeById(id);
-        return "redirect:/admin/games";
+        return "/error_404";
     }
 
 }

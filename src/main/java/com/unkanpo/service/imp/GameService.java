@@ -38,14 +38,23 @@ public class GameService implements IGameService {
     @Override
     public GameForm save(GameForm gameForm) {
         Game game = gameForm.getGame();
-        gameRepository.save(game);
+        if (gameRepository.findById(game.getIdGame()) == null) {
+            gameRepository.save(game);
+            saveGametype(gameForm, false);
+        } else {
+            gameRepository.save(game);
+            saveGametype(gameForm,true);
+        }
 
-        saveGametype(gameForm);
         return gameForm;
     }
 
-    private void saveGametype(GameForm gameForm) {
+    private void saveGametype(GameForm gameForm, boolean isExist) {
         List<Type> types = new ArrayList<>();
+
+        if (isExist) {
+            gameTypeService.deleteByGame(gameForm.getGame());
+        }
 
         for (String id : gameForm.getTypes()) {
             types.add(typeService.findById(Long.parseLong(id)));
@@ -63,12 +72,13 @@ public class GameService implements IGameService {
     }
 
     @Override
-    public Optional<Game> findById(Long id) {
-        return gameRepository.findById(id);
+    public GameForm findById(Long id) {
+        return   getGameForm(gameRepository.findById(id).get());
     }
 
     @Override
-    public void removeById(Long id) {
-
+    public void delete(Game game) {
+        gameTypeService.deleteByGame(game);
+        gameRepository.delete(game);
     }
 }

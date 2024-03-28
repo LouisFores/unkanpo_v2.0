@@ -46,4 +46,6 @@ public class TypeService implements ITypeService {
     public Type findById(Long id) {
         return typeRepository.findById(id).get();
     }
+
+
 }

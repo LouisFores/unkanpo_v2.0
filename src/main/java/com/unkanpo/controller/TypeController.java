@@ -1,3 +1,4 @@
+
 package com.unkanpo.controller;
 
 import com.unkanpo.model.Type;
@@ -49,17 +50,4 @@ public class TypeController {
         typeService.save(type);
         return "redirect:/admin/types";
     }
-
-    @GetMapping("/remove/{id}")
-    public String removeType(@PathVariable Long id) {
-        Type productOptional = typeService.findById(id);
-        if (productOptional != null) {
-            return "/error_404";
-        }
-        typeService.deleteById(id);
-        return "redirect:/admin/types";
-    }
-
-
-
 }

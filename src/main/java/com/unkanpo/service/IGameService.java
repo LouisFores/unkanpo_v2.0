@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface IGameService {
     Iterable<GameForm> findAll();
-    Optional<Game> findById(Long id);
-    void removeById(Long id);
+    GameForm findById(Long id);
+    void delete(Game game);
     GameForm save(GameForm game);
 }

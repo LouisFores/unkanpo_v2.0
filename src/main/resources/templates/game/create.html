@@ -6,7 +6,7 @@
 <body>
 <h3>Thêm trò chơi</h3>
 <p>
-    <a th:href="@{/admin/games}">
+    <a th:href="@{/admin/games/update}">
         Quay lại danh sách trò chơi
     </a>
 </p>
@@ -26,7 +26,7 @@
         <div>
             <label for="name">Thể loại: </label>
             <label th:each="type : ${listType}" >
-                    <input type="checkbox" th:text="${type.nameType}" th:value="${type.idType}" th:field="*{types}"/>
+                <input type="checkbox" th:text="${type.nameType}" th:value="${type.idType}" th:field="*{types}"/>
             </label>
         </div>
 
