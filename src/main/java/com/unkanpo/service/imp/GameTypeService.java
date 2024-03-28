@@ -5,6 +5,7 @@ import com.unkanpo.model.GameType;
 import com.unkanpo.model.Type;
 import com.unkanpo.repository.GameTypeRepository;
 import com.unkanpo.service.IGameTypeService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +24,10 @@ public class GameTypeService implements IGameTypeService {
             gameTypes.add(gameType);
         }
         gameTypeRepository.saveAll(gameTypes);
+    }
+    @Override
+    @Transactional
+    public void deleteByGame(Game game) {
+            gameTypeRepository.deleteByGame(game);
     }
 }
