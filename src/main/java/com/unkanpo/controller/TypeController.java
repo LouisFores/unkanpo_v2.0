@@ -1,3 +1,4 @@
+
 package com.unkanpo.controller;
 
 import com.unkanpo.model.Type;
@@ -34,10 +35,10 @@ public class TypeController {
 
     @GetMapping("/update/{id}")
     public ModelAndView showUpdateType(@PathVariable Long id) {
-        Optional<Type> type = typeService.findById(id);
-        if (type.isPresent()) {
+        Type type = typeService.findById(id);
+        if (type != null) {
             ModelAndView modelAndView = new ModelAndView("/type/update");
-            modelAndView.addObject("type", type.get());
+            modelAndView.addObject("type", type);
             return modelAndView;
         } else {
             return new ModelAndView("/error_404");
@@ -49,14 +50,4 @@ public class TypeController {
         typeService.save(type);
         return "redirect:/admin/types";
     }
-
-    @GetMapping("/filter")
-    public ModelAndView filterByKeyword(@RequestParam("keyword") String keyWord) {
-        Iterable<Type> types = typeService.findAllByNameType(keyWord);
-        ModelAndView modelAndView = new ModelAndView("/type/list");
-        modelAndView.addObject("types",types);
-        return modelAndView;
-    }
-
-
 }
