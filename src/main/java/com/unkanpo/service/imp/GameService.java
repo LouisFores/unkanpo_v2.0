@@ -38,7 +38,7 @@ public class GameService implements IGameService {
     @Override
     public GameForm save(GameForm gameForm) {
         Game game = gameForm.getGame();
-        if (gameRepository.findById(game.getIdGame()) == null) {
+        if (game.getIdGame() == null) {
             gameRepository.save(game);
             saveGametype(gameForm, false);
         } else {
