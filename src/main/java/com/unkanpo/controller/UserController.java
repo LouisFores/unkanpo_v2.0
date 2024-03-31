@@ -34,6 +34,20 @@ public class UserController {
         modelAndView.addObject("user", user);
         return modelAndView;
     }
+
+    @PostMapping("/login")
+    public ModelAndView login(@ModelAttribute("user") User user, HttpSession session) {
+        ModelAndView modelAndView = new ModelAndView();
+        if (userService.checkUser(user.getUsername(), user.getPassword())) {
+            modelAndView.setViewName("redirect:/users");
+            session.setAttribute("userId", userService.getId(user.getUsername(), user.getPassword()));
+        } else {
+            modelAndView.setViewName("/user/login");
+            modelAndView.addObject("error", "sai tên tài khoản hoặc mật khẩu");
+        }
+        return modelAndView;
+    }
+
     @GetMapping("/register")
     public ModelAndView showCreateUser() {
         ModelAndView modelAndView = new ModelAndView("/user/register");
@@ -42,9 +56,17 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String createUser(@ModelAttribute("user") User user) {
-        userService.save(user);
-        return "redirect:/admin/users";
+    public ModelAndView createUser(@ModelAttribute("user") User user) {
+        ModelAndView modelAndView = new ModelAndView();
+        if (userService.isNew(user.getEmail())) {
+            userService.save(user);
+            modelAndView.setViewName("redirect:/users/login");
+        } else {
+            modelAndView.setViewName("/user/register");
+            modelAndView.addObject("user", new User());
+            modelAndView.addObject("error",  "gmail này đã được đăng ký");
+        }
+        return modelAndView;
     }
 
     @GetMapping("/update/{id}")

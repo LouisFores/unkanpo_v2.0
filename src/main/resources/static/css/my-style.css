@@ -8,3 +8,7 @@
     color: rgb(255, 255, 255);
     font-size: 25px;
 }
+
+.error {
+    color: red;
+}

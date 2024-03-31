@@ -18,13 +18,13 @@ public class User implements Serializable {
     private String username;
 
     @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
     private String confirmPassword;
-
-    @Column(nullable = false)
-    private String email;
 
     private String role;
     private String nickname;
@@ -32,15 +32,22 @@ public class User implements Serializable {
     private double coin;
     public User(Long id, String username, String password, String confirmPassword, String email) {
         this.idUser = id;
+        this.email = email;
         this.username = username;
         this.password = password;
         this.confirmPassword = confirmPassword;
     }
 
     public User(String username, String password, String confirmPassword, String email) {
+        this.email = email;
         this.username = username;
         this.password = password;
         this.confirmPassword = confirmPassword;
+    }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
     public User() {
