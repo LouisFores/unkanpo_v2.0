@@ -6,27 +6,27 @@
 <body>
 <h3>Thêm trò chơi</h3>
 <p>
-    <a th:href="@{/admin/games}">
+    <a th:href="@{/admin/games/update}">
         Quay lại danh sách trò chơi
     </a>
 </p>
 <div id="form">
-    <form th:action="@{/admin/games/create}" th:object="${game}"
+    <form th:action="@{/admin/games/create}" th:object="${theGame}"
           method="POST" novalidate="novalidate">
-        <input type="hidden" th:field="*{idGame}"/>
         <div>
             <label for="name">Tên trò chơi</label>
-            <input type="text" id="name" th:field="*{nameGame}"/>
+            <input type="text" id="name" th:field="*{game.nameGame}"/>
         </div>
         <div>
             <label for="name">Mô tả</label>
-            <input type="text" id="description" th:field="*{descriptionGame}"/>
+            <input type="text" id="description" th:field="*{game.descriptionGame}"/>
+
         </div>
         <div>
             <label for="name">Thể loại: </label>
-            <th:block th:each="t, tStat : ${types}">
-                <input type="checkbox" th:text="${t.getNameType()}" th:value="${t.idType}" th:field="*{types}"/>
-            </th:block>
+            <label th:each="type : ${listType}" >
+                <input name="types" type="checkbox" th:text="${type.nameType}" th:value="${type.idType}" />
+            </label>
         </div>
 
 

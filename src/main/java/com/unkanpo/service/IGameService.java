@@ -1,15 +1,14 @@
 package com.unkanpo.service;
 
 import com.unkanpo.model.Game;
-import com.unkanpo.model.Type;
+import com.unkanpo.model.GameForm;
+import com.unkanpo.service.imp.GameService;
 
 import java.util.Optional;
-import java.util.Set;
 
 public interface IGameService {
-    Iterable<Game> findAll();
-    Iterable<Game> findAllByNameGame(String keyword);
-    Optional<Game> findById(Long id);
-    Set<Type> findGamesByGameId(Long id);
-    void save(Game type);
+    Iterable<GameForm> findAll();
+    GameForm findById(Long id);
+    void delete(Game game);
+    GameForm save(GameForm game);
 }

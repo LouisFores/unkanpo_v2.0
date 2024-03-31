@@ -3,6 +3,7 @@ package com.unkanpo.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.data.relational.core.sql.In;
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,7 +19,31 @@ public class Type implements Serializable {
 
     private String nameType;
 
-    @ManyToMany(mappedBy = "types")
-    @JsonBackReference
-    private Set<Game> games;
+    public Type(Long idType, String nameType) {
+        this.idType = idType;
+        this.nameType = nameType;
+    }
+
+    public Type() {}
+
+    public Long getIdType() {
+        return idType;
+    }
+
+    public void setIdType(Long idType) {
+        this.idType = idType;
+    }
+
+    public String getNameType() {
+        return nameType;
+    }
+
+    public void setNameType(String nameType) {
+        this.nameType = nameType;
+    }
+
+
+    public String convert() {
+        return "idType=(" + this.idType + "), nameType=(" + this.nameType + ")";
+    }
 }
