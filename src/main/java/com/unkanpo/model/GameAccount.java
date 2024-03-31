@@ -17,6 +17,7 @@ public class GameAccount {
 
     @Column(columnDefinition = "TEXT")
     private String note;
+
     private String hideInfo;
     private Long price;
     private String token;

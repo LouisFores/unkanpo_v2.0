@@ -1,6 +1,8 @@
 package com.unkanpo.service;
 import com.unkanpo.model.Type;
 import com.unkanpo.model.User;
+import org.springframework.web.servlet.ModelAndView;
+
 import java.util.Optional;
 
 //public interface IUserService extends UserDetailsService {
@@ -29,5 +31,6 @@ public interface IUserService {
     Iterable<User> findAllByNamUser(String key_word);
     void save(User user);
     void deleteById(Long id);
-
+    boolean  isNew(String email);
+    boolean checkUser(String userName, String password);
 }
