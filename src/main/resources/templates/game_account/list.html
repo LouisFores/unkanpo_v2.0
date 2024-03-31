@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+<!DOCgame html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Danh sách trò chơi</title>
 </head>
 <body>
-$END$
+<h3>Trò chơi</h3>
+<p>
+    <a th:href="@{/admin}">Admin</a>
+    <br>
+    <a th:href="@{/admin/games}">Game list</a>
+    <br>
+    <a th:href="@{/admin/games/create}">Thêm trò chơi</a>
+</p>
+
+<div id="form" style="margin-bottom: 20px">
+    <form th:action="@{/admin}" method="post" novalidate="novalidate">
+        <input type="text" id="numberCode" name="code"/>
+        <input type="submit" value="Tìm kiếm"/>
+    </form>
+</div>
+
+
+<table id = "game">
+    <thead>
+    <tr>
+        <th>Hành động</th>
+        <th>STT</th>
+        <th>Tên</th>
+        <th>Mô tả</th>
+        <th>Chủ đề</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="gc : ${gameAccounts}">
+        <td>
+            <a th:href="@{/games/update/__${g.idGame}__}">Update</a>
+            <a th:href="@{/games/delete/__${g.idGame}__}">Delete</a>
+        </td>
+        <td th:text="${g.idGame}"></td>
+        <td th:text="${g.nameGame}"></td>
+        <td th:text="${g.descriptionGame}"></td>
+        <td>
+        <span th:each="type : ${g.getTypes()}">
+          <a th:text="${type.getNameType()}"></a>
+        </span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
 </body>
 </html>

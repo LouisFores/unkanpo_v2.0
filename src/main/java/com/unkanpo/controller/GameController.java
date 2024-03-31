@@ -1,9 +1,11 @@
 package com.unkanpo.controller;
 
 import com.unkanpo.model.Game;
+import com.unkanpo.model.GameAccount;
 import com.unkanpo.model.Type;
 import com.unkanpo.repository.GameRepository;
 import com.unkanpo.repository.TypeRepository;
+import com.unkanpo.service.imp.GameAccountService;
 import com.unkanpo.service.imp.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,8 @@ public class GameController {
     private GameRepository gameRepository;
     @Autowired
     private TypeRepository typeRepository;
+    @Autowired
+    private GameAccountService gameAccountService;
 
     @ModelAttribute("types")
     public Iterable<Type> listTypes() {
@@ -34,11 +38,11 @@ public class GameController {
         List<Game> games = (List<Game>) gameRepository.findAll();
         for (int i = 0; i < games.size(); i++) {
             Game game = games.get(i);
-            Set<Type> types = gameService.getTypesByGameId(game.getIdGame());
-            game.setTypes(types);
+            Set<Type> types = gameService.findGamesByGameId(game.getIdGame());
+            game.getTypes().clear(); // Xóa các phần tử hiện có trong Set
+            game.getTypes().addAll(types); // Thêm lại các phần tử từ Set mới
             games.set(i, game);
         }
-//
         modelAndView.addObject("games", games);
         return modelAndView;
     }
@@ -89,6 +93,19 @@ public class GameController {
         }
         gameRepository.delete(gameOptional.get());
         return "redirect:/admin/games";
+    }
+
+    @GetMapping("/view-game/{id}")
+    public ModelAndView viewGame(@PathVariable Long id) {
+        Optional<Game> gameOptional = gameService.findById(id);
+        if (!gameOptional.isPresent()) {
+            return new ModelAndView("/error_404");
+        }
+        Iterable<GameAccount> gameAccounts = gameAccountService.findAllByGame(gameOptional.get());
+
+        ModelAndView modelAndView = new ModelAndView("/game_account/list");
+        modelAndView.addObject("gameAccounts", gameAccounts);
+        return modelAndView;
     }
 
 }

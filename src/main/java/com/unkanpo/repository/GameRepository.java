@@ -12,4 +12,6 @@ import java.util.Set;
 public interface GameRepository extends CrudRepository<Game,Long> {
     @Query("SELECT g.types FROM Game g WHERE g.idGame = :idGame")
     Set<Type> findTypesByGameId(@Param("idGame") Long id);
+
+
 }

@@ -21,7 +21,6 @@ public class Game implements Serializable {
             joinColumns = {@JoinColumn(name = "idGame")},
             inverseJoinColumns = {@JoinColumn(name = "idType")})
     private Set<Type> types;
-    private List typeList;
     private String nameGame;
     private String descriptionGame;
 }
