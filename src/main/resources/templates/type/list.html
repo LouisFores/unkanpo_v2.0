@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li class="active ">
-                    <a th:href="@{/admin/types/create}">
+                    <a th:href="@{/admin/types}">
                         <i class="fa-solid fa-table-list"></i>
                         <p>Thể loại game</p>
                     </a>
@@ -79,7 +79,6 @@
                     <span class="navbar-toggler-bar navbar-kebab"></span>
                     <span class="navbar-toggler-bar navbar-kebab"></span>
                 </button>
-
             </div>
         </nav>
         <!-- End Navbar -->
@@ -90,17 +89,17 @@
                     <div class="card demo-icons all-color">
                         <div class="card-header">
                             <div style="float: left;">
-                                <h5 class="card-title">(Số lượng) Thể loại game</h5>
+                                <h5 class="card-title">Thể loại game</h5>
                                 <p class="card-category">Thêm thể loại game? <a  th:href="@{/admin/types/create}" style="color: rgb(81, 203, 206)">Tạo mới</a></p>
                             </div>
                             <div style="margin-top:20px; margin-bottom: 10px; float: right;">
                                 <form th:action="@{/admin/types/filter}" method="get">
                                     <!-- style="width: 57%; float: right; margin-right: 25px;" -->
                                     <div class="input-group no-border">
-                                        <input style="font-size:1.57em; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" type="text" value="" class="form-control" id="keyword" name="keyword" placeholder="Search..."  >
+                                        <input style="font-size:1.57em; border-top-left-radius: 10px; border-bottom-left-radius: 10px; color: white" type="text" value="" class="form-control" id="keyword" name="keyword" placeholder="Search..."  >
                                         <div class="input-group-append">
                                             <div style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;" class="input-group-text">
-                                                <i class="nc-icon nc-zoom-split" style="font-size: 25px;"></i>
+                                                <i class="fa-solid fa-magnifying-glass" style="font-size: 25px;"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -132,11 +131,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="credits ml-auto">
-              <span class="copyright">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-              </span>
                     </div>
                 </div>
             </div>

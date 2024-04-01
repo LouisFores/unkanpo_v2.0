@@ -5,67 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f15b86c-9e8c-4dc0-814d-55f32b2e80cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/css/paper-dashboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/css/paper-dashboard.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/css/paper-dashboard.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/demo/demo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/demo/demo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/fonts/nucleo-icons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/fonts/nucleo-icons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/fonts/nucleo-icons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/fonts/nucleo-icons.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/icon-fish.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/icon-unkanpo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/logo-small.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/js/core/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/js/core/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/js/core/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/js/paper-dashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/js/paper-dashboard.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/js/paper-dashboard.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/js/plugins/bootstrap-notify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/js/plugins/chartjs.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/js/plugins/perfect-scrollbar.jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_alerts.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_animated-buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_cards.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_checkboxes-radio.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_fixed-plugin.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_footers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_images.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_inputs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_misc.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_navbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_nucleo-outline.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_page-header.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_responsive.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_sidebar-and-main-panel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_tables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_typography.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/cards/_card-chart.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/cards/_card-map.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/cards/_card-plain.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/cards/_card-stats.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/cards/_card-user.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/mixins/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/mixins/_cards.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/mixins/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/mixins/_inputs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/mixins/_page-header.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/mixins/_transparency.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/mixins/_vendor-prefixes.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/plugins/_plugin-animate-bootstrap-notify.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/scss/paper-dashboard/plugins/_plugin-perfect-scrollbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/video/y2meta.com - Ảnh nền động Anime (.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/account/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/account/update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/TypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/TypeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/model/GameAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/model/GameAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/repository/AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/IAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/IAccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/demo/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/assets/demo/demo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/account/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/account/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/game/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/game/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/type/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/type/create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/type/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/type/list.html" afterDir="false" />
@@ -118,33 +68,33 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/frontend__type&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/Intellij Java/unkanpo/src/main/resources/static&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Merging feature/frontend__type",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "F:/Intellij Java/unkanpo/src/main/resources/static",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mongo&quot;,
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mongo",
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Intellij Java\unkanpo\src\main\resources\static" />
@@ -187,7 +137,7 @@
       <workItem from="1711876212244" duration="597000" />
       <workItem from="1711889183968" duration="9788000" />
       <workItem from="1711905148287" duration="338000" />
-      <workItem from="1711933862008" duration="3325000" />
+      <workItem from="1711933862008" duration="7093000" />
     </task>
     <servers />
   </component>

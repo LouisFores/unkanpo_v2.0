@@ -141,9 +141,9 @@ body {
 }
 
 .demo-icons ul li:hover {
-    background: #f4f4f4;
+    background: #51cbce;
+    font-weight: 550;
 }
-
 .demo-icons ul p,
 .demo-icons ul em,
 .demo-icons ul input {
@@ -225,6 +225,10 @@ body {
     display: grid;
     font-size: 50px;
     place-items: center;
+}
+
+.form-control {
+    color: white;
 }
 
 .input-container {
@@ -348,7 +352,8 @@ body {
 }
 
 .sidebar .nav p {
-    color: #FFFEFF;
+    color: #66615B;
+    font-weight: 550;
 }
 
 i {
@@ -360,7 +365,15 @@ i {
 }
 
 .sidebar .sidebar-wrapper li.active > a:not([data-toggle="collapse"]):after {
-    color: #FFFEFF;
+    color: #51cbce;
+}
+
+.sidebar[data-active-color="danger"] .nav li.active > a i {
+    color: #51cbce;
+}
+
+.sidebar[data-active-color="danger"] .nav li.active > a p {
+    color: #51cbce;
 }
 
 .row h4, .row h5, .row a, .row input, .row i, .row li, .row p, .row label, .row span,.row td {
@@ -374,3 +387,4 @@ li::marker {
 .card-user .card-body {
     min-height: 180px;
 }
+

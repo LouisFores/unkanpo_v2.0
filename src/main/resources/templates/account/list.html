@@ -1,19 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <style>
+        table,tr,td,th{
+            border: 1px solid plum;
+        }
+    </style>
     <title>Title</title>
 </head>
 <body>
+<a th:href="@{/admin/account/create}">thêm tài khoản game</a>
+
 <table>
     <thead>
         <tr>
-            <td>id</td>
-            <td>Game</td>
-            <td>Username,password</td>
-            <td>Username,password</td>
+            <th>Hành động </th>
+            <th>id</th>
+            <th>Game</th>
+            <th>tên tài khoản và mật khẩu </th>
+            <th>note</th>
+            <th>giá </th>
+            <th>trạng thái </th>
         </tr>
     </thead>
+    <tbody>
+        <tr th:each="account : ${accounts}">
+            <td>
+                <a th:href="@{/admin/account/update/__${account.idAccount}__}">sửa</a>
+                <a th:href="@{/admin/account/delete/__${account.idAccount}__}">xóa</a>
+            </td>
+            <td th:text="${account.idAccount}"></td>
+            <td th:text="${account.game.nameGame}"></td>
+            <td th:text="${account.hideInfo}"></td>
+            <td th:text="${account.note}"></td>
+            <td th:text="${account.price}"></td>
+            <td th:text="${account.online}"></td>
+        </tr>
+    </tbody>
 </table>
 </body>
 </html>
