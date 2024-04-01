@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${account}" method="post" th:action="@{/admin/account/update}">
+    <input type="hidden" name="idAccount" th:value="${account.idAccount}">
+    <label>game</label>
+    <div>
+        <select name="game" >
+            <option
+                    th:each="game : ${games}"
+                    th:text="${game.getGame().nameGame}"
+                    th:value="${game.getGame().idGame}"
+                    th:selected="${game.getGame().nameGame eq account.game.nameGame}"
+            ></option>
+        </select>
+    </div>
+    <label>tên tài khoản và mật khẩu ngăn cách nhau bởi dấu _ </label>
+    <input type="text"  name="hideInfo" th:value="${account.hideInfo}">
+    <label>note</label>
+    <input type="text" name="note" th:value="${account.note}">
+    <label>price</label>
+    <input type="number" name="price" th:value="${account.price}">
+<!--    <p th:text="${error}"></p>-->
+
+    <input type="submit" value="thêm mới">
+</form>
+</body>
+</html>

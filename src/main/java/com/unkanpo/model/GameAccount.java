@@ -9,7 +9,7 @@ import lombok.Data;
 public class GameAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idAccount;
+    private Integer idAccount;
 
     @ManyToOne
     @JoinColumn(name = "idGame")
@@ -17,16 +17,17 @@ public class GameAccount {
 
     @Column(columnDefinition = "TEXT")
     private String note;
+
     private String hideInfo;
-    private Long price;
+    private Integer price;
     private String token;
     private Boolean isOnline;
 
-    public Long getIdAccount() {
+    public Integer getIdAccount() {
         return idAccount;
     }
 
-    public void setIdAccount(Long idAccount) {
+    public void setIdAccount(Integer idAccount) {
         this.idAccount = idAccount;
     }
 
@@ -54,11 +55,11 @@ public class GameAccount {
         this.hideInfo = hideInfo;
     }
 
-    public Long getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Long price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
