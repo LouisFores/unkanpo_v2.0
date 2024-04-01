@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:action="@{/admin/account}">quay lại danh sách tài khoản</a>
+<form th:object="${account}" method="post" th:action="@{/admin/account/create}">
+    <label>game</label>
+    <div>
+        <select name="game" >
+            <option th:each="game : ${games}" th:text="${game.getGame().nameGame}" th:value="${game.getGame().idGame}"></option>
+        </select>
+    </div>
+    <label>tên tài khoản và mật khẩu ngăn cách nhau bởi dấu _ </label>
+    <input type="text"  name="hideInfo">
+    <label>note</label>
+    <input type="text" name="note">
+    <label>price</label>
+    <input type="number" name="price">
+    <p th:text="${error}"></p>
+
+    <input type="submit" value="thêm mới">
+</form>
+</body>
+</html>

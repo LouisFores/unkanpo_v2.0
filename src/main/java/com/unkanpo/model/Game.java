@@ -18,4 +18,36 @@ public class Game {
 
     private String nameGame;
     private String descriptionGame;
+
+    public Game() {
+    }
+
+    public Game( String nameGame, String descriptionGame) {
+        this.nameGame = nameGame;
+        this.descriptionGame = descriptionGame;
+    }
+
+    public Long getIdGame() {
+        return idGame;
+    }
+
+    public void setIdGame(Long idGame) {
+        this.idGame = idGame;
+    }
+
+    public String getNameGame() {
+        return nameGame;
+    }
+
+    public void setNameGame(String nameGame) {
+        this.nameGame = nameGame;
+    }
+
+    public String getDescriptionGame() {
+        return descriptionGame;
+    }
+
+    public void setDescriptionGame(String descriptionGame) {
+        this.descriptionGame = descriptionGame;
+    }
 }

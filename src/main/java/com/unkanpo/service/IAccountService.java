@@ -1,9 +1,14 @@
 package com.unkanpo.service;
 
 import com.unkanpo.model.GameAccount;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
 
 public interface IAccountService {
     Iterable<GameAccount> findAll();
+    boolean IsExist(GameAccount account);
+    void save(GameAccount account);
+    Optional<GameAccount> findById(Long id);
+    void delete(Long id);
 }
