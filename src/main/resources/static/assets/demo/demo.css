@@ -1,0 +1,393 @@
+body {
+    background-color: #202126;
+    color: #FFFEFF;
+
+}
+
+.tim-row {
+    margin-bottom: 20px;
+}
+
+.tim-white-buttons {
+    background-color: #777777;
+}
+
+.typography-line {
+    padding-left: 25%;
+    margin-bottom: 35px;
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.typography-line span {
+    bottom: 10px;
+    color: #c0c1c2;
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 13px;
+    left: 0;
+    position: absolute;
+    width: 260px;
+    text-transform: none;
+}
+
+.tim-row {
+    padding-top: 60px;
+}
+
+.tim-row h3 {
+    margin-top: 0;
+}
+
+.offline-doc .page-header {
+    display: flex;
+    align-items: center;
+}
+
+.offline-doc .footer {
+    position: absolute;
+    width: 100%;
+    background: transparent;
+    bottom: 0;
+    color: #fff;
+    z-index: 1;
+}
+
+@media all and (min-width: 992px) {
+    .sidebar .nav>li.active-pro {
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+    }
+}
+
+.card.card-upgrade .card-category {
+    max-width: 530px;
+    margin: 0 auto;
+}
+
+/* Nucleo Style */
+
+.demo-iconshtml {
+    font-size: 62.5%;
+}
+
+.demo-icons body {
+    font-size: 1.6rem;
+    font-family: sans-serif;
+    color: #333333;
+    background: white;
+}
+
+.demo-icons a {
+    color: #608CEE;
+    text-decoration: none;
+}
+
+.demo-icons header {
+    text-align: center;
+    padding: 100px 0 0;
+}
+
+.demo-icons header h1 {
+    font-size: 2.8rem;
+}
+
+.demo-icons header p {
+    font-size: 1.4rem;
+    margin-top: 1em;
+}
+
+.demo-icons header a:hover {
+    text-decoration: underline;
+}
+
+.demo-icons .nc-icon {
+    font-size: 34px;
+}
+
+.demo-icons section h2 {
+    border-bottom: 1px solid #e2e2e2;
+    padding: 0 0 1em .2em;
+    margin-bottom: 1em;
+}
+
+.demo-icons ul {
+    padding-left: 0;
+}
+
+.demo-icons ul::after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.demo-icons ul li {
+    width: 20%;
+    float: left;
+    padding: 16px 0;
+    text-align: center;
+    border-radius: .25em;
+    -webkit-transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    transition: background 0.2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+.demo-icons ul li:hover {
+    background: #51cbce;
+    font-weight: 550;
+}
+.demo-icons ul p,
+.demo-icons ul em,
+.demo-icons ul input {
+    display: inline-block;
+    font-size: 1rem;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.demo-icons ul p {
+    padding: 20px 0 0;
+    font-size: 15px;
+    margin: 0;
+}
+
+.demo-icons ul a {
+    font-size: 12px;
+    margin: 0;
+    color: #999999;
+}
+
+
+
+.demo-icons ul p::selection,
+.demo-icons ul em::selection {
+    background: #608CEE;
+    color: #efefef;
+}
+
+.demo-icons ul em {
+    font-size: 12px;
+}
+
+.demo-icons ul em::before {
+    content: '[';
+}
+
+.demo-icons ul em::after {
+    content: ']';
+}
+
+.demo-icons ul input {
+    text-align: center;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    display: none;
+}
+
+.text-down-line {
+    white-space: normal;
+    text-overflow: ellipsis;
+}
+
+.impt-a:hover {
+    color: #608CEE;
+}
+
+.form-icon {
+    margin: auto;
+    max-width: 45%;
+    align-items: center;
+}
+
+.form-icon p {
+    display: grid;
+    place-items: center;
+}
+
+.form-icon i {
+    display: grid;
+    font-size: 50px;
+    place-items: center;
+}
+
+.form-control {
+    color: white;
+}
+
+.input-container {
+    display: flex;
+}
+
+.input-container .input-text {
+    margin-left: 5px; /* Khoảng cách giữa các input */
+}
+
+.card label {
+    color: black;
+}
+
+.post-video {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.game-a {
+    margin-bottom: 0px;
+    font-size: 1.57em;
+    line-height: 1.4em;
+    text-decoration: none;
+    color: black;
+}
+
+.all-center thead th,
+.all-center tbody tr {
+    text-align: center;
+}
+
+
+
+
+.checkbox_item .title{
+    padding-bottom: 12.5px;
+    border-bottom: 1px solid #e5e9ec;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 12.5px;
+    text-align: center;
+}
+
+.checkbox_item .checkbox_wrap{
+    position: relative;
+    display: block;
+    cursor: pointer;
+    width: 25px;
+    margin: 0 auto 12.5px;
+}
+
+.checkbox_item:last-child .checkbox_wrap{
+    margin-bottom: 0;
+}
+
+.checkbox_item .checkbox_wrap .checkbox_inp{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+.checkbox_item .checkbox_wrap .checkbox_mark{
+    display: inline-block;
+    position: relative;
+    border-radius: 12.5px;
+}
+
+.checkbox_item .checkbox_wrap .checkbox_mark:before,
+.checkbox_item .checkbox_wrap .checkbox_mark:after{
+    content: "";
+    position: absolute;
+    transition: all 0.5s ease;
+}
+
+
+
+/* basic styles */
+.checkbox_item.citem_1 .checkbox_wrap .checkbox_mark{
+    background: #f0f0f0;
+    width: 50px;
+    height: 25px;
+}
+
+.checkbox_item.citem_1 .checkbox_wrap .checkbox_mark:before{
+    top: 1.5px;
+    left: 1.5px;
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.checkbox_item.citem_1 .checkbox_wrap .checkbox_inp:checked ~ .checkbox_mark{
+    background: #34bfa3;
+}
+
+.checkbox_item.citem_1 .checkbox_wrap .checkbox_inp:checked ~ .checkbox_mark:before{
+    left: 27px;
+}
+
+.set-card-footer {
+    background-color: #f4f3ef;
+    border-top: none;
+}
+
+.logo, .sidebar-wrapper {
+    background-color: #242730;
+}
+
+.main-panel {
+    background-color: #202126;
+}
+
+.navbar.navbar-transparent {
+    border: 1px solid #242730;
+}
+
+.sidebar .nav p {
+    color: #66615B;
+    font-weight: 550;
+}
+
+i {
+    color: #FFFEFF;
+}
+
+.all-color {
+    background-color: #242730;
+}
+
+.sidebar .sidebar-wrapper li.active > a:not([data-toggle="collapse"]):after {
+    color: #51cbce;
+}
+
+.sidebar[data-active-color="danger"] .nav li.active > a i {
+    color: #51cbce;
+}
+
+.sidebar[data-active-color="danger"] .nav li.active > a p {
+    color: #51cbce;
+}
+
+.row h4, .row h5, .row a, .row input, .row i, .row li, .row p, .row label, .row span,.row td {
+    color: #FFFEFF;
+}
+
+li::marker {
+    color: black;
+}
+
+.card-user .card-body {
+    min-height: 180px;
+}
+.table-responsive{
+    padding-bottom:10px
+}
+
