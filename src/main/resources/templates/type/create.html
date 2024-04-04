@@ -91,7 +91,7 @@
                             <h5 class="card-title" style="text-align: center;">Thêm thể loại</h5>
                         </div>
                         <div class="card-body">
-                            <form th:action="@{/admin/types/create}" th:object="${type}" method="POST" novalidate="novalidate">
+                            <form th:action="@{/admin/types/create}" th:object="${type}" method="POST" novalidate="novalidate" >
                                 <input type="hidden" th:field="*{idType}"/>
                                 <div class="row">
                                     <div class="col-md-12">

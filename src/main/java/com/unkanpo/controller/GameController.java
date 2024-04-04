@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.*;
@@ -44,8 +45,8 @@ public class GameController {
 
     @PostMapping("/create")
     @Transactional
-    public String createGame(@ModelAttribute("gameForm") GameForm game) {
-        gameService.save(game);
+    public String createGame(@ModelAttribute("gameForm") GameForm game, @RequestParam("more-image") List<MultipartFile> image) {
+        gameService.save(game,image);
         return "redirect:/admin/games";
     }
 
