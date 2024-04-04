@@ -100,14 +100,20 @@
                                 <tbody>
                                 <tr th:each="account, ac : ${accounts}">
                                     <td>
-                                        <a th:href="@{/admin/account/update/__${account.idAccount}__}">Sửa</a>
-                                        <a th:href="@{/admin/account/delete/__${account.idAccount}__}">/Xóa</a>
+                                        <a class="a-up-del" th:href="@{/admin/account/update/__${account.idAccount}__}">
+                                            <i class="fa-solid fa-pencil i-up-del"></i>
+                                        </a>
+                                        <a th:href="@{/admin/account/deleteInCreate/__${account.idAccount}__}"
+                                           onclick="return confirmDelete()">
+                                            <i class="fa-solid fa-trash-can i-up-del"></i>
+                                        </a>
                                     </td>
                                     <td th:text="${ac.count}"></td>
                                     <td th:text="${account.game.nameGame}"></td>
                                     <td th:text="${account.note}"></td>
                                     <td th:text="${account.price}"></td>
                                     <td th:text="${account.online}"></td>
+
                                 </tr>
                                 </tbody>
                             </table>
@@ -121,5 +127,7 @@
 </div>
 </div>
 <div th:replace="/layout_admin :: script"></div>
+<script th:replace="/account/list :: confirmDelete"></script>
 </body>
+
 </html>

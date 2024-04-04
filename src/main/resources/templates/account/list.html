@@ -69,11 +69,11 @@
                     <span class="navbar-toggler-bar navbar-kebab"></span>
                     <span class="navbar-toggler-bar navbar-kebab"></span>
                 </button>
-
             </div>
         </nav>
         <!-- End Navbar -->
         <div class="content">
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="card all-color">
@@ -86,49 +86,67 @@
                             </p>
                         </div>
                         <div class="card-body ">
-                            <div class="table-responsive ">
                                 <table class="table all-center">
                                     <thead class="text-primary ">
-                                    <th>Thao tác</th>
                                     <th>Số thứ tự</th>
                                     <th>Tài khoản game</th>
                                     <th>Thông tin tài khoản</th>
                                     <th>Ghi chú</th>
                                     <th>Giá thuê</th>
                                     <th>Trạng thái</th>
+                                    <th>Thao tác</th>
                                     </thead>
                                     <tbody>
                                     <tr th:each="account, ac : ${accounts}">
-                                        <td>
-                                            <a th:href="@{/admin/account/update/__${account.idAccount}__}">Sửa</a>
-                                            <a th:href="@{/admin/account/delete/__${account.idAccount}__}">/Xóa</a>
-                                        </td>
                                         <td th:text="${ac.count}"></td>
                                         <td th:text="${account.game.nameGame}"></td>
                                         <td th:text="${account.hideInfo}"></td>
                                         <td th:text="${account.note}"></td>
                                         <td th:text="${account.price}"></td>
                                         <td th:text="${account.online}"></td>
+                                        <td style="text-align: center">
+
+                                            <nav class="primary-navigation">
+                                                <ul style="padding-left: 0px;">
+                                                    <li>
+                                                        <a class="a-dtrif">&dtrif;</a>
+                                                        <ul class="dropdown">
+                                                            <li>
+                                                                <a th:href="@{/admin/account/update/__${account.idAccount}__}">
+                                                                    <i class="fa-solid fa-pencil"></i> Sửa</a>
+                                                            </li>
+                                                            <li>
+                                                                <a th:href="@{/admin/account/delete/__${account.idAccount}__}"
+                                                                    onclick="return confirmDelete()">
+                                                                    <i class="fa-solid fa-trash-can"></i> Xoá</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="card card-plain">
-                        <div class="card-body">
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <footer>
+        <footer th:replace="/layout_admin :: footer">
         </footer>
     </div>
 </div>
 <div th:replace="/layout_admin :: script"></div>
 </body>
-
+<script th:fragment="confirmDelete">
+    function confirmDelete() {
+        let result = confirm("Bạn muốn xoá tài khoản?");
+        if (result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
 </html>

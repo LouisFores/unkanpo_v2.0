@@ -82,6 +82,12 @@ public class AccountController {
 
     @GetMapping("/delete/{id}")
     public ModelAndView deleteAccount(@PathVariable Long id) {
+        ModelAndView modelAndView = new ModelAndView("redirect:/admin/account");
+        accountService.delete(id);
+        return modelAndView;
+    }
+    @GetMapping("/deleteInCreate/{id}")
+    public ModelAndView deleteInCreateAccount(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView("redirect:/admin/account/create");
         accountService.delete(id);
         return modelAndView;

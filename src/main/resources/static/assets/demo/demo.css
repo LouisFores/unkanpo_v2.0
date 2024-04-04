@@ -391,3 +391,108 @@ li::marker {
     padding-bottom:10px
 }
 
+nav {
+    &.primary-navigation {
+        margin: 0 auto;
+        display: block;
+
+        padding: 0;
+        text-align: center;
+        font-size: 16px;
+
+        ul li {
+            list-style: none;
+            margin: 0 auto;
+            display: inline-block;
+            padding: 0px 10px;
+            position: relative;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        li a, li i {
+            color: black;
+            text-decoration: none;
+        }
+
+        li a:hover,
+        li a:hover i {
+            color: #51cbce;
+            cursor: pointer;
+        }
+
+
+        .a-dtrif {
+            color: #fff;
+            font-size: 30px;
+            text-decoration: none;
+        }
+        .a-dtrif:hover {
+            color: #51cbce;
+        }
+
+        ul li ul {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            padding-left: 0;
+            left: 0;
+            display: none;
+            background: white;
+        }
+
+        ul li:hover > ul,
+        ul li ul:hover {
+            display: inline;
+            visibility: visible;
+            opacity: 1;
+            display: block;
+            min-width: 100px;
+            text-align: left;
+            padding-top: 10px;
+            border-radius: 5px;
+            margin-top: -45px;
+        }
+
+        ul li ul li {
+            clear: both;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 10px;
+            border-style: none;
+
+        }
+        ul li ul li a:hover {
+            padding-left: 13px;
+            border-left: 8px solid #51cbce;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+    }
+}
+
+a {
+
+    text-decoration: none;
+
+    &:hover {
+        color: #3CA0E7;
+    }
+
+}
+
+ul li ul li a { transition: all 0.5s ease; }
+
+input {
+    color: black;
+}
+
+.a-up-del {
+    margin-right: 10px;
+}
+
+.a-up-del:hover, .i-up-del:hover {
+    color: #51cbce;
+}
+
+
