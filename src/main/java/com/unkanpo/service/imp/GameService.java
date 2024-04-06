@@ -62,19 +62,20 @@ public class GameService implements IGameService {
         if (game.getIdGame() == null) {
             gameRepository.save(game);
             saveGametype(gameForm, false);
-            saveImage(game,images);
+            saveImage(gameForm,images);
         } else {
             gameRepository.save(game);
             saveGametype(gameForm,true);
         }
         return gameForm;
     }
-
-    public void saveImage(Game game,List<MultipartFile> images){
+    public void saveImage(GameForm gameForm,List<MultipartFile> images){
         List<GameImage> gameImages = new ArrayList<>();
         int indexImage = 1;
-        String gameName = game.getNameGame();
+        Game game = gameForm.getGame();
+        String gameName = game.getNameGame().trim().replace(" ","-");
         try {
+            saveIconGame(game,gameForm.getBackground());
             for (MultipartFile image : images) {
                 FileCopyUtils.copy(image.getBytes(),new File(partUrl + gameName +  "-" + indexImage + ".jpg"));
                 gameImages.add(new GameImage(game, gameName + "-" + indexImage));
@@ -84,6 +85,12 @@ public class GameService implements IGameService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void saveIconGame(Game game, MultipartFile background) throws IOException {
+        String gameName = game.getNameGame().trim().replace(" ","-");
+        FileCopyUtils.copy(background.getBytes(), new File(partUrl + gameName + ".jpg"));
+        gameImageService.save(new GameImage(game, gameName));
     }
 
     private void saveGametype(GameForm gameForm, boolean isExist) {
