@@ -6,6 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="9f15b86c-9e8c-4dc0-814d-55f32b2e80cb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/TypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/TypeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/repository/GameRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/repository/GameRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/repository/TypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/repository/TypeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/IGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/IGameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/ITypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/ITypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/TypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/TypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/demo/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/assets/demo/demo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/demo/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/assets/demo/demo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/account/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/account/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/game/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/game/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/type/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/type/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/type/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/type/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/type/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/type/update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +49,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -57,34 +73,34 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "feature/frontend__accountgame",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "F:/Intellij Java/unkanpo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "editor.preferences.tabs",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/frontend__accountgame&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Intellij Java/unkanpo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mongo",
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;,
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Intellij Java\unkanpo\src\main\resources\static" />
@@ -141,6 +157,13 @@
       <workItem from="1712203391318" duration="33000" />
       <workItem from="1712204415435" duration="2516000" />
       <workItem from="1712241815383" duration="8857000" />
+      <workItem from="1712252966640" duration="68000" />
+      <workItem from="1712279676990" duration="1202000" />
+      <workItem from="1712284371572" duration="4886000" />
+      <workItem from="1712414427717" duration="6207000" />
+      <workItem from="1712463626343" duration="12283000" />
+      <workItem from="1712494680600" duration="803000" />
+      <workItem from="1712500355228" duration="8788000" />
     </task>
     <servers />
   </component>
@@ -149,6 +172,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/unkanpo/controller/GameController.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
