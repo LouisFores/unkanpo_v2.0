@@ -41,11 +41,11 @@
                 <div class="col-md-8">
                     <div class="card card-user all-color">
                         <div class="card-header">
-                            <h5 class="card-title">Tuỳ chỉnh game</h5>
+                            <h5 class="card-title">Tuỳ chỉnh game - Cập nhật</h5>
                             <a th:href="@{/admin/games}" style="color: #51cbce;">Trở lại</a>
                         </div>
                         <div class="card-body">
-                            <form th:action="@{/admin/games/create}" th:object="${theGame}" method="POST" novalidate="novalidate">
+                            <form th:action="@{/admin/games/update}" th:object="${gameForm}" method="POST" novalidate="novalidate">
                                 <div class="row">
                                     <div class="col-md-5 pr-1">
 

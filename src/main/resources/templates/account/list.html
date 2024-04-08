@@ -88,43 +88,31 @@
                         <div class="card-body ">
                                 <table class="table all-center">
                                     <thead class="text-primary ">
+                                    <th>Thao tác</th>
                                     <th>Số thứ tự</th>
                                     <th>Tài khoản game</th>
                                     <th>Thông tin tài khoản</th>
                                     <th>Ghi chú</th>
                                     <th>Giá thuê</th>
                                     <th>Trạng thái</th>
-                                    <th>Thao tác</th>
                                     </thead>
                                     <tbody>
                                     <tr th:each="account, ac : ${accounts}">
+                                        <td>
+                                            <a class="a-up-del" th:href="@{/admin/account/update/__${account.idAccount}__}">
+                                                <i class="fa-solid fa-pencil i-up-del"></i>
+                                            </a>
+                                            <a th:href="@{/admin/account/deleteInCreate/__${account.idAccount}__}"
+                                               onclick="return confirmDelete()">
+                                                <i class="fa-solid fa-trash-can i-up-del"></i>
+                                            </a>
+                                        </td>
                                         <td th:text="${ac.count}"></td>
                                         <td th:text="${account.game.nameGame}"></td>
                                         <td th:text="${account.hideInfo}"></td>
                                         <td th:text="${account.note}"></td>
                                         <td th:text="${account.price}"></td>
                                         <td th:text="${account.online}"></td>
-                                        <td style="text-align: center">
-
-                                            <nav class="primary-navigation">
-                                                <ul style="padding-left: 0px;">
-                                                    <li>
-                                                        <a class="a-dtrif">&dtrif;</a>
-                                                        <ul class="dropdown">
-                                                            <li>
-                                                                <a th:href="@{/admin/account/update/__${account.idAccount}__}">
-                                                                    <i class="fa-solid fa-pencil"></i> Sửa</a>
-                                                            </li>
-                                                            <li>
-                                                                <a th:href="@{/admin/account/delete/__${account.idAccount}__/__${'list'}__}"
-                                                                    onclick="return confirmDelete()">
-                                                                    <i class="fa-solid fa-trash-can"></i> Xoá</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>

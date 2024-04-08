@@ -7,7 +7,6 @@ import com.unkanpo.repository.GameRepository;
 import com.unkanpo.repository.TypeRepository;
 import com.unkanpo.service.imp.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +34,7 @@ public class GameController {
         modelAndView.addObject("listGame", gameService.findAll());
         return modelAndView;
     }
+
     @GetMapping("/create")
     public ModelAndView showCreateGame() {
         ModelAndView modelAndView = new ModelAndView("/game/create");
@@ -78,6 +78,7 @@ public class GameController {
         }
         return "/error_404";
     }
+
 
     @GetMapping("/filter")
     public ModelAndView searchByName(@RequestParam("keyword") String keyword) {

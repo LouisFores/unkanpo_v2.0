@@ -6,22 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="9f15b86c-9e8c-4dc0-814d-55f32b2e80cb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/TypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/TypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/repository/GameRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/repository/GameRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/repository/TypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/repository/TypeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/IGameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/IGameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/ITypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/ITypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/repository/GameImageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/repository/GameImageRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/TypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/TypeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/demo/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/assets/demo/demo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/assets/demo/demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/assets/demo/demo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/account/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/account/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/game/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/game/create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/game/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/game/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/type/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/type/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/type/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/type/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/type/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/type/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/game/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/game/update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +49,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -164,6 +158,8 @@
       <workItem from="1712463626343" duration="12283000" />
       <workItem from="1712494680600" duration="803000" />
       <workItem from="1712500355228" duration="8788000" />
+      <workItem from="1712548193655" duration="2441000" />
+      <workItem from="1712557882970" duration="801000" />
     </task>
     <servers />
   </component>

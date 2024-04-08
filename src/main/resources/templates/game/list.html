@@ -110,18 +110,14 @@
                                     <th class="text-center">Thao tác</th>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="gameForm: ${listGame}">
-                                        <td class="text-center" style="font-size: 30px;"
-                                            th:text="${gameForm.game.idGame}"></td>
+                                    <tr th:each="gameForm, gf: ${listGame}">
+                                        <td class="text-center" style="font-size: 30px;" th:text="${gf.count}"></td>
                                         <td class="avatar" style="text-align: center;">
-                                            <img src="/assets/img/icon-fish.jpg" alt="Circle Image"
-                                                 class="img-circle img-no-padding img-responsive"
-                                                 style="max-width: 80px;">
+                                            <img th:src="@{'/image/' + ${gameForm.game.nameGame.trim().replace(' ', '-')} + '.jpg'}"
+                                                 alt="Circle Image" class="img-circle img-no-padding img-responsive" style="max-width: 80px;" th:inline="none">
                                         </td>
                                         <td>
-                                            <a class="game-a"
-                                               th:href="@{/admin/account/findListOfGame/__${gameForm.game.idGame}__}"
-                                               th:text="${gameForm.game.nameGame}"></a>
+                                            <a class="game-a" th:href="@{/admin/games/findListOfGame/__${gameForm.game.idGame}__}" th:text="${gameForm.game.nameGame}">Genshin impact</a>
                                             <p class="text-down-line" th:text="${gameForm.game.descriptionGame}"></p>
                                             <span th:each="type : ${gameForm.types}">
                                                     <a th:text="${type}" th:href="@{/admin/types}"></a>
@@ -129,8 +125,7 @@
                                         </td>
                                         <td class="text-center">
                                             <a th:href="@{/admin/games/update/__${gameForm.game.idGame}__}">
-                                                <i class="fa-solid fa-up-long fa-bounce"
-                                                   style="color: #51cbce; font-size: 30px;"></i>Update</a>
+                                                <i class="fa-solid fa-up-long fa-bounce" style="color: #51cbce; font-size: 30px;"></i>Update</a>
                                         </td>
                                     </tr>
                                     </tbody>
