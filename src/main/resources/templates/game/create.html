@@ -45,7 +45,7 @@
                             <a th:href="@{/admin/games}" style="color: #51cbce;">Trở lại</a>
                         </div>
                         <div class="card-body">
-                            <form th:action="@{/admin/games/create}" th:object="${theGame}" method="POST" novalidate="novalidate">
+                            <form th:action="@{/admin/games/create}" th:object="${theGame}" method="POST" novalidate="novalidate" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-5 pr-1">
 
@@ -60,14 +60,14 @@
                                 <div class="row" style="margin-bottom: 20px;">
                                     <div class="col-md-12 pr-1">
                                         <label>Ảnh nền</label>
-                                        <input type="file" class="form-control" id="image-input" style="color: black" name="files" >
+                                        <input type="file" class="form-control" id="image-input" style="color: black" name="background" >
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-12 pr-1">
                                         <label>Ảnh mô tả</label>
-                                        <input type="file" class="form-control" id="imageFile" style="color: black" name="imageFile" accept="image/*" multiple>
+                                        <input type="file" class="form-control" id="imageFile" style="color: black" name="more-image"  accept="image/*" multiple>
                                     </div>
                                 </div>
 

@@ -26,7 +26,6 @@ public class Game {
         this.nameGame = nameGame;
         this.descriptionGame = descriptionGame;
     }
-
     public Long getIdGame() {
         return idGame;
     }

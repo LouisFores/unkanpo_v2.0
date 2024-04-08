@@ -6,9 +6,6 @@ import com.unkanpo.model.Type;
 import com.unkanpo.repository.GameRepository;
 import com.unkanpo.service.IGameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -33,7 +30,6 @@ public class GameService implements IGameService {
         }
         return result;
     }
-
     private GameForm getGameForm(Game game) {
         GameForm gameForm = new GameForm(game,typeService.findTypes(game.getIdGame()));
         return gameForm;
@@ -51,14 +47,6 @@ public class GameService implements IGameService {
         }
 
         return gameForm;
-    }
-
-    @Override
-    public List<GameForm> findAllByName_game(String key_word) {
-        List<Game> games = (List<Game>) gameRepository.findAllByNameGameContaining(key_word);
-
-        List<GameForm> result = getGameForms(games);
-        return result;
     }
 
     private void saveGametype(GameForm gameForm, boolean isExist) {
@@ -93,5 +81,4 @@ public class GameService implements IGameService {
         gameTypeService.deleteByGame(game);
         gameRepository.delete(game);
     }
-
 }
