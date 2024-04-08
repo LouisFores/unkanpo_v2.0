@@ -107,8 +107,8 @@
                                         <tr th:each="gameForm: ${listGame}">
                                             <td class="text-center" style="font-size: 30px;" th:text="${gameForm.game.idGame}"></td>
                                             <td class="avatar" style="text-align: center;">
-                                                <img src="/assets/img/icon-fish.jpg" alt="Circle Image"
-                                                     class="img-circle img-no-padding img-responsive" style="max-width: 110px;">
+                                                <img th:src="@{'/image/' + ${gameForm.game.nameGame.trim().replace(' ', '-')} + '.jpg'}"
+                                                     alt="Circle Image" class="img-circle img-no-padding img-responsive" style="max-width: 110px;" th:inline="none">
                                             </td>
                                             <td>
                                                 <a class="game-a" th:href="@{/admin/games/findListOfGame/__${gameForm.game.idGame}__}" th:text="${gameForm.game.nameGame}">Genshin impact</a>
