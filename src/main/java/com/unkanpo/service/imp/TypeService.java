@@ -18,8 +18,8 @@ public class TypeService implements ITypeService {
         return typeRepository.findTypes(idGame);
     }
     @Override
-    public Iterable<Type> findAll() {
-        return typeRepository.findAll();
+    public List<Type> findAll() {
+        return (List<Type>) typeRepository.findAll();
     }
 
     @Override

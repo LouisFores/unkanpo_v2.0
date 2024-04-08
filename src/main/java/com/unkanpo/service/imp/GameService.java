@@ -119,6 +119,12 @@ public class GameService implements IGameService {
     @Override
     public void delete(Game game) {
         gameTypeService.deleteByGame(game);
+        gameImageService.deleteByGame(game);
+
         gameRepository.delete(game);
     }
+
+//    private void deleteImageFileByIdGame(Long id) {
+//        File backgroundImage = new File("resources/static/image")
+//    }
 }
