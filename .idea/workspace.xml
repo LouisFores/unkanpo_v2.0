@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9f15b86c-9e8c-4dc0-814d-55f32b2e80cb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/repository/GameImageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/repository/GameImageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/IGameImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/IGameImageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameImageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameImageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/TypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/TypeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/game/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/game/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,20 +142,5 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java</url>
-          <line>119</line>
-          <properties class="com.unkanpo.service.imp.GameService" method="delete">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
