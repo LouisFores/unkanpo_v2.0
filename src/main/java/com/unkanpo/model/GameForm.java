@@ -1,5 +1,7 @@
 package com.unkanpo.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -9,6 +11,7 @@ public class GameForm {
     private Game game;
 
     private List<String> types;
+    private MultipartFile background;
     public GameForm() {
     }
 // default constructor when post data form to controller
@@ -16,7 +19,14 @@ public class GameForm {
         this.game = game;
         this.types = types;
     }
-// constructor when get data to view form
+
+    public GameForm(Game game, List<String> types, MultipartFile background) {
+        this.game = game;
+        this.types = types;
+        this.background = background;
+    }
+
+    // constructor when get data to view form
     public GameForm(List<Type> typeList,Game game) {
         List<String> types = new ArrayList<>();
 
@@ -48,5 +58,13 @@ public class GameForm {
             }
         }
         return isExist;
+    }
+
+    public MultipartFile getBackground() {
+        return background;
+    }
+
+    public void setBackground(MultipartFile background) {
+        this.background = background;
     }
 }

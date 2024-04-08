@@ -4,27 +4,26 @@ import com.unkanpo.service.imp.GameService;
 import com.unkanpo.service.imp.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.Optional;
 
-@Controller
-@RequestMapping("/users")
+@RestController
+@RequestMapping("/api/users")
 public class UserController {
     @Autowired
     private GameService gameService;
     @Autowired
     private UserService userService;
-    @GetMapping("")
-    public ModelAndView home(HttpSession session) {
-        ModelAndView modelAndView = new ModelAndView();
+    @GetMapping
+    public ResponseEntity home(HttpSession session) {
         Long userId = (Long) session.getAttribute("userId");
         if (userId == null) {
-            modelAndView.setViewName("redirect:/users/login");
+            return new ResponseEntity<>(new User(),HttpStatus.NOT_FOUND);
         }
-        modelAndView.addObject("users", gameService.findAll());
-        return modelAndView;
+        return new ResponseEntity<>(gameService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/login")
