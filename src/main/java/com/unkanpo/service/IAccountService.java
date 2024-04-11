@@ -1,5 +1,6 @@
 package com.unkanpo.service;
 
+import com.unkanpo.model.Game;
 import com.unkanpo.model.GameAccount;
 
 import java.util.Optional;
@@ -11,4 +12,6 @@ public interface IAccountService {
     void save(GameAccount account);
     Optional<GameAccount> findById(Long id);
     void delete(Long id);
+    Iterable<GameAccount> findAllByGame(Game game);
+
 }

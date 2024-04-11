@@ -1,12 +1,19 @@
+* {
+    font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+
 .back-img {
-    background-image: url("/image/backgroup-sign-image.jpg");
+    background-image: url("/image/background-sign-img.jpg");
     background-size: cover;
     background-position: center;
+    z-index: -1;
 }
 
 .icon {
-    color: rgb(255, 255, 255);
-    font-size: 25px;
+    color: black;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: 900;
 }
 
 .error {

@@ -4,15 +4,12 @@ package com.unkanpo.controller;
 import com.unkanpo.model.Game;
 import com.unkanpo.model.GameAccount;
 import com.unkanpo.service.imp.AccountService;
-import com.unkanpo.service.imp.GameAccountService;
 import com.unkanpo.service.imp.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/admin/account")
@@ -26,17 +23,42 @@ public class AccountController {
     public ModelAndView getListAccount() {
         ModelAndView modelAndView = new ModelAndView("/account/list");
         modelAndView.addObject("accounts", accountService.findAll());
+        modelAndView.addObject("games", gameService.findAll());
         return modelAndView;
     }
 
-    @GetMapping("/findListOfGame/{idGame}")
-    public ModelAndView getListAccountOfGame(@PathVariable Long idGame) {
-        ModelAndView modelAndView = new ModelAndView("/account/list");
-        Game game = gameService.findById(idGame).getGame();
-        modelAndView.addObject("accounts", accountService.findAll());
+    @GetMapping("/findListOfGame/{idGame}/{where}")
+    public ModelAndView getListAccountOfGame(@PathVariable Long idGame, @PathVariable String where) {
+        ModelAndView modelAndView = new ModelAndView();
+        Game game = idGame != 0 ? gameService.findById(idGame).getGame() : null;
+
+        switch (where) {
+            case "create":
+                modelAndView.setViewName("account/create");
+                modelAndView.addObject("account", new GameAccount());
+                break;
+            case "update":
+                modelAndView.setViewName("account/update");
+                modelAndView.addObject("account", accountService.findById(1L).get());
+                break;
+            case "list":
+                modelAndView.setViewName("account/list");
+                modelAndView.addObject("accounts", accountService.findAll());
+                break;
+            default:
+                return null;
+        }
+
+        modelAndView.addObject("games", gameService.findAll());
+
+        if (idGame == 0) {
+            modelAndView.addObject("accounts", accountService.findAll());
+        } else {
+            modelAndView.addObject("accounts", accountService.findAllByGame(game));
+        }
+
         return modelAndView;
     }
-
     @GetMapping("/create")
     public ModelAndView createAccountForm() {
         ModelAndView modelAndView = new ModelAndView("/account/create");
@@ -51,8 +73,10 @@ public class AccountController {
         ModelAndView modelAndView = new ModelAndView();
         if (accountService.IsExist(account)) {
             modelAndView.setViewName("/account/create");
-            modelAndView.addObject("account", account);
-            modelAndView.addObject("error", "account is exits");
+            modelAndView.addObject("account", new GameAccount());
+            modelAndView.addObject("accounts", accountService.findAll());
+            modelAndView.addObject("games", gameService.findAll());
+            modelAndView.addObject("error", "Account is exits");
         } else {
             accountService.save(account);
             modelAndView.setViewName("redirect:/admin/account/create");

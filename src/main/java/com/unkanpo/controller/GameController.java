@@ -1,9 +1,7 @@
 package com.unkanpo.controller;
 
-import com.unkanpo.model.Game;
 import com.unkanpo.model.GameForm;
 import com.unkanpo.model.Type;
-import com.unkanpo.repository.GameRepository;
 import com.unkanpo.repository.TypeRepository;
 import com.unkanpo.service.imp.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,6 +82,13 @@ public class GameController {
     public ModelAndView searchByName(@RequestParam("keyword") String keyword) {
         ModelAndView modelAndView = new ModelAndView("/game/list");
         modelAndView.addObject("listGame", gameService.findAllByName_game(keyword));
+        return modelAndView;
+    }
+
+    @GetMapping("/findById/{id}")
+    public ModelAndView findById(@PathVariable("id") Long id) {
+        ModelAndView modelAndView = new ModelAndView("game/information");
+        modelAndView.addObject("gameForm", gameService.findById(id));
         return modelAndView;
     }
 

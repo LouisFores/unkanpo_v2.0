@@ -10,5 +10,7 @@ import java.util.Optional;
 @Repository
 public interface AccountRepository extends JpaRepository<GameAccount,Long> {
     Optional<GameAccount> findByHideInfoAndGame(String username_password, Game game);
+    Iterable<GameAccount> findAllByGame(Game game);
+
 }
 

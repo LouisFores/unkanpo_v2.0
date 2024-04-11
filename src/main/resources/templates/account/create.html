@@ -36,7 +36,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Thông tin tài khoản</label>
-                                            <input type="text" class="form-control" placeholder="Thông tin tài khoản" name="hideInfo">
+                                            <input type="text" class="form-control" style="color: black" placeholder="Thông tin tài khoản" name="hideInfo">
                                         </div>
                                     </div>
 
@@ -79,8 +79,12 @@
                                 <div style="margin-top:20px; margin-bottom: 10px; float: right;">
                                     <form>
                                         <div class="input-group no-border">
-                                            <select name="game" class="form-control" style="background-color: white;color: black;">
-                                                <option class="form-control" style="color: black;" th:each="game : ${games}" th:text="${game.getGame().nameGame}"
+                                            <select name="game" class="form-control" style="background-color: white;color: black;" onchange="navigateToGame(this)">
+                                                <option class="form-control" style="color: black;"  value="0" ></option>
+                                                <option class="form-control" style="color: black;"  value="0" >Tất cả</option>
+                                                <option class="form-control" style="color: black;"
+                                                        th:each="game : ${games}"
+                                                        th:text="${game.getGame().nameGame}"
                                                         th:value="${game.getGame().idGame}">
                                                 </option>
                                             </select>
@@ -117,6 +121,8 @@
                                 </tr>
                                 </tbody>
                             </table>
+                            <div class="pagination-page">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -128,6 +134,15 @@
 </div>
 <div th:replace="/layout_admin :: script"></div>
 <script th:replace="/account/list :: confirmDelete"></script>
+<script>
+    function navigateToGame(selectElement) {
+        let gameId = selectElement.value;
+        let where = "create";
+        // Điều hướng đến đường dẫn tương ứng với tên game
+        if (gameId != '0') window.location.href = '/admin/account/findListOfGame/' + gameId + "/" + where;
+        if (gameId == '0') window.location.href = '/admin/account/findListOfGame/' + "0" + "/" + where;
+    }
+</script>
 </body>
 
 </html>

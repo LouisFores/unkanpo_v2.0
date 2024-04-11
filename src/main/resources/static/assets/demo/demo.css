@@ -236,7 +236,7 @@ body {
 }
 
 .input-container .input-text {
-    margin-left: 5px; /* Khoảng cách giữa các input */
+    margin-left: 2px; /* Khoảng cách giữa các input */
 }
 
 .card label {
