@@ -1,4 +1,7 @@
 package com.unkanpo.dto;
 
-public enum AlertStatus {Good,Warning,Error}
+import com.fasterxml.jackson.annotation.JsonValue;
+
+public enum AlertStatus {Good, Warning, Error,}
+
 
