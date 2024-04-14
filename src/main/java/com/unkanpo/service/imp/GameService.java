@@ -127,7 +127,25 @@ public class GameService implements IGameService {
 
     @Override
     public void delete(Game game) {
+        deleteImageFileByGame(game);
         gameTypeService.deleteByGame(game);
+        gameImageService.deleteByGame(game);
         gameRepository.delete(game);
+    }
+
+    private void deleteImageFileByGame(Game game) {
+        String gameName = game.getNameGame().trim().replace(" ","-");
+        int indexImage = 1;
+        File backgroundImage = new File(partUrl + gameName + ".jpg");
+        if (backgroundImage.exists()) {
+            backgroundImage.delete();
+        }
+
+        for (; indexImage <= gameImageService.getQuantityImageByGame(game); indexImage++) {
+            File  imageFile = new File(partUrl + gameName + "-" + indexImage + ".jpg");
+            if (imageFile.exists()) {
+                imageFile.delete();
+            }
+        }
     }
 }
