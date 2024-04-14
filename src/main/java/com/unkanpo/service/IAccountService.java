@@ -11,4 +11,5 @@ public interface IAccountService {
     void save(GameAccount account);
     Optional<GameAccount> findById(Long id);
     void delete(Long id);
+    Iterable<GameAccount> findByIdGame(Long id);
 }
