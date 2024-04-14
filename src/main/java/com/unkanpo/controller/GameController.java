@@ -1,11 +1,10 @@
 package com.unkanpo.controller;
 
-import com.unkanpo.model.Game;
 import com.unkanpo.model.GameForm;
 import com.unkanpo.model.Type;
-import com.unkanpo.repository.GameRepository;
 import com.unkanpo.repository.TypeRepository;
 import com.unkanpo.service.imp.GameService;
+import com.unkanpo.service.imp.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,11 +20,11 @@ public class GameController {
     @Autowired
     private GameService gameService;
     @Autowired
-    private TypeRepository typeRepository;
+    private TypeService typeService;
 
     @ModelAttribute("types")
     public List<Type> listTypes() {
-        return typeRepository.findAll();
+        return typeService.findAll();
     }
 
     @GetMapping("")
@@ -39,7 +38,7 @@ public class GameController {
     public ModelAndView showCreateGame() {
         ModelAndView modelAndView = new ModelAndView("/game/create");
         modelAndView.addObject("theGame", new GameForm());
-        modelAndView.addObject("listType", typeRepository.findAll());
+        modelAndView.addObject("listType", typeService.findAll());
         return modelAndView;
     }
 
@@ -52,11 +51,11 @@ public class GameController {
 
     @GetMapping("/update/{id}")
     public ModelAndView showUpdateGame(@PathVariable Long id) {
-        GameForm game = gameService.findById(id);
+        GameForm game = gameService.findGameById(id);
         if (game != null) {
             ModelAndView modelAndView = new ModelAndView("/game/update");
             modelAndView.addObject("gameForm",game );
-            modelAndView.addObject("listType", typeRepository.findAll());
+            modelAndView.addObject("listType", typeService.findAll());
             return modelAndView;
         } else {
             return new ModelAndView("/error_404");
@@ -71,12 +70,12 @@ public class GameController {
 
     @GetMapping("/delete/{id}")
     public String removeGame(@PathVariable Long id) {
-        GameForm gameForm = gameService.findById(id);
+        GameForm gameForm = gameService.findGameById(id);
         if (gameForm != null) {
             gameService.delete(gameForm.getGame());
             return "redirect:/admin/games";
         }
-        return "/error_404";
+        return "redirect:/admin/games";
     }
 
 }

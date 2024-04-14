@@ -14,6 +14,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +32,9 @@ public class GameService implements IGameService {
     @Autowired
     private GameImageService gameImageService;
 
-    private String partUrl = "C:\\CodeGym\\MyProject\\unkanpo_v2.0\\src\\main\\resources\\static\\image\\";
+    private String partUrl = "src\\main\\resources\\static\\image\\";
+//    private String partUrl = "C:\\CodeGym\\MyProject\\unkanpo_v2.0\\src\\main\\resources\\static\\image";
+
 
     private List<GameForm> getGameForms(List<Game> games) {
         List<GameForm> result = new ArrayList<>();
@@ -77,7 +82,7 @@ public class GameService implements IGameService {
         try {
             saveIconGame(game,gameForm.getBackground());
             for (MultipartFile image : images) {
-                FileCopyUtils.copy(image.getBytes(),new File(partUrl + gameName +  "-" + indexImage + ".jpg"));
+                Files.copy(image.getInputStream(), Paths.get(partUrl + gameName +  "-" + indexImage + ".jpg"), StandardCopyOption.REPLACE_EXISTING);
                 gameImages.add(new GameImage(game, gameName + "-" + indexImage));
                 indexImage++;
             }
@@ -112,13 +117,31 @@ public class GameService implements IGameService {
     }
 
     @Override
-    public GameForm findById(Long id) {
-        return   getGameForm(gameRepository.findById(id).get());
+    public GameForm findGameById(Long id) {
+        return getGameForm(gameRepository.findById(id).get());
     }
 
     @Override
     public void delete(Game game) {
+        deleteImageFileByGame(game);
         gameTypeService.deleteByGame(game);
+        gameImageService.deleteByGame(game);
         gameRepository.delete(game);
+    }
+
+    private void deleteImageFileByGame(Game game) {
+        String gameName = game.getNameGame().trim().replace(" ","-");
+        int indexImage = 1;
+        File backgroundImage = new File(partUrl + gameName + ".jpg");
+        if (backgroundImage.exists()) {
+            backgroundImage.delete();
+        }
+
+        for (; indexImage <= gameImageService.getQuantityImageByGame(game); indexImage++) {
+            File  imageFile = new File(partUrl + gameName + "-" + indexImage + ".jpg");
+            if (imageFile.exists()) {
+                imageFile.delete();
+            }
+        }
     }
 }

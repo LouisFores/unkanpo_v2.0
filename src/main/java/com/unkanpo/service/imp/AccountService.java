@@ -1,5 +1,6 @@
 package com.unkanpo.service.imp;
 
+import com.unkanpo.model.Game;
 import com.unkanpo.model.GameAccount;
 import com.unkanpo.repository.AccountRepository;
 import com.unkanpo.service.IAccountService;
@@ -10,6 +11,8 @@ import java.util.Optional;
 
 @Service
 public class AccountService implements IAccountService {
+    @Autowired
+    private GameService gameService;
     @Autowired
     private AccountRepository accountRepository;
 
@@ -40,5 +43,11 @@ public class AccountService implements IAccountService {
     @Override
     public void delete(Long id) {
         accountRepository.deleteById(id);
+    }
+
+    @Override
+    public Iterable<GameAccount> findByIdGame(Long id) {
+        Game game = gameService.findGameById(id).getGame();
+        return accountRepository.findByGame(game);
     }
 }

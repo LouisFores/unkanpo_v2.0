@@ -23,13 +23,13 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
+    @Transient
     private String confirmPassword;
 
     private String role;
     private String nickname;
-    private String avatar;
-    private double coin;
+    private int coin;
+
     public User(Long id, String username, String password, String confirmPassword, String email) {
         this.idUser = id;
         this.email = email;
@@ -94,19 +94,11 @@ public class User implements Serializable {
         this.nickname = nickname;
     }
 
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public double getCoin() {
+    public int getCoin() {
         return coin;
     }
 
-    public void setCoin(double coin) {
+    public void setCoin(int coin) {
         this.coin = coin;
     }
 
