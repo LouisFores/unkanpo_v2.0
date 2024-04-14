@@ -1,6 +1,9 @@
 package com.unkanpo.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class AlertDTO {
+    @JsonProperty("alertStatus")
     private AlertStatus alertStatus;
     private String message;
 
