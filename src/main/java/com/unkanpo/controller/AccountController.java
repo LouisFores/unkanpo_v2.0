@@ -116,4 +116,5 @@ public class AccountController {
         accountService.delete(id);
         return modelAndView;
     }
+
 }

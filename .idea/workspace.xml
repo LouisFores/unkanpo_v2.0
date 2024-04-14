@@ -4,6 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="9f15b86c-9e8c-4dc0-814d-55f32b2e80cb" name="Changes" comment="" />
+=======
     <list default="true" id="9f15b86c-9e8c-4dc0-814d-55f32b2e80cb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 <<<<<<< HEAD
@@ -11,6 +14,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" afterDir="false" />
 >>>>>>> 321d96e390289ddd3320825fa543bf6742d5ab94
     </list>
+>>>>>>> d964fb56ecacce64819e32a42d4d2e615bbec25a
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,7 +99,15 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+<<<<<<< HEAD
+<<<<<<< HEAD
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+=======
+    &quot;git-widget-placeholder&quot;: &quot;feature/frontend__type&quot;,
+>>>>>>> d964fb56ecacce64819e32a42d4d2e615bbec25a
+=======
     &quot;git-widget-placeholder&quot;: &quot;feature/crud__game&quot;,
+>>>>>>> 321d96e390289ddd3320825fa543bf6742d5ab94
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;F:/Intellij Java/unkanpo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -125,8 +137,26 @@
     </key>
   </component>
   <component name="RunManager">
+<<<<<<< HEAD
     <configuration name="UnkanpoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="jbr-17" />
+=======
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="unkanpo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="unkanpo" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="19" />
+>>>>>>> ce27b7ea7716158c690d11b87c473072463fe513
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="unkanpo.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.unkanpo.UnkanpoApplication" />
@@ -193,7 +223,13 @@
       <workItem from="1712215480809" duration="3281000" />
       <workItem from="1712218837801" duration="837000" />
       <workItem from="1712219730171" duration="953000" />
+<<<<<<< HEAD
+      <workItem from="1712298514602" duration="29000" />
+=======
       <workItem from="1712376408111" duration="3358000" />
+<<<<<<< HEAD
+>>>>>>> d964fb56ecacce64819e32a42d4d2e615bbec25a
+=======
       <workItem from="1712554369662" duration="1454000" />
 >>>>>>> 321d96e390289ddd3320825fa543bf6742d5ab94
     </task>
