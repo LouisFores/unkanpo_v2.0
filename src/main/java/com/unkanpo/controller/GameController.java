@@ -1,9 +1,7 @@
 package com.unkanpo.controller;
 
-import com.unkanpo.model.Game;
 import com.unkanpo.model.GameForm;
 import com.unkanpo.model.Type;
-import com.unkanpo.repository.GameRepository;
 import com.unkanpo.repository.TypeRepository;
 import com.unkanpo.service.imp.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +50,7 @@ public class GameController {
 
     @GetMapping("/update/{id}")
     public ModelAndView showUpdateGame(@PathVariable Long id) {
-        GameForm game = gameService.findById(id);
+        GameForm game = gameService.findGameById(id);
         if (game != null) {
             ModelAndView modelAndView = new ModelAndView("/game/update");
             modelAndView.addObject("gameForm",game );
@@ -71,7 +69,7 @@ public class GameController {
 
     @GetMapping("/delete/{id}")
     public String removeGame(@PathVariable Long id) {
-        GameForm gameForm = gameService.findById(id);
+        GameForm gameForm = gameService.findGameById(id);
         if (gameForm != null) {
             gameService.delete(gameForm.getGame());
             return "redirect:/admin/games";

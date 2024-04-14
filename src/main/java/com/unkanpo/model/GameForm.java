@@ -11,6 +11,7 @@ public class GameForm {
     private Game game;
 
     private List<String> types;
+    private List<String> images;
     private MultipartFile background;
     public GameForm() {
     }
@@ -24,6 +25,12 @@ public class GameForm {
         this.game = game;
         this.types = types;
         this.background = background;
+    }
+
+    public GameForm(Game game, List<String> types, List<String> images) {
+        this.game = game;
+        this.types = types;
+        this.images = images;
     }
 
     // constructor when get data to view form

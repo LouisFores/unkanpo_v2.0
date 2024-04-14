@@ -3,6 +3,11 @@ package com.unkanpo.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "rentalhistory")
@@ -21,5 +26,53 @@ public class RentalHistory {
 
     private String startTime;
     private String endTime;
-    private Long total;
+
+    public RentalHistory() {
+    }
+
+    public RentalHistory(User user, GameAccount gameAccount) {
+        this.user = user;
+        this.gameAccount = gameAccount;
+    }
+
+    public Long getIdRental() {
+        return idRental;
+    }
+
+    public void setIdRental(Long idRental) {
+        this.idRental = idRental;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public GameAccount getGameAccount() {
+        return gameAccount;
+    }
+
+    public void setGameAccount(GameAccount gameAccount) {
+        this.gameAccount = gameAccount;
+    }
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void startRenting() {
+        this.startTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void stopRenting() {
+        this.endTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+    }
+
 }
