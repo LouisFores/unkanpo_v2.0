@@ -52,6 +52,7 @@ public class GameController {
     @GetMapping("/update/{id}")
     public ModelAndView showUpdateGame(@PathVariable Long id) {
         GameForm game = gameService.findGameById(id);
+
         if (game != null) {
             ModelAndView modelAndView = new ModelAndView("/game/update");
             modelAndView.addObject("gameForm",game );
