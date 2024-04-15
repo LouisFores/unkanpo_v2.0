@@ -1,32 +1,144 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout_admin :: head">
 </head>
-<body>
-<form th:object="${account}" method="post" th:action="@{/admin/account/update}">
-    <input type="hidden" name="idAccount" th:value="${account.idAccount}">
-    <label>game</label>
-    <div>
-        <select name="game" >
-            <option
-                    th:each="game : ${games}"
-                    th:text="${game.getGame().nameGame}"
-                    th:value="${game.getGame().idGame}"
-                    th:selected="${game.getGame().nameGame eq account.game.nameGame}"
-            ></option>
-        </select>
-    </div>
-    <label>tên tài khoản và mật khẩu ngăn cách nhau bởi dấu _ </label>
-    <input type="text"  name="hideInfo" th:value="${account.hideInfo}">
-    <label>note</label>
-    <input type="text" name="note" th:value="${account.note}">
-    <label>price</label>
-    <input type="number" name="price" th:value="${account.price}">
-<!--    <p th:text="${error}"></p>-->
 
-    <input type="submit" value="thêm mới">
-</form>
+<body class="">
+<div class="wrapper ">
+    <div th:replace="/account/list :: sidebar"></div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav th:replace="/account/list :: nav-bar"></nav>
+        <!-- End Navbar -->
+        <div class="content">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-user all-color">
+                        <div class="card-header call-color">
+                            <div class="card-header">
+                                <h5 class="card-title" style="text-align: center">Cập nhật tài khoản game</h5>
+                            </div>
+                        </div>
+                        <div class="card-body ">
+                            <form th:object="${account}" method="post" th:action="@{/admin/account/update}">
+                                <input type="hidden" name="idAccount" th:value="${account.idAccount}">
+                                <div class="row ">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Game</label>
+                                            <select name="game" class="form-control" style="color: black;">
+                                                <option class="form-control" style="color: black;"
+                                                        th:each="game : ${games}"
+                                                        th:text="${game.getGame().nameGame}"
+                                                        th:value="${game.getGame().idGame}"
+                                                        th:selected="${game.getGame().nameGame eq account.game.nameGame}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Thông tin tài khoản</label>
+                                            <input type="text" class="form-control" style="color: black" placeholder="Thông tin tài khoản" name="hideInfo" th:value="${account.hideInfo}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Giá thuê</label>
+                                            <input type="number" class="form-control" style="color: black" placeholder="Giá thuê" name="price" th:value="${account.price}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Ghi chú</label>
+                                            <textarea class="form-control" style="color: black" placeholder="Ghi chú" name="note" th:value="${account.getNote()}" th:text="${account.getNote()}"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <p th:text="${error}"></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="update ml-auto mr-auto">
+                                        <button type="submit" class="btn btn-primary btn-round">Lưu</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card demo-icons all-color">
+                        <div class="card-body all-icons ">
+                            <div class="card-header call-color">
+                                <div style="float: left;">
+                                    <h5 class="card-title">Danh sách tài khoản game</h5>
+                                    <a th:href="@{/admin/account}" style="color: #51cbce;">Trở lại</a>
+                                    <a th:href="@{/admin/account/create}" style="color: #51cbce;">/ Thêm tài khoản game</a>
+                                </div>
+                                <div style="margin-top:20px; margin-bottom: 10px; float: right;">
+                                         <div class="input-group no-border">
+                                            <select name="game" class="form-control" style="background-color: white;color: black;" onchange="navigateToGame(this)">
+                                                <option class="form-control" style="color: black;"  value="0" ></option>
+                                                <option class="form-control" style="color: black;"  value="0" >Tất cả</option>
+                                                <option class="form-control" style="color: black;"
+                                                        th:each="game : ${games}"
+                                                        th:text="${game.getGame().nameGame}"
+                                                        th:value="${game.getGame().idGame}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                 </div>
+                            </div>
+                            <table class="table all-center">
+                                <thead class="text-primary ">
+                                <th>Thao tác</th>
+                                <th>Số thứ tự</th>
+                                <th>Tài khoản game</th>
+                                <th>Ghi chú</th>
+                                <th>Giá thuê</th>
+                                <th>Trạng thái</th>
+                                </thead>
+                                <tbody>
+                                <tr th:each="account, ac : ${accounts}">
+                                    <td>
+                                        <a th:href="@{/admin/account/update/__${account.idAccount}__}">
+                                            <i class="fa-solid fa-pencil i-up-del"></i>
+                                        </a>
+                                    </td>
+                                    <td th:text="${ac.count}"></td>
+                                    <td th:text="${account.game.nameGame}"></td>
+                                    <td th:text="${account.note}"></td>
+                                    <td th:text="${account.price}"></td>
+                                    <td th:text="${account.online}"></td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="pagination-page">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer th:replace="/layout_admin :: footer"></footer>
+</div>
+</div>
+<div th:replace="/layout_admin :: script"></div>
+<script>
+    function navigateToGame(selectElement) {
+        let gameId = selectElement.value;
+        let where = "update";
+        // Điều hướng đến đường dẫn tương ứng với tên game
+        if (gameId != '0') {window.location.href = '/admin/account/findListOfGame/' + gameId + "/" + where};
+        if (gameId == '0') window.location.href = '/admin/account/findListOfGame/' + "0" + "/" + where;
+    }
+</script>
 </body>
 </html>

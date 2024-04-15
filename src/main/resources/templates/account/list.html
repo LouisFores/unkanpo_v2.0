@@ -1,43 +1,173 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <style>
-        table,tr,td,th{
-            border: 1px solid plum;
-        }
-    </style>
-    <title>Title</title>
+<!DOC html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout_admin :: head">
 </head>
-<body>
-<a th:href="@{/admin/account/create}">thêm tài khoản game</a>
 
-<table>
-    <thead>
-        <tr>
-            <th>Hành động </th>
-            <th>id</th>
-            <th>Game</th>
-            <th>tên tài khoản và mật khẩu </th>
-            <th>note</th>
-            <th>giá </th>
-            <th>trạng thái </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="account : ${accounts}">
-            <td>
-                <a th:href="@{/admin/account/update/__${account.idAccount}__}">sửa</a>
-                <a th:href="@{/admin/account/delete/__${account.idAccount}__}">xóa</a>
-            </td>
-            <td th:text="${account.idAccount}"></td>
-            <td th:text="${account.game.nameGame}"></td>
-            <td th:text="${account.hideInfo}"></td>
-            <td th:text="${account.note}"></td>
-            <td th:text="${account.price}"></td>
-            <td th:text="${account.online}"></td>
-        </tr>
-    </tbody>
-</table>
+<body class="">
+<div class="wrapper ">
+    <div th:fragment="sidebar" class="sidebar" data-color="white" data-active-color="danger">
+        <div class="logo">
+            <a href="https://www.creative-tim.com" class="simple-text logo-mini">
+                <div class="logo-image-small">
+                    <img src="/assets/img/icon-unkanpo.jpg">
+                </div>
+            </a>
+            <a th:href="@{/admin}" class="simple-text logo-normal" style="color: #FFFEFF;">Unkanpo</a>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li>
+                    <a href="./dashboard.html">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <p>Thống kê doanh số</p>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/admin/types}">
+                        <i class="fa-solid fa-table-list"></i>
+                        <p>Thể loại game</p>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/admin/games}">
+                        <i class="fa-solid fa-gamepad"></i>
+                        <p>Danh sách game</p>
+                    </a>
+                </li>
+                <li class="active ">
+                    <a th:href="@{/admin/account}">
+                        <i class="fa-solid fa-dice"></i>
+                        <p>Tài khoản game</p>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/admin/users}">
+                        <i class="fa-solid fa-users"></i>
+                        <p>Danh sách người dùng</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav th:fragment="nav-bar" class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <div class="navbar-toggle">
+                        <button type="button" class="navbar-toggler">
+                            <span class="navbar-toggler-bar bar1"></span>
+                            <span class="navbar-toggler-bar bar2"></span>
+                            <span class="navbar-toggler-bar bar3"></span>
+                        </button>
+                    </div>
+                    <a class="navbar-brand" th:href="@{/admin/account}" style="color: #FFFEFF;">QUẢN LÍ CHUNG</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                </button>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+        <div class="content">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card all-color">
+                        <div class="card-header ">
+                            <div style="float: left;">
+                                <h4 class="card-title"> Danh sách tài khoản game</h4>
+                                <p class="card-category"> Các tài khoản game được quản lí tại đây.
+                                    <a th:href="@{/admin/account/create}" style="color: #51cbce;">
+                                        Thêm tài khoản game
+                                    </a>
+                                </p>
+                            </div>
+                            <div style="margin-top:20px; margin-bottom: 10px; float: right;">
+                                <div class="input-group no-border">
+                                    <select name="game" class="form-control" style="background-color: white;color: black;"
+                                            onchange="navigateToGame(this)">
+                                        <option class="form-control" style="color: black;" value="0"></option>
+                                        <option class="form-control" style="color: black;" value="0">Tất cả</option>
+                                        <option class="form-control" style="color: black;"
+                                                th:each="game : ${games}"
+                                                th:text="${game.getGame().nameGame}"
+                                                th:value="${game.getGame().idGame}">
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="card-body ">
+                            <table class="table all-center">
+                                <thead class="text-primary ">
+                                <th>Thao tác</th>
+                                <th>Số thứ tự</th>
+                                <th>Tài khoản game</th>
+                                <th>Thông tin tài khoản</th>
+                                <th>Ghi chú</th>
+                                <th>Giá thuê</th>
+                                <th>Trạng thái</th>
+                                </thead>
+                                <tbody>
+                                <tr th:each="account, ac : ${accounts}">
+                                    <td>
+                                        <a class="a-up-del" th:href="@{/admin/account/update/__${account.idAccount}__}">
+                                            <i class="fa-solid fa-pencil i-up-del"></i>
+                                        </a>
+                                        <a th:href="@{/admin/account/deleteInCreate/__${account.idAccount}__}"
+                                           onclick="return confirmDelete()">
+                                            <i class="fa-solid fa-trash-can i-up-del"></i>
+                                        </a>
+                                    </td>
+                                    <td th:text="${ac.count}"></td>
+                                    <td th:text="${account.game.nameGame}"></td>
+                                    <td th:text="${account.hideInfo}"></td>
+                                    <td th:text="${account.note}"></td>
+                                    <td th:text="${account.price}"></td>
+                                    <td th:text="${account.online}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!--Pageable-->
+                            <div class="pagination-page">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer th:replace="/layout_admin :: footer">
+        </footer>
+    </div>
+</div>
+<div th:replace="/layout_admin :: script"></div>
 </body>
+<script th:fragment="confirmDelete">
+    function confirmDelete() {
+        let result = confirm("Bạn muốn xoá tài khoản?");
+        if (result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function navigateToGame(selectElement) {
+        let gameId = selectElement.value;
+        let where = "list";
+        // Điều hướng đến đường dẫn tương ứng với tên game
+        if (gameId != '0') {
+            window.location.href = '/admin/account/findListOfGame/' + gameId + "/" + where
+        }
+        ;
+        if (gameId == '0') window.location.href = '/admin/account/findListOfGame/' + "0" + "/" + where;
+    }
+</script>
+
 </html>

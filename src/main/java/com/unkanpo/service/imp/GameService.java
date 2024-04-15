@@ -31,7 +31,6 @@ public class GameService implements IGameService {
     private TypeService typeService;
     @Autowired
     private GameImageService gameImageService;
-
     private String partUrl = "src\\main\\resources\\static\\image\\";
 
     private List<GameForm> getGameForms(List<Game> games) {
@@ -49,6 +48,12 @@ public class GameService implements IGameService {
     }
 
     @Override
+    public Iterable<GameForm> findAllByName_game(String key_word) {
+        List<Game> games = (List<Game>) gameRepository.findAllByNameGameContaining(key_word);
+        List<GameForm> result = getGameForms(games);
+        return result;
+    }
+
     public GameForm save(GameForm gameForm,List<MultipartFile> images) {
         Game game = gameForm.getGame();
         if (game.getIdGame() == null) {
@@ -132,4 +137,9 @@ public class GameService implements IGameService {
             }
         }
     }
+    @Override
+    public GameForm findById(Long id) {
+        return   getGameForm(gameRepository.findById(id).get());
+    }
+
 }

@@ -10,5 +10,8 @@ public interface IGameService {
     Iterable<GameForm> findAll();
     GameForm findGameById(Long id);
     void delete(Game game);
-    public GameForm save(GameForm gameForm, List<MultipartFile> images);
+    GameForm save(GameForm gameForm, List<MultipartFile> images);
+    Iterable<GameForm> findAllByName_game(String key_word);
+    GameForm findById(Long id);
+
 }

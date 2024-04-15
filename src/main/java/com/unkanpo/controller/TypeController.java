@@ -4,6 +4,7 @@ package com.unkanpo.controller;
 import com.unkanpo.model.Type;
 import com.unkanpo.service.imp.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -53,5 +54,22 @@ public class TypeController {
     public String updateType(@ModelAttribute("type") Type type) {
         typeService.save(type);
         return "redirect:/admin/types/create";
+    }
+
+    @GetMapping("/filter")
+    public ModelAndView searchByName(@RequestParam("keyword") String keyword, @RequestParam("where") String where) {
+        ModelAndView modelAndView = new ModelAndView("/type/list");
+        if (where.equals("list")) {
+            modelAndView = new ModelAndView("/type/list");
+        } else if (where.equals("create")) {
+            modelAndView = new ModelAndView("/type/create");
+            modelAndView.addObject("type", new Type());
+        } else if (where.equals("update")){
+            modelAndView = new ModelAndView("/type/update");
+            modelAndView.addObject("type", typeService.findAllByNameFirst(keyword));
+
+        }
+        modelAndView.addObject("types", typeService.findAllByName_type(keyword));
+        return modelAndView;
     }
 }

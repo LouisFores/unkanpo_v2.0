@@ -46,6 +46,9 @@ public class AccountService implements IAccountService {
     }
 
     @Override
+    public Iterable<GameAccount> findAllByGame(Game game) {
+        return accountRepository.findAllByGame(game);
+    }
     public Iterable<GameAccount> findByIdGame(Long id) {
         Game game = gameService.findGameById(id).getGame();
         return accountRepository.findByGame(game);

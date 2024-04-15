@@ -1,6 +1,7 @@
 package com.unkanpo.service;
 
 import com.unkanpo.model.Type;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface ITypeService {
     void save(Type type);
     void saveAll(List<Type> types);
     void deleteById(Long id);
+
 }
