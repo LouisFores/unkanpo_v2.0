@@ -90,7 +90,9 @@ public class GameController {
     @GetMapping("/findById/{id}")
     public ModelAndView findById(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("game/information");
-        modelAndView.addObject("gameForm", gameService.findById(id));
+        GameForm game = gameService.findGameById(id);
+        modelAndView.addObject("gameForm",game );
+        modelAndView.addObject("listType", typeService.findAll());
         return modelAndView;
     }
 
