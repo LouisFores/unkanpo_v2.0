@@ -406,3 +406,87 @@ demo = {
   }
 
 };
+
+let thisPage = 1;
+let limit = 5;
+let list = document.querySelectorAll('table tbody tr');
+
+function loadItem() {
+  let beginGet = limit * (thisPage - 1);
+  let endGet = limit * thisPage - 1;
+  list.forEach((item, key) => {
+    if (key >= beginGet && key <= endGet) {
+      item.style.display = 'table-row';
+    } else {
+      item.style.display = 'none';
+    }
+  })
+  listPage();
+}
+loadItem();
+
+function listPage() {
+  let count = Math.ceil(list.length / limit);
+  document.querySelector('.pagination-page').innerHTML = '';
+
+  if (thisPage != 1) {
+    let prev = document.createElement('a');
+    prev.innerText = '<<';
+    prev.setAttribute('onclick', "changePage(" + (thisPage - 1) + ")");
+    document.querySelector('.pagination-page').appendChild(prev);
+  }
+
+  let maxPagesToShow = 5; // Số trang tối đa hiển thị ở giữa
+  let startPage = Math.max(1, thisPage - Math.floor(maxPagesToShow / 2));
+  let endPage = Math.min(count, startPage + maxPagesToShow - 1);
+
+  if (startPage > 1) {
+    let firstPage = document.createElement('a');
+    firstPage.innerText = '1';
+    firstPage.setAttribute('onclick', "changePage(1)");
+    document.querySelector('.pagination-page').appendChild(firstPage);
+
+    if (startPage > 2) {
+      let ellipsis = document.createElement('a');
+      ellipsis.innerText = '...';
+      ellipsis.classList.add('disabled');
+      document.querySelector('.pagination-page').appendChild(ellipsis);
+    }
+  }
+
+  for (let i = startPage; i <= endPage; i++) {
+    let newPage = document.createElement('a');
+    newPage.innerText = i;
+    if (i == thisPage) {
+      newPage.classList.add('active-page');
+    }
+    newPage.setAttribute('onclick', "changePage(" + i + ")");
+    document.querySelector('.pagination-page').appendChild(newPage);
+  }
+
+  if (endPage < count) {
+    if (endPage < count - 1) {
+      let ellipsis = document.createElement('a');
+      ellipsis.innerText = '...';
+      ellipsis.classList.add('disabled');
+      document.querySelector('.pagination-page').appendChild(ellipsis);
+    }
+
+    let lastPage = document.createElement('a');
+    lastPage.innerText = count;
+    lastPage.setAttribute('onclick', "changePage(" + count + ")");
+    document.querySelector('.pagination-page').appendChild(lastPage);
+  }
+
+  if (thisPage != count) {
+    let next = document.createElement('a');
+    next.innerText = '>>';
+    next.setAttribute('onclick', "changePage(" + (thisPage + 1) + ")");
+    document.querySelector('.pagination-page').appendChild(next);
+  }
+}
+
+function changePage(i) {
+  thisPage = i;
+  loadItem();
+}

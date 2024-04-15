@@ -9,7 +9,10 @@
 =======
     <list default="true" id="9f15b86c-9e8c-4dc0-814d-55f32b2e80cb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
       <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" afterDir="false" />
+>>>>>>> 321d96e390289ddd3320825fa543bf6742d5ab94
     </list>
 >>>>>>> d964fb56ecacce64819e32a42d4d2e615bbec25a
     <option name="SHOW_DIALOG" value="false" />
@@ -37,14 +40,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -54,14 +58,37 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2e87WNkyUSZfqYkW0x7t5C9BiED" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "feature/frontend",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/phamh/Documents/react/form",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
+    "vue.rearranger.settings.migration": "true"
+=======
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
@@ -91,23 +118,29 @@
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+>>>>>>> 321d96e390289ddd3320825fa543bf6742d5ab94
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mongo&quot;,
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mongo",
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Intellij Java\unkanpo\src\main\resources\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Intellij Java\unkanpo\src\main\resources\static\image" />
       <recent name="F:\Intellij Java\unkanpo\src\main\resources\static" />
     </key>
   </component>
   <component name="RunManager">
+<<<<<<< HEAD
+    <configuration name="UnkanpoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="jbr-17" />
+=======
     <configuration default="true" type="JetRunConfigurationType">
       <module name="unkanpo" />
       <method v="2">
@@ -123,6 +156,7 @@
     </configuration>
     <configuration name="Unnamed" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="19" />
+>>>>>>> ce27b7ea7716158c690d11b87c473072463fe513
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="unkanpo.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.unkanpo.UnkanpoApplication" />
@@ -157,6 +191,35 @@
       <workItem from="1711933862008" duration="14398000" />
       <workItem from="1711961767617" duration="68000" />
       <workItem from="1711963087318" duration="300000" />
+<<<<<<< HEAD
+      <workItem from="1712041961612" duration="151000" />
+      <workItem from="1712042125482" duration="5503000" />
+      <workItem from="1712048583150" duration="2150000" />
+      <workItem from="1712068920932" duration="9616000" />
+      <workItem from="1712152521013" duration="595000" />
+      <workItem from="1712159462121" duration="1131000" />
+      <workItem from="1712160779997" duration="1300000" />
+      <workItem from="1712201286331" duration="1914000" />
+      <workItem from="1712203391318" duration="33000" />
+      <workItem from="1712204415435" duration="2516000" />
+      <workItem from="1712241815383" duration="8857000" />
+      <workItem from="1712252966640" duration="68000" />
+      <workItem from="1712279676990" duration="1202000" />
+      <workItem from="1712284371572" duration="4886000" />
+      <workItem from="1712414427717" duration="6207000" />
+      <workItem from="1712463626343" duration="12283000" />
+      <workItem from="1712494680600" duration="803000" />
+      <workItem from="1712500355228" duration="8788000" />
+      <workItem from="1712548193655" duration="2441000" />
+      <workItem from="1712557882970" duration="3054000" />
+      <workItem from="1712563401390" duration="705000" />
+      <workItem from="1712588133963" duration="1291000" />
+      <workItem from="1712628501492" duration="4039000" />
+      <workItem from="1712681221148" duration="291000" />
+      <workItem from="1712713052878" duration="15938000" />
+      <workItem from="1712758097389" duration="9323000" />
+      <workItem from="1712798321180" duration="4188000" />
+=======
       <workItem from="1712215480809" duration="3281000" />
       <workItem from="1712218837801" duration="837000" />
       <workItem from="1712219730171" duration="953000" />
@@ -175,4 +238,25 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+<<<<<<< HEAD
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/unkanpo/controller/GameController.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+=======
+>>>>>>> 321d96e390289ddd3320825fa543bf6742d5ab94
 </project>

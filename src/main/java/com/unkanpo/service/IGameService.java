@@ -8,4 +8,8 @@ public interface IGameService {
     GameForm findGameById(Long id);
     void delete(Game game);
     GameForm save(GameForm game);
+
+    Iterable<GameForm> findAllByName_game(String key_word);
+    GameForm findById(Long id);
+
 }

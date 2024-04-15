@@ -13,5 +13,6 @@ import java.util.List;
 public interface TypeRepository extends JpaRepository<Type,Long> {
     @Query(value = "SELECT t.name_type FROM Type as t JOIN GameTypes as gt ON t.id_type = gt.id_type WHERE gt.id_game = :value", nativeQuery = true)
     List<String> findTypes(@Param("value") Long idGame);
-    Iterable<Type> findAllByNameType(String keyWord);
+
+    Iterable<Type> findAllByNameTypeContaining(String keyWord);
 }

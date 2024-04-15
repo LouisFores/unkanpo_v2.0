@@ -52,6 +52,7 @@ public class GameController {
     @GetMapping("/update/{id}")
     public ModelAndView showUpdateGame(@PathVariable Long id) {
         GameForm game = gameService.findGameById(id);
+
         if (game != null) {
             ModelAndView modelAndView = new ModelAndView("/game/update");
             modelAndView.addObject("gameForm",game );
@@ -76,6 +77,21 @@ public class GameController {
             return "redirect:/admin/games";
         }
         return "redirect:/admin/games";
+    }
+
+
+    @GetMapping("/filter")
+    public ModelAndView searchByName(@RequestParam("keyword") String keyword) {
+        ModelAndView modelAndView = new ModelAndView("/game/list");
+        modelAndView.addObject("listGame", gameService.findAllByName_game(keyword));
+        return modelAndView;
+    }
+
+    @GetMapping("/findById/{id}")
+    public ModelAndView findById(@PathVariable("id") Long id) {
+        ModelAndView modelAndView = new ModelAndView("game/information");
+        modelAndView.addObject("gameForm", gameService.findById(id));
+        return modelAndView;
     }
 
 }
