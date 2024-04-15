@@ -63,8 +63,8 @@ public class GameController {
     }
 
     @PostMapping("/update")
-    public String updateGame(@ModelAttribute("game") GameForm game) {
-        gameService.save(game);
+    public String updateGame(@ModelAttribute("game") GameForm game,@RequestParam("more-image") List<MultipartFile> image) {
+        gameService.save(game,image);
         return "redirect:/admin/games";
     }
 

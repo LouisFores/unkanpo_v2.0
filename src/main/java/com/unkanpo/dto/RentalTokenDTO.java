@@ -1,9 +1,15 @@
 package com.unkanpo.dto;
 
 public class RentalTokenDTO implements DataTransferObject<RentalTokenDTO>{
+    private Long rentId;
     private String token;
 
     public RentalTokenDTO() {
+    }
+
+    public RentalTokenDTO(Long rentId, String token) {
+        this.rentId = rentId;
+        this.token = token;
     }
 
     public RentalTokenDTO(String token) {
@@ -16,6 +22,14 @@ public class RentalTokenDTO implements DataTransferObject<RentalTokenDTO>{
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public Long getRentId() {
+        return rentId;
+    }
+
+    public void setRentId(Long rentId) {
+        this.rentId = rentId;
     }
 
     @Override

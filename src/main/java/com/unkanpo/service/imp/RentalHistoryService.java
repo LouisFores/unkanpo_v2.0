@@ -1,5 +1,6 @@
 package com.unkanpo.service.imp;
 
+import com.unkanpo.dto.RentalTokenDTO;
 import com.unkanpo.model.GameAccount;
 import com.unkanpo.model.RentalHistory;
 import com.unkanpo.model.User;
@@ -12,9 +13,11 @@ import org.springframework.stereotype.Service;
 public class RentalHistoryService implements IRentalHistoryService {
     @Autowired
     private RentalHistoryRepository rentalHistoryRepository;
+    @Autowired
+    private TokenService tokenService;
     // stack is time to deduct coin in one hour, is five minutes
     @Override
-    public void startRent(User user, GameAccount gameAccount) throws Exception {
+    public RentalTokenDTO startRent(User user, GameAccount gameAccount) throws Exception {
         int coin = user.getCoin();
         int price = gameAccount.getPrice();
         int stack = 60/5;
@@ -24,5 +27,10 @@ public class RentalHistoryService implements IRentalHistoryService {
         RentalHistory rental = new RentalHistory(user, gameAccount);
         rental.startRenting();
         rentalHistoryRepository.save(rental);
+        String[] infoLogin = gameAccount.getHideInfo().split("_");
+        RentalTokenDTO tokenDTO = new RentalTokenDTO();
+        tokenDTO.setRentId(rentalHistoryRepository.findTopByUserAndGameAccountOrderByIdRentalDesc(user,gameAccount).get().getIdRental());
+        tokenDTO.setToken(tokenService.createToken(infoLogin[0],infoLogin[1]));
+        return tokenDTO;
     }
 }

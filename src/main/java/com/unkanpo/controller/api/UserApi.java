@@ -1,7 +1,5 @@
 package com.unkanpo.controller.api;
-import com.unkanpo.dto.AlertDTO;
-import com.unkanpo.dto.RechargeDTO;
-import com.unkanpo.dto.AlertStatus;
+import com.unkanpo.dto.*;
 import com.unkanpo.model.GameAccount;
 import com.unkanpo.model.User;
 import com.unkanpo.service.imp.AccountService;
@@ -100,15 +98,17 @@ public class  UserApi {
         return new ResponseEntity<>(new AlertDTO(AlertStatus.Good,"Nạp tiền thành công"),HttpStatus.OK);
     }
 
-    @PostMapping("/{id}/accounts/{accountId}")
+    @GetMapping("/{id}/accounts/{accountId}")
     public ResponseEntity rentalAccount(@PathVariable("id") Long id,@PathVariable("accountId") Long accountId) {
         User user = userService.findById(id).get();
         GameAccount account = accountService.findById(accountId).get();
+        RentalTokenDTO tokenDTO;
         try {
-            rentalService.startRent(user,account);
+            tokenDTO = rentalService.startRent(user,account);
         } catch (Exception e) {
             return new ResponseEntity<>(new AlertDTO(AlertStatus.Error,e.getMessage()),HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(new AlertDTO(AlertStatus.Good,"Thuê thành công!"),HttpStatus.OK);
+        AlertDTO alertDTO = new AlertDTO(AlertStatus.Good,"Thuê thành công!",tokenDTO);
+        return new ResponseEntity<>(alertDTO,HttpStatus.OK);
     }
 }

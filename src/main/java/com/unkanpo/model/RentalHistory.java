@@ -25,6 +25,8 @@ public class RentalHistory {
     private GameAccount gameAccount;
 
     private String startTime;
+    private String lastTimeRequest;
+    private boolean isOnline;
     private String endTime;
 
     public RentalHistory() {
@@ -71,8 +73,12 @@ public class RentalHistory {
         return endTime;
     }
 
-    public void stopRenting() {
+    public void updateStatus() {
         this.endTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
     }
+
+//    public Boolean isRenting(){
+//        String now = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+//    }
 
 }

@@ -33,8 +33,6 @@ public class GameService implements IGameService {
     private GameImageService gameImageService;
 
     private String partUrl = "src\\main\\resources\\static\\image\\";
-//    private String partUrl = "C:\\CodeGym\\MyProject\\unkanpo_v2.0\\src\\main\\resources\\static\\image";
-
 
     private List<GameForm> getGameForms(List<Game> games) {
         List<GameForm> result = new ArrayList<>();
@@ -51,17 +49,6 @@ public class GameService implements IGameService {
     }
 
     @Override
-    public GameForm save(GameForm gameForm) {
-        Game game = gameForm.getGame();
-        if (game.getIdGame() == null) {
-            gameRepository.save(game);
-            saveGametype(gameForm, false);
-        } else {
-            gameRepository.save(game);
-            saveGametype(gameForm,true);
-        }
-        return gameForm;
-    }
     public GameForm save(GameForm gameForm,List<MultipartFile> images) {
         Game game = gameForm.getGame();
         if (game.getIdGame() == null) {
@@ -71,6 +58,7 @@ public class GameService implements IGameService {
         } else {
             gameRepository.save(game);
             saveGametype(gameForm,true);
+            saveImage(gameForm,images);
         }
         return gameForm;
     }
