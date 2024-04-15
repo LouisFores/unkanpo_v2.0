@@ -23,7 +23,7 @@
                         </div>
                         <div class="card-body">
                             <form th:action="@{/admin/types/create}" th:object="${type}" method="POST" novalidate="novalidate" >
-                                <input type="hidden" th:field="*{idType}"/>
+                                <input type="hidden" th:field="*{idType}" />
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
