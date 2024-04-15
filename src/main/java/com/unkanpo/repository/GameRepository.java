@@ -11,8 +11,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 @Repository
 public interface GameRepository extends JpaRepository<Game, Long> {
+    Optional<Game> findByNameGame(String nameGame);
     Iterable<Game> findAllByNameGameContaining(String keyWord);
 }

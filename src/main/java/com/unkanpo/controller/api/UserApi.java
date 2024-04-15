@@ -115,7 +115,7 @@ public class  UserApi {
         } catch (Exception e) {
             return new ResponseEntity<>(new AlertDTO(AlertStatus.Error,e.getMessage()),HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(new AlertDTO(AlertStatus.Good,"Nạp tiền thành công"),HttpStatus.OK);
+        return new ResponseEntity<>(new AlertDTO(AlertStatus.Success,"Nạp tiền thành công"),HttpStatus.OK);
     }
 
     @GetMapping("/{id}/accounts/{accountId}")
@@ -128,7 +128,7 @@ public class  UserApi {
         } catch (Exception e) {
             return new ResponseEntity<>(new AlertDTO(AlertStatus.Error,e.getMessage()),HttpStatus.BAD_REQUEST);
         }
-        AlertDTO alertDTO = new AlertDTO(AlertStatus.Good,"Thuê thành công!",tokenDTO);
+        AlertDTO alertDTO = new AlertDTO(AlertStatus.Success,"Thuê thành công!",tokenDTO);
         return new ResponseEntity<>(alertDTO,HttpStatus.OK);
     }
 }

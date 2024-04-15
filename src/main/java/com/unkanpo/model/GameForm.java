@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
 
 public class GameForm {
     private Game game;
-
     private List<String> types;
     private List<String> images;
     private MultipartFile background;
@@ -19,6 +18,10 @@ public class GameForm {
     public GameForm(Game game, List<String> types) {
         this.game = game;
         this.types = types;
+    }
+
+    public GameForm(Game game) {
+        this.game = game;
     }
 
     public GameForm(Game game, List<String> types, MultipartFile background) {

@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.*;
 public class RentApi {
     @GetMapping("/{id}")
     public ResponseEntity checkRentStatus(@PathVariable String id) {
-        return new ResponseEntity<>(new AlertDTO(AlertStatus.Good,"vẫn đang thuê"), HttpStatus.OK);
+        return new ResponseEntity<>(new AlertDTO(AlertStatus.Success,"vẫn đang thuê"), HttpStatus.OK);
     }
 }

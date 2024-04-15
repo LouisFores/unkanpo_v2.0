@@ -10,6 +10,8 @@ public class AlertDTO {
     private Long idRent;
 
     public AlertDTO() {
+        this.alertStatus = AlertStatus.None;
+        this.message = "";
     }
 
     public AlertDTO(AlertStatus alertStatus, String message) {
@@ -24,8 +26,8 @@ public class AlertDTO {
         this.idRent = rentalTokenDTO.getRentId();
     }
 
-    public AlertStatus getStatus() {
-        return alertStatus;
+    public String getStatus() {
+        return alertStatus.toString();
     }
 
     public void setStatus(AlertStatus alertStatus) {

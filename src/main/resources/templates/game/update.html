@@ -9,6 +9,9 @@
     <div th:replace="game/list :: sidebar" class="sidebar" data-color="white" data-active-color="danger">
     </div>
     <div class="main-panel">
+        <div th:if="${alert.getStatus() != 'None'}">
+            <div th:replace="/alert :: alert"></div>
+        </div>
         <!-- Navbar -->
         <nav th:replace="game/list :: nav-bar">
         </nav>
@@ -24,7 +27,7 @@
                         </div>
                         <div class="card-body">
                             <div class="author">
-                                <img src="" alt="..." id="image-preview">
+                                <img th:src="${backGround}" alt="..." id="image-preview">
                             </div>
                         </div>
                         <div class="card-footer">
@@ -35,7 +38,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="col-md-8">
@@ -45,29 +47,26 @@
                             <a th:href="@{/admin/games}" style="color: #51cbce;">Trở lại</a>
                         </div>
                         <div class="card-body">
-                            <form th:action="@{/admin/games/update}" th:object="${gameForm}" method="POST" novalidate="novalidate">
+                            <form th:action="@{/admin/games/update}" th:object="${gameForm}" method="POST" novalidate="novalidate" enctype="multipart/form-data">
                                 <div class="row">
-                                    <div class="col-md-5 pr-1">
-
-                                    </div>
-                                    <div class="col-md-3 px-1">
-
-                                    </div>
-                                    <div class="col-md-4 pl-1">
-
-                                    </div>
+                                    <div class="col-md-5 pr-1"></div>
+                                    <div class="col-md-3 px-1"></div>
+                                    <div class="col-md-4 pl-1"></div>
+                                </div>
+                                <div>
+                                    <input type="hidden" name="id" th:field="${gameForm.game.idGame}">
                                 </div>
                                 <div class="row" style="margin-bottom: 20px;">
                                     <div class="col-md-12 pr-1">
                                         <label>Ảnh nền</label>
-                                        <input type="file" class="form-control" id="image-input" style="color: black" name="files" >
+                                        <input type="file" class="form-control" id="image-input" style="color: black" name="background" >
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-12 pr-1">
                                         <label>Ảnh mô tả</label>
-                                        <input type="file" class="form-control" id="imageFile" style="color: black" name="imageFile" accept="image/*" multiple>
+                                        <input type="file" class="form-control" id="imageFile" style="color: black" name="more-image"  accept="image/*" multiple>
                                     </div>
                                 </div>
 
@@ -126,6 +125,7 @@
         </div>
     </div>
 </div>
+<div th:replace="/alert :: alert"></div>
 <div th:replace="/layout_admin :: script"></div>
 <!--   Core JS Files   -->
 </body>
