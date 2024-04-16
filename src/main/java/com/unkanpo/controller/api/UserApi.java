@@ -1,4 +1,5 @@
 package com.unkanpo.controller.api;
+import com.unkanpo.dto.*;
 import com.unkanpo.dto.AlertDTO;
 import com.unkanpo.dto.RechargeDTO;
 import com.unkanpo.dto.AlertStatus;
@@ -114,18 +115,19 @@ public class  UserApi {
         } catch (Exception e) {
             return new ResponseEntity<>(new AlertDTO(AlertStatus.Error,e.getMessage()),HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(new AlertDTO(AlertStatus.Good,"Nạp tiền thành công"),HttpStatus.OK);
+        return new ResponseEntity<>(new AlertDTO(AlertStatus.Success,"Nạp tiền thành công"),HttpStatus.OK);
     }
 
-    @PostMapping("/{id}/accounts/{accountId}")
+    @GetMapping("/{id}/accounts/{accountId}")
     public ResponseEntity rentalAccount(@PathVariable("id") Long id,@PathVariable("accountId") Long accountId) {
         User user = userService.findById(id).get();
         GameAccount account = accountService.findById(accountId).get();
+        RentalTokenDTO tokenDTO;
         try {
-            rentalService.startRent(user,account);
+            tokenDTO = rentalService.startRent(user,account);
         } catch (Exception e) {
             return new ResponseEntity<>(new AlertDTO(AlertStatus.Error,e.getMessage()),HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(new AlertDTO(AlertStatus.Good,"Thuê thành công!"),HttpStatus.OK);
+        return new ResponseEntity<>(new AlertDTO(AlertStatus.Success,"thuê thành công",tokenDTO) ,HttpStatus.OK);
     }
 }

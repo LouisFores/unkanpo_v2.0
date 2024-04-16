@@ -37,7 +37,9 @@ public class AccountService implements IAccountService {
 
     @Override
     public void save(GameAccount account) {
-        accountRepository.save(account);
+        GameAccount acc = account;
+        acc.setIsRent(false);
+        accountRepository.save(acc);
     }
 
     @Override
@@ -52,5 +54,17 @@ public class AccountService implements IAccountService {
     public Iterable<GameAccount> findByIdGame(Long id) {
         Game game = gameService.findGameById(id).getGame();
         return accountRepository.findByGame(game);
+    }
+
+    public void rented(Long id) {
+        GameAccount account = accountRepository.findById(id).get();
+        account.setIsRent(true);
+        accountRepository.save(account);
+    }
+
+    public void free(Long id) {
+        GameAccount account  = accountRepository.findById(id).get();
+        account.setIsRent(false);
+        accountRepository.save(account);
     }
 }

@@ -9,6 +9,9 @@
     <div th:replace="game/list :: sidebar" class="sidebar" data-color="white" data-active-color="danger">
     </div>
     <div class="main-panel">
+        <div th:if="${alert.getStatus() != 'None'}">
+            <div th:replace="/alert :: alert"></div>
+        </div>
         <!-- Navbar -->
         <nav th:replace="game/list :: nav-bar">
         </nav>

@@ -6,9 +6,13 @@
 
 <body class="">
 <div class="wrapper ">
+
     <div th:replace="game/list :: sidebar" class="sidebar" data-color="white" data-active-color="danger">
     </div>
     <div class="main-panel">
+        <div th:if="${alert.getStatus() != 'None'}">
+            <div th:replace="/alert :: alert"></div>
+        </div>
         <!-- Navbar -->
         <nav th:replace="game/list :: nav-bar">
         </nav>
@@ -117,6 +121,7 @@
                                         <button type="submit" class="btn btn-primary btn-round">Lưu</button>
                                     </div>
                                 </div>
+
                             </form>
 
                         </div>
@@ -124,11 +129,16 @@
                 </div>
             </div>
         </div>
+
     </div>
+
 </div>
+
+
 <div th:replace="/layout_admin :: script"></div>
 <!--   Core JS Files   -->
 </body>
+
 <script th:fragment="process-img">
     document.getElementById('image-input').addEventListener('change', function (event) {
         var file = event.target.files[0];

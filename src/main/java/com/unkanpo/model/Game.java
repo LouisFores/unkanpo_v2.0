@@ -16,7 +16,9 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idGame;
 
+    @Column(unique = true)
     private String nameGame;
+
     private String descriptionGame;
 
     public Game() {
