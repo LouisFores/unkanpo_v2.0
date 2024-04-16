@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout_admin :: head">
+</head>
+<body>
+<div class="control-alert" th:fragment="alert">
+    <button th:if="${alert.getStatus() == 'Success'}" class="success" id="success" hidden="hidden">Show Success</button>
+    <button th:if="${alert.getStatus() == 'Warning'}" class="warning" id="warning" hidden="hidden">Show Warning</button>
+    <button th:if="${alert.getStatus() == 'Error'}" class="error" id="error" hidden="hidden">Show Error</button>
+    <input  th:value="${alert.getMessage()}" id="message" hidden="hidden" >
+    <div id="toasts"></div>
+</div>
+<script src="/js/alert.js"></script>
+</body>
+</html>

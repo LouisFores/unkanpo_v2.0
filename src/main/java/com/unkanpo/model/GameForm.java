@@ -2,14 +2,14 @@ package com.unkanpo.model;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.unkanpo.dto.GameFormDTO;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 public class GameForm {
     private Game game;
-
     private List<String> types;
     private List<String> images;
     private MultipartFile background;
@@ -19,6 +19,10 @@ public class GameForm {
     public GameForm(Game game, List<String> types) {
         this.game = game;
         this.types = types;
+    }
+
+    public GameForm(Game game) {
+        this.game = game;
     }
 
     public GameForm(Game game, List<String> types, MultipartFile background) {
@@ -73,5 +77,23 @@ public class GameForm {
 
     public void setBackground(MultipartFile background) {
         this.background = background;
+    }
+
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setImages(List<String> images) {
+        this.images = images;
+    }
+
+    public GameFormDTO ToGameFromDTO() {
+        GameFormDTO gameFormDTO = new GameFormDTO();
+        gameFormDTO.setIdGame(this.getGame().getIdGame())
+                .setNameGame(this.game.getNameGame())
+                .setDescriptionGame(this.game.getDescriptionGame())
+                .setTypes(this.getTypes())
+                .setImages(this.getImages());
+        return gameFormDTO;
     }
 }
