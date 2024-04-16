@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- Coding by CodingLab | www.codinglabweb.com-->
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +31,7 @@
         <input type="Submit" value="Register Now" onclick="register()">
       </div>
       <div class="text">
-        <h3>Already have an account? <a href="login.html">Login now</a></h3>
+        <h3>Already have an account? <a th:href="@{/api/v1/users/formLogin}"  >Login now</a></h3>
       </div>
     </form>
   </div>

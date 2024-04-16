@@ -1,5 +1,6 @@
 package com.unkanpo.controller.api;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.unkanpo.model.GameAccount;
 import com.unkanpo.model.GameForm;
 import com.unkanpo.service.imp.AccountService;
@@ -12,7 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.List;
+import java.io.InputStream;
+import com.fasterxml.jackson.core.type.TypeReference;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/api/v1/games")
@@ -46,7 +51,7 @@ public class GameApi {
         return new ResponseEntity<>(accounts, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}/accounts/{idAccount}")
+    @GetMapping("/accounts/{idAccount}")
     public ResponseEntity<Iterable<GameAccount>> getGameAccountById(@PathVariable Long id,@PathVariable Long idAccount) {
         Iterable<GameAccount> accounts = accountService.findByIdGame(idAccount);
         if (accounts == null) {
@@ -54,4 +59,7 @@ public class GameApi {
         }
         return new ResponseEntity<>(accounts, HttpStatus.OK);
     }
+
+
+
 }
