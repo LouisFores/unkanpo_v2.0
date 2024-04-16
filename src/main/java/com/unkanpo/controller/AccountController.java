@@ -1,6 +1,7 @@
 package com.unkanpo.controller;
 
 
+import com.unkanpo.model.Game;
 import com.unkanpo.model.GameAccount;
 import com.unkanpo.service.imp.AccountService;
 import com.unkanpo.service.imp.GameService;
@@ -22,13 +23,47 @@ public class AccountController {
     public ModelAndView getListAccount() {
         ModelAndView modelAndView = new ModelAndView("/account/list");
         modelAndView.addObject("accounts", accountService.findAll());
+        modelAndView.addObject("games", gameService.findAll());
         return modelAndView;
     }
 
+    @GetMapping("/findListOfGame/{idGame}/{where}")
+    public ModelAndView getListAccountOfGame(@PathVariable Long idGame, @PathVariable String where) {
+        ModelAndView modelAndView = new ModelAndView();
+        Game game = idGame != 0 ? gameService.findById(idGame).getGame() : null;
+
+        switch (where) {
+            case "create":
+                modelAndView.setViewName("account/create");
+                modelAndView.addObject("account", new GameAccount());
+                break;
+            case "update":
+                modelAndView.setViewName("account/update");
+                modelAndView.addObject("account", accountService.findById(1L).get());
+                break;
+            case "list":
+                modelAndView.setViewName("account/list");
+                modelAndView.addObject("accounts", accountService.findAll());
+                break;
+            default:
+                return null;
+        }
+
+        modelAndView.addObject("games", gameService.findAll());
+
+        if (idGame == 0) {
+            modelAndView.addObject("accounts", accountService.findAll());
+        } else {
+            modelAndView.addObject("accounts", accountService.findAllByGame(game));
+        }
+
+        return modelAndView;
+    }
     @GetMapping("/create")
     public ModelAndView createAccountForm() {
         ModelAndView modelAndView = new ModelAndView("/account/create");
         modelAndView.addObject("account", new GameAccount());
+        modelAndView.addObject("accounts", accountService.findAll());
         modelAndView.addObject("games", gameService.findAll());
         return modelAndView;
     }
@@ -38,11 +73,13 @@ public class AccountController {
         ModelAndView modelAndView = new ModelAndView();
         if (accountService.IsExist(account)) {
             modelAndView.setViewName("/account/create");
-            modelAndView.addObject("account", account);
-            modelAndView.addObject("error", "account is exits");
+            modelAndView.addObject("account", new GameAccount());
+            modelAndView.addObject("accounts", accountService.findAll());
+            modelAndView.addObject("games", gameService.findAll());
+            modelAndView.addObject("error", "Account is exits");
         } else {
             accountService.save(account);
-            modelAndView.setViewName("redirect:/admin/account");
+            modelAndView.setViewName("redirect:/admin/account/create");
         }
         return modelAndView;
     }
@@ -51,6 +88,7 @@ public class AccountController {
     public ModelAndView updateAccount(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView("/account/update");
         modelAndView.addObject("account", accountService.findById(id).get());
+        modelAndView.addObject("accounts", accountService.findAll());
         modelAndView.addObject("games", gameService.findAll());
         return modelAndView;
     }
@@ -60,6 +98,7 @@ public class AccountController {
         ModelAndView modelAndView = new ModelAndView("/account/update");
         accountService.save(account);
         modelAndView.addObject("account", account);
+        modelAndView.addObject("accounts", accountService.findAll());
         modelAndView.addObject("games", gameService.findAll());
         modelAndView.addObject("alert", "sửa thành công");
         return modelAndView;
@@ -68,6 +107,12 @@ public class AccountController {
     @GetMapping("/delete/{id}")
     public ModelAndView deleteAccount(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView("redirect:/admin/account");
+        accountService.delete(id);
+        return modelAndView;
+    }
+    @GetMapping("/deleteInCreate/{id}")
+    public ModelAndView deleteInCreateAccount(@PathVariable Long id) {
+        ModelAndView modelAndView = new ModelAndView("redirect:/admin/account/create");
         accountService.delete(id);
         return modelAndView;
     }

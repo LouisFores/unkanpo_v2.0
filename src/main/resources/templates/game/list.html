@@ -36,6 +36,12 @@
                     </a>
                 </li>
                 <li>
+                    <a th:href="@{/admin/account}">
+                        <i class="fa-solid fa-dice"></i>
+                        <p>Tài khoản game</p>
+                    </a>
+                </li>
+                <li>
                     <a th:href="@{/admin/users}">
                         <i class="fa-solid fa-users"></i>
                         <p>Danh sách người dùng</p>
@@ -45,6 +51,9 @@
         </div>
     </div>
     <div class="main-panel">
+        <div th:if="${alert.getStatus() != 'None'}">
+            <div th:replace="/alert :: alert"></div>
+        </div>
         <!-- Navbar -->
         <nav th:fragment="nav-bar" class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
             <div class="container-fluid">
@@ -75,16 +84,17 @@
                             <div style="float: left;">
                                 <h4 class="card-title"> Danh sách game</h4>
                                 <p class="card-category"> Các trò chơi được quản lí tại đây.
-                                    <a  th:href="@{/admin/games/create}" style="color: #51cbce;">
+                                    <a th:href="@{/admin/games/create}" style="color: #51cbce;">
                                         Thêm trò chơi
                                     </a>
                                 </p>
                             </div>
                             <div style="margin-top:20px; margin-bottom: 10px; float: right;">
-                                <form th:action="@{/admin}" method="post" novalidate="novalidate">
+                                <form th:action="@{/admin/games/filter}" method="get" novalidate="novalidate">
                                     <div class="input-group no-border">
                                         <input style="font-size:1.57em; border-top-left-radius: 10px; border-bottom-left-radius: 10px; color: white"
-                                               type="text" id="numberCode" name="code" value="" class="form-control" placeholder="Search...">
+                                               type="text" value="" class="form-control" id="keyword" name="keyword"
+                                               placeholder="Search...">
                                         <div class="input-group-append">
                                             <div style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;"
                                                  class="input-group-text">
@@ -95,36 +105,36 @@
                                 </form>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class="text-primary">
-                                        <th class="text-center">Số thứ tự</th>
-                                        <th></th>
-                                        <th>Tên trò chơi</th>
-                                        <th class="text-center">Thao tác</th>
-                                        </thead>
-                                        <tbody>
-                                        <tr th:each="gameForm: ${listGame}">
-                                            <td class="text-center" style="font-size: 30px;" th:text="${gameForm.game.idGame}"></td>
-                                            <td class="avatar" style="text-align: center;">
-                                                <img th:src="@{'/image/' + ${gameForm.game.nameGame.trim().replace(' ', '-')} + '.jpg'}"
-                                                     alt="Circle Image" class="img-circle img-no-padding img-responsive" style="max-width: 110px;" th:inline="none">
-                                            </td>
-                                            <td>
-                                                <a class="game-a" th:href="@{/admin/games/findListOfGame/__${gameForm.game.idGame}__}" th:text="${gameForm.game.nameGame}">Genshin impact</a>
-                                                <p class="text-down-line" th:text="${gameForm.game.descriptionGame}"></p>
-                                                <span th:each="type : ${gameForm.types}">
+                                <table class="table">
+                                    <thead class="text-primary">
+                                    <th class="text-center">Số thứ tự</th>
+                                    <th></th>
+                                    <th>Tên trò chơi</th>
+                                    <th class="text-center">Thao tác</th>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="gameForm, gf: ${listGame}">
+                                        <td class="text-center" style="font-size: 30px;" th:text="${gf.count}"></td>
+                                        <td class="avatar" style="text-align: center;">
+                                            <img th:src="@{'/image/' + ${gameForm.game.nameGame.trim().replace(' ', '-')} + '.jpg'}"
+                                                 alt="Circle Image" class="img-circle img-no-padding img-responsive" style="max-width: 80px;" th:inline="none">
+                                        </td>
+                                        <td>
+                                            <a class="game-a" th:href="@{/admin/games/findById/__${gameForm.game.idGame}__}" th:text="${gameForm.game.nameGame}">Genshin impact</a>
+                                            <p class="text-down-line" th:text="${gameForm.game.descriptionGame}"></p>
+                                            <span th:each="type : ${gameForm.types}">
                                                     <a th:text="${type}" th:href="@{/admin/types}"></a>
-                                                </span>
-                                            </td>
-                                            <td class="text-center">
-                                                <a th:href="@{/admin/games/update/__${gameForm.game.idGame}__}">
-                                                    <i class="fa-solid fa-up-long fa-bounce" style="color: #51cbce; font-size: 30px;"></i>Update</a>
-                                                <a th:href="@{/admin/games/delete/__${gameForm.game.idGame}__}">delete</a>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                            </span>
+                                        </td>
+                                        <td class="text-center">
+                                            <a th:href="@{/admin/games/update/__${gameForm.game.idGame}__}">
+                                                <i class="fa-solid fa-up-long fa-bounce" style="color: #51cbce; font-size: 30px;"></i>Update</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <!--Pageable-->
+                                <div class="pagination-page">
                                 </div>
                             </div>
                         </div>

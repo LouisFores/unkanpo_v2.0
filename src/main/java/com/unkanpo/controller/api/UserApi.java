@@ -1,7 +1,9 @@
 package com.unkanpo.controller.api;
+import com.unkanpo.dto.*;
 import com.unkanpo.dto.AlertDTO;
 import com.unkanpo.dto.RechargeDTO;
 import com.unkanpo.dto.AlertStatus;
+import com.unkanpo.dto.UserLoginDTO;
 import com.unkanpo.model.GameAccount;
 import com.unkanpo.model.User;
 import com.unkanpo.service.imp.AccountService;
@@ -38,19 +40,35 @@ public class  UserApi {
         return new ResponseEntity<>(gameService.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/formLogin")
+    public ModelAndView showLoginUser() {
+        ModelAndView modelAndView = new ModelAndView("/user/login");
+        modelAndView.addObject("user", new User());
+        return modelAndView;
+    }
+
     @GetMapping("/login")
     public ResponseEntity<User> loginForm() {
         return new ResponseEntity<>(new User(), HttpStatus.OK);
     }
 
+
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody User user, HttpSession session) {
+    public ResponseEntity login(@RequestBody UserLoginDTO user, HttpSession session) {
         try {
             session.setAttribute("userId", userService.Login(user.getUsername(), user.getPassword()));
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(gameService.findAll(), HttpStatus.FOUND);
+        return new ResponseEntity<>(new LoginResponse("success"), HttpStatus.OK);
+    }
+
+    class LoginResponse {
+        public String msg;
+        public String code;
+        public LoginResponse(String msg) {
+            this.msg = msg;
+        }
     }
 
     @GetMapping("/register")
@@ -97,18 +115,19 @@ public class  UserApi {
         } catch (Exception e) {
             return new ResponseEntity<>(new AlertDTO(AlertStatus.Error,e.getMessage()),HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(new AlertDTO(AlertStatus.Good,"Nạp tiền thành công"),HttpStatus.OK);
+        return new ResponseEntity<>(new AlertDTO(AlertStatus.Success,"Nạp tiền thành công"),HttpStatus.OK);
     }
 
-    @PostMapping("/{id}/accounts/{accountId}")
+    @GetMapping("/{id}/accounts/{accountId}")
     public ResponseEntity rentalAccount(@PathVariable("id") Long id,@PathVariable("accountId") Long accountId) {
         User user = userService.findById(id).get();
         GameAccount account = accountService.findById(accountId).get();
+        RentalTokenDTO tokenDTO;
         try {
-            rentalService.startRent(user,account);
+            tokenDTO = rentalService.startRent(user,account);
         } catch (Exception e) {
             return new ResponseEntity<>(new AlertDTO(AlertStatus.Error,e.getMessage()),HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(new AlertDTO(AlertStatus.Good,"Thuê thành công!"),HttpStatus.OK);
+        return new ResponseEntity<>(new AlertDTO(AlertStatus.Success,"thuê thành công",tokenDTO) ,HttpStatus.OK);
     }
 }

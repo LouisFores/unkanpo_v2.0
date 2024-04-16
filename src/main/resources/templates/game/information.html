@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head th:replace="/layout_admin :: head">
+</head>
+
+<body class="">
+<div class="wrapper ">
+    <div th:replace="game/list :: sidebar" class="sidebar" data-color="white" data-active-color="danger">
+    </div>
+    <div class="main-panel">
+        <div th:if="${alert.getStatus() != 'None'}">
+            <div th:replace="/alert :: alert"></div>
+        </div>
+        <!-- Navbar -->
+        <nav th:replace="game/list :: nav-bar">
+        </nav>
+        <!-- End Navbar -->
+        <div class="content">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-user all-color">
+                        <div class="image" style="height: 80px;">
+                        </div>
+                        <div class="card-body">
+                            <div class="author">
+                                <img id="productImage" class="product-image" th:src="${gameForm.getBackground()}" th:inline="none">
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="button-container">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-user all-color">
+                        <div class="image" style="margin-right: 16px; height: 140px;">
+                            <div class="carousel-container">
+                                <div class="small-image carousel-slide " th:each="gameImage : ${gameForm.getBackground()}">
+                                    <img class="small-product-image"
+                                         th:href="${gameImage}"
+                                         alt="Image 4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="card card-user all-color">
+                        <div class="card-header">
+                            <h5 class="card-title">Tuỳ chỉnh game - Thông tin game</h5>
+                            <a th:href="@{/admin/games}" style="color: #51cbce;">Trở lại</a>
+
+                        </div>
+
+                        <div class="card-body"  th:object="${gameForm}">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Tên game</label>
+                                            <input type="text" class="form-control" id="name" style="color: black"
+                                                   placeholder="Tên game" th:field="*{game.nameGame}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Mô tả</label>
+                                            <textarea class="form-control textarea" id="description"
+                                                      style="color: black"
+                                                      th:field="*{game.descriptionGame}"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Thể loại</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2" th:each="type : ${listType}">
+                                        <div class="form-group">
+                                            <div class="input-container">
+                                                <input name="types" type="checkbox" th:checked="${gameForm.checkType(type.nameType)}" th:value="${type.idType}"/>
+                                                <span class="input-text" th:text="${type.nameType}"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="/layout_admin :: script"></div>
+<!--   Core JS Files   -->
+</body>
+<script th:fragment="process-img">
+    var productImages = [];
+
+    var currentIndex = 0;
+    var productImage = document.getElementById("productImage");
+
+    function changeImage(index) {
+        currentIndex = index;
+        productImage.src = productImages[currentIndex];
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % productImages.length;
+        productImage.src = productImages[currentIndex];
+    }
+
+    function previousImage() {
+        currentIndex =
+            (currentIndex - 1 + productImages.length) % productImages.length;
+        productImage.src = productImages[currentIndex];
+    }
+
+    // Hiển thị ảnh đầu tiên khi trang tải
+    changeImage(currentIndex);
+
+    //onmouseover
+    function changeMainImage(imagePath) {
+        var mainImage = document.querySelector(".product-image");
+        mainImage.src = imagePath;
+    }
+</script>
+</html>

@@ -27,6 +27,7 @@ public class UserController {
             modelAndView.setViewName("redirect:/users/login");
         }
         modelAndView.addObject("users", gameService.findAll());
+        modelAndView.addObject("alert", new AlertDTO(AlertStatus.Warning, "Bạn cần đăng nhập trước!"));
         return modelAndView;
     }
 
@@ -35,6 +36,7 @@ public class UserController {
         User user = new User();
         ModelAndView modelAndView = new ModelAndView("/user/login");
         modelAndView.addObject("user", user);
+        modelAndView.addObject("alert", new AlertDTO(AlertStatus.None, ""));
         return modelAndView;
     }
 
@@ -42,11 +44,11 @@ public class UserController {
     public ModelAndView login(@ModelAttribute("user") User user, HttpSession session) {
         ModelAndView modelAndView = new ModelAndView();
         if (userService.checkUser(user.getUsername(), user.getPassword())) {
-            modelAndView.setViewName("redirect:/users");
+            modelAndView.setViewName("/layout_admin");
             session.setAttribute("userId", userService.getId(user.getUsername(), user.getPassword()));
         } else {
             modelAndView.setViewName("/user/login");
-            modelAndView.addObject("error", "sai tên tài khoản hoặc mật khẩu");
+            modelAndView.addObject("alert", new AlertDTO(AlertStatus.Error, "Sai tài khoản mật khẩu!"));
         }
         return modelAndView;
     }
@@ -55,6 +57,7 @@ public class UserController {
     public ModelAndView showCreateUser() {
         ModelAndView modelAndView = new ModelAndView("/user/register");
         modelAndView.addObject("user", new User());
+        modelAndView.addObject("alert", new AlertDTO(AlertStatus.None, ""));
         return modelAndView;
     }
 
@@ -65,7 +68,7 @@ public class UserController {
             userService.save(user);
             modelAndView.setViewName("/user/login");
             modelAndView.addObject("user", new User());
-            modelAndView.addObject("alert", new AlertDTO(AlertStatus.Good,"Tạo tài khoản thành công!"));
+            modelAndView.addObject("alert", new AlertDTO(AlertStatus.Success,"Tạo tài khoản thành công!"));
 
         } else {
             modelAndView.setViewName("/user/register");

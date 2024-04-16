@@ -1,39 +1,190 @@
-<!DOCgame html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="/layout :: head">
-    <title>Thêm trò chơi</title>
+
+<head th:replace="/layout_admin :: head">
 </head>
-<body>
-<h3>Thêm trò chơi</h3>
-<p>
-    <a th:href="@{/admin/games}">
-        Quay lại danh sách trò chơi
-    </a>
-</p>
-<div id="form">
-    <form th:action="@{/admin/games/update}" th:object="${gameForm}"
-          method="POST" novalidate="novalidate">
-        <input type="hidden" th:field="*{game.idGame}"/>
-        <div>
-            <label for="name">Tên trò chơi</label>
-            <input type="text" id="name" th:field="*{game.nameGame}"/>
-        </div>
-        <div>
-            <label for="name">Mô tả</label>
-            <input type="text" id="description" th:field="*{game.descriptionGame}"/>
 
+<body class="">
+<div class="wrapper ">
+    <div th:replace="game/list :: sidebar" class="sidebar" data-color="white" data-active-color="danger">
+    </div>
+    <div class="main-panel">
+        <div th:if="${alert.getStatus() != 'None'}">
+            <div th:replace="/alert :: alert"></div>
         </div>
-        <div>
-            <label for="name">Thể loại: </label>
-            <label th:each="type, index : ${listType}">
-                    <input name="types" type="checkbox" th:checked="${gameForm.checkType(type.nameType)}" th:text="${type.nameType}" th:value="${type.idType}">
+        <!-- Navbar -->
+        <nav th:replace="game/list :: nav-bar">
+        </nav>
+        <!-- End Navbar -->
+        <div class="content">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-user all-color">
+                        <div class="image">
+                            <div class="card-header">
+                                <h5 class="card-title" style="text-align: center">Ảnh nền</h5>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="author">
+                                <img th:src="${backGround}" alt="..." id="image-preview">
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <hr>
+                            <div class="button-container">
+                                <div class="row">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            </label>
+                <div class="col-md-8">
+                    <div class="card card-user all-color">
+                        <div class="card-header">
+                            <h5 class="card-title">Tuỳ chỉnh game - Cập nhật</h5>
+                        </div>
+                        <div class="card-body">
+                            <form th:action="@{/admin/games/update}" th:object="${gameForm}" method="POST" novalidate="novalidate" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-5 pr-1"></div>
+                                    <div class="col-md-3 px-1"></div>
+                                    <div class="col-md-4 pl-1"></div>
+                                </div>
+                                <div>
+                                    <input type="hidden" name="id" th:field="${gameForm.game.idGame}">
+                                </div>
+                                <div class="row" style="margin-bottom: 20px;">
+                                    <div class="col-md-12 pr-1">
+                                        <label>Ảnh nền</label>
+                                        <input type="file" class="form-control" id="image-input" style="color: black" name="background" >
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 pr-1">
+                                        <label>Ảnh mô tả</label>
+                                        <input type="file" class="form-control" id="imageFile" style="color: black" name="more-image"  accept="image/*" multiple>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="input-container">
+                                                <div id="imagePreview" style="display: flex;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Tên game</label>
+                                            <input type="text" class="form-control" id="name" style="color: black" placeholder="Tên game" th:field="*{game.nameGame}">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Mô tả</label>
+                                            <textarea class="form-control textarea" id="description" style="color: black" th:field="*{game.descriptionGame}"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Thể loại</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2" th:each="type : ${listType}">
+                                        <div class="form-group">
+                                            <div class="input-container">
+                                                <input name="types" type="checkbox" th:checked="${gameForm.checkType(type.nameType)}" th:value="${type.idType}">
+                                                <span class="input-text" th:text="${type.nameType}"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="update ml-auto mr-auto">
+                                        <button type="submit" class="btn btn-primary btn-round" onclick="backListGame()">Huỷ</button>
+                                        <button type="submit" class="btn btn-primary btn-round">Lưu</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <input type="submit" value="Lưu"/>
-    </form>
+    </div>
 </div>
-<footer th:replace="/layout :: footer"></footer>
+<div th:replace="/alert :: alert"></div>
+<div th:replace="/layout_admin :: script"></div>
+<!--   Core JS Files   -->
 </body>
+<script th:fragment="process-img">
+    document.getElementById('image-input').addEventListener('change', function (event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            document.getElementById('image-preview').setAttribute('src', e.target.result);
+        };
+
+        reader.readAsDataURL(file);
+    });
+
+    document.getElementById('imageFile').addEventListener('change', function () {
+        var imagePreview = document.getElementById('imagePreview');
+        imagePreview.innerHTML = '';
+        imagePreview.style.display = 'flex';
+        imagePreview.style.flexWrap = 'wrap';
+
+        for (var i = 0; i < this.files.length; i++) {
+            var imageDiv = document.createElement('div');
+            var imageContainer = document.createElement('div');
+            var image = document.createElement('img');
+            var deleteButton = document.createElement('button');
+            deleteButton.innerHTML = 'x';
+            image.src = URL.createObjectURL(this.files[i]);
+            image.style.width = '140px';
+            image.style.height = '100px';
+            deleteButton.setAttribute('data-index', i);
+            deleteButton.addEventListener('click', function (e) {
+                var index = e.target.getAttribute('data-index');
+                imagePreview.removeChild(e.target.parentNode.parentNode);
+            });
+            imageDiv.style.display = 'flex';
+            imageDiv.style.flexDirection = 'column';
+            imageDiv.style.alignItems = 'center';
+            imageDiv.style.margin = '5px';
+            imageContainer.style.position = 'relative';
+            imageContainer.style.display = 'inline-block';
+
+            deleteButton.style.position = 'absolute';
+            deleteButton.style.top = '-2px';
+            deleteButton.style.right = '2px';
+            deleteButton.style.border = 'none'; // Loại bỏ viền
+            deleteButton.style.backgroundColor = 'transparent'; // Đặt nền trong suốt
+            deleteButton.style.color = 'black'; // Đặt màu chữ là đen
+            deleteButton.style.fontSize = '22px'; // Đặt kích thước font chữ
+
+            imageContainer.appendChild(image);
+            imageContainer.appendChild(deleteButton);
+            imageDiv.appendChild(imageContainer);
+            imagePreview.appendChild(imageDiv);
+        }
+    });
+
+    function backListGame() {
+        window.location.href = '/admin/games';
+    }
+</script>
 </html>

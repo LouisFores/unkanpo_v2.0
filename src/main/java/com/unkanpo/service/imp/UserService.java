@@ -92,7 +92,7 @@ public class UserService implements IUserService {
 
     public boolean isNew(String email) {
         boolean isNew = userRepository.findByEmail(email).isPresent();
-        return isNew;
+        return !isNew;
     }
     public Long getId(String userName, String password) {
         return userRepository.findByUsernameAndPassword(userName, password).get().getIdUser();
