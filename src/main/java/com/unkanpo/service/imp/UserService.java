@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.Random;
 
 @Service
 public class UserService implements IUserService {
@@ -75,9 +74,9 @@ public class UserService implements IUserService {
 
     // maxCoin = 10 000 000 (ten million)
     @Override
-    public void rechargeCoin(Long id,int coin) throws Exception {
-        int maxCoin = 10000000;
-        if (0 > coin || coin > maxCoin) {
+    public User rechargeCoin(Long id, int coin) throws Exception {
+        int maxCoin = 10000001;
+        if (0 >= coin || coin > maxCoin) {
             throw new Exception("số tiền phải lớn hơn 0 và nhỏ hơn 10,000,000(mười triệu)");
         }
 
@@ -88,6 +87,7 @@ public class UserService implements IUserService {
 
         user.setCoin(user.getCoin() + coin);
         userRepository.save(user);
+        return user;
     }
 
     public boolean isNew(String email) {
