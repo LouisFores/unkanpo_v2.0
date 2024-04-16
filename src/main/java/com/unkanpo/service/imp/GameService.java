@@ -52,10 +52,19 @@ public class GameService implements IGameService {
     @Override
     public GameForm save(GameForm gameForm) throws IOException {
         Game game = gameForm.getGame();
-        game.setNameGame(game.getNameGame().trim());
-        gameRepository.save(game);
-        saveGameType(gameForm,true);
-        saveIconGame(gameForm.getGame(),gameForm.getBackground());
+        if (gameForm.getBackground().getOriginalFilename() == "") {
+            Game oldGame = new Game(game.getNameGame(), game.getDescriptionGame());
+            oldGame.setIdGame(game.getIdGame());
+            GameForm oldGameForm = new GameForm(game);
+            oldGameForm.setTypes(gameForm.getTypes());
+            saveGameType(oldGameForm, true);
+        } else {
+            game.setNameGame(game.getNameGame().trim());
+            gameRepository.save(game);
+            saveGameType(gameForm,true);
+            saveIconGame(gameForm.getGame(),gameForm.getBackground());
+        }
+
         return null;
     }
 

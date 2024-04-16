@@ -25,6 +25,7 @@ public class GameApi {
 
     @GetMapping
     public ResponseEntity<List<GameForm>> getGames() {
+        System.out.println("da call dc api");
         return new ResponseEntity<>(gameService.findAll(),HttpStatus.OK);
     }
 
