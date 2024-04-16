@@ -7,6 +7,19 @@
     <list default="true" id="9f15b86c-9e8c-4dc0-814d-55f32b2e80cb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/model/GameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/model/GameForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/game/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/game/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/game/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/game/list.html" afterDir="false" />
+>>>>>>> d964fb56ecacce64819e32a42d4d2e615bbec25a
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" afterDir="false" />
+>>>>>>> ce27b7ea7716158c690d11b87c473072463fe513
+=======
       <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/api/UserApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/controller/api/UserApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/dto/AlertDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/dto/AlertDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/dto/RentalTokenDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/dto/RentalTokenDTO.java" afterDir="false" />
@@ -20,6 +33,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/unkanpo/service/imp/GameService.java" afterDir="false" />
 >>>>>>> 321d96e390289ddd3320825fa543bf6742d5ab94
 >>>>>>> 7ef6bc4fc92cb5d8541cb45a385842c1f308dcc4
+>>>>>>> 108b9f0480d79777e11064ed57c7a55b59756d0d
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +87,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+=======
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
 =======
@@ -81,6 +100,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
 >>>>>>> 7ef6bc4fc92cb5d8541cb45a385842c1f308dcc4
+>>>>>>> 108b9f0480d79777e11064ed57c7a55b59756d0d
     "DefaultHtmlFileTemplate": "HTML File",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -90,6 +110,11 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
 <<<<<<< HEAD
+    "git-widget-placeholder": "develop",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "F:/Intellij Java/unkanpo",
+=======
+<<<<<<< HEAD
     "git-widget-placeholder": "feature/api__rent__game",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "F:/Intellij Java/unkanpo",
@@ -98,20 +123,29 @@
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/phamh/Documents/react/form",
 >>>>>>> 7ef6bc4fc92cb5d8541cb45a385842c1f308dcc4
+>>>>>>> 108b9f0480d79777e11064ed57c7a55b59756d0d
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 108b9f0480d79777e11064ed57c7a55b59756d0d
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> ce27b7ea7716158c690d11b87c473072463fe513
+=======
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "editor.preferences.tabs",
     "vue.rearranger.settings.migration": "true"
 =======
+>>>>>>> 108b9f0480d79777e11064ed57c7a55b59756d0d
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
@@ -141,8 +175,15 @@
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> d964fb56ecacce64819e32a42d4d2e615bbec25a
+=======
+>>>>>>> ce27b7ea7716158c690d11b87c473072463fe513
+=======
 >>>>>>> 321d96e390289ddd3320825fa543bf6742d5ab94
 >>>>>>> 7ef6bc4fc92cb5d8541cb45a385842c1f308dcc4
+>>>>>>> 108b9f0480d79777e11064ed57c7a55b59756d0d
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -249,7 +290,19 @@
       <workItem from="1712219730171" duration="953000" />
       <workItem from="1712298514602" duration="29000" />
       <workItem from="1712376408111" duration="3358000" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> d964fb56ecacce64819e32a42d4d2e615bbec25a
+=======
+<<<<<<< HEAD
+>>>>>>> d964fb56ecacce64819e32a42d4d2e615bbec25a
+=======
       <workItem from="1712554369662" duration="1454000" />
+>>>>>>> 321d96e390289ddd3320825fa543bf6742d5ab94
+>>>>>>> ce27b7ea7716158c690d11b87c473072463fe513
+=======
+      <workItem from="1712554369662" duration="1454000" />
+>>>>>>> 108b9f0480d79777e11064ed57c7a55b59756d0d
     </task>
     <servers />
   </component>
