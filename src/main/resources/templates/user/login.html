@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en" dir="ltr" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -25,23 +26,61 @@
       </div>
     </form>
   </div>
+=======
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+>>>>>>> 105e4290f884951f5e7e3de872b0a7163e4167bf
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/fonts/material-icon/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/my-style.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  <title>Document</title>
+</head>
+
+<body class="back-img">
+<div class="main">
+  <section class="sign-in">
+    <div class="container">
+      <div class="signin-content">
+
+        <div class="signin-image">
+          <figure><img src="/image/signin-image.jpg" alt="sing up image"></figure>
+          <a th:href="@{/users/login}" class="signup-image-link">Create an account</a>
+        </div>
+
+        <div class="signin-form">
+          <h2 class="form-title">Sign up</h2>
+          <form method="POST" th:action="@{/users/login}" class="register-form" id="login-form"  th:object="${user}">
+            <div class="form-group">
+              <label for="your_name"><i
+                      class="zmdi zmdi-account material-icons-name icon"></i></label>
+              <input type="text" th:field="${user.username}" name="your_name" id="your_name" placeholder="Your Name" />
+            </div>
+            <div class="form-group">
+              <label for="your_pass"><i class="zmdi zmdi-lock icon"></i></label>
+              <input type="password" th:field="${user.password}" name="your_pass" id="your_pass" placeholder="Password" />
+            </div>
+            <div class="form-group">
+              <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+              <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember
+                me</label>
+            </div>
+            <div class="form-group form-button">
+              <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<div th:if="${alert.getStatus() != 'None'}">
+  <div th:replace="/alert :: alert"></div>
+</div>
+<script src="/js/alert.js"></script>
 </body>
 
-  <script>
-    function loadHomePage() {
-      axios.get("http://localhost:8080/api/v1/games").then((res)=> {
-        console.log(res)
-      })
-    }
-    function login() {
-      axios.post("http://localhost:8080/api/v1/users/login",{
-        "username": document.getElementById("username").value,
-        "password": document.getElementById("password").value,
-      }).then( ()=> {
-        alert("Đăng nhập thành công");
-        loadHomePage()
-      })
-    }
-  </script>
 </html>

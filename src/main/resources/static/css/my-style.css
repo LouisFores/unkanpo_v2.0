@@ -141,6 +141,11 @@ button.error {
     font-size: 25px;
 }
 
-.error {
-    color: red;
+.control-alert > input{
+    background-color:  rgba(0, 0, 0, 0) !important;
+    border: none;
+    display: none;
+    hidden: hidden !important;
+
 }
+
