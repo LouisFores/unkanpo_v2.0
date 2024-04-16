@@ -44,7 +44,6 @@
                     <div class="card card-user all-color">
                         <div class="card-header">
                             <h5 class="card-title">Tuỳ chỉnh game - Cập nhật</h5>
-                            <a th:href="@{/admin/games}" style="color: #51cbce;">Trở lại</a>
                         </div>
                         <div class="card-body">
                             <form th:action="@{/admin/games/update}" th:object="${gameForm}" method="POST" novalidate="novalidate" enctype="multipart/form-data">
@@ -106,7 +105,7 @@
                                     <div class="col-md-2" th:each="type : ${listType}">
                                         <div class="form-group">
                                             <div class="input-container">
-                                                <input name="types" type="checkbox" th:value="${type.idType}" />
+                                                <input name="types" type="checkbox" th:checked="${gameForm.checkType(type.nameType)}" th:value="${type.idType}">
                                                 <span class="input-text" th:text="${type.nameType}"></span>
                                             </div>
                                         </div>
@@ -114,6 +113,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="update ml-auto mr-auto">
+                                        <button type="submit" class="btn btn-primary btn-round" onclick="backListGame()">Huỷ</button>
                                         <button type="submit" class="btn btn-primary btn-round">Lưu</button>
                                     </div>
                                 </div>
@@ -183,5 +183,8 @@
         }
     });
 
+    function backListGame() {
+        window.location.href = '/admin/games';
+    }
 </script>
 </html>

@@ -49,7 +49,7 @@
                             <a th:href="@{/admin/games}" style="color: #51cbce;">Trở lại</a>
                         </div>
                         <div class="card-body">
-                            <form th:action="@{/admin/games/create}" th:object="${theGame}" method="POST" novalidate="novalidate" enctype="multipart/form-data">
+                            <form th:action="@{/admin/games/create}" th:object="${theGame}" method="POST" novalidate="novalidate" enctype="multipart/form-data" onsubmit="return validateForm()">
                                 <div class="row">
                                     <div class="col-md-5 pr-1">
 
@@ -64,13 +64,13 @@
                                 <div class="row" style="margin-bottom: 20px;">
                                     <div class="col-md-12 pr-1">
                                         <label>Ảnh nền</label>
-                                        <input type="file" class="form-control" id="image-input" style="color: black" name="background" >
+                                        <input type="file" class="form-control" id="image-input" style="color: black" name="background">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 pr-1">
                                         <label>Ảnh mô tả</label>
-                                        <input type="file" class="form-control" id="imageFile" style="color: black" name="more-image"  accept="image/*" multiple>
+                                        <input type="file" class="form-control" id="imageFile" style="color: black" name="more-image" accept="image/*" multiple>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -100,7 +100,9 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label>Thể loại</label>
+                                        <div class="form-group">
+                                            <label>Thể loại</label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -115,11 +117,13 @@
                                 </div>
                                 <div class="row">
                                     <div class="update ml-auto mr-auto">
+                                        <button type="submit" class="btn btn-primary btn-round" onclick="backListGame()">Huỷ</button>
                                         <button type="submit" class="btn btn-primary btn-round">Lưu</button>
                                     </div>
                                 </div>
 
                             </form>
+
                         </div>
                     </div>
                 </div>
@@ -188,6 +192,46 @@
             imagePreview.appendChild(imageDiv);
         }
     });
+    function validateForm() {
+        var nameInput = document.getElementById('name');
+        var imageInput = document.getElementById('image-input');
+        var imageFile = document.getElementById('imageFile');
+        var checkboxes = document.getElementsByName('types');
+        var checked = false;
 
+        // Kiểm tra trường Tên game
+        if (nameInput.value.trim() === '') {
+            alert('Vui lòng nhập tên game.');
+            return false;
+        }
+
+        // Kiểm tra trường Ảnh nền
+        if (imageInput.value.trim() === '') {
+            alert('Vui lòng chọn ảnh nền.');
+            return false;
+        }
+
+        // Kiểm tra trường Ảnh mô tả
+        if (imageFile.files.length === 0) {
+            alert('Vui lòng chọn ít nhất một ảnh mô tả.');
+            return false;
+        }
+
+
+        // Kiểm tra xem ít nhất một checkbox đã được chọn
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                checked = true;
+                break;
+            }
+        }
+
+        if (!checked) {
+            alert('Vui lòng chọn ít nhất một thể loại.');
+            return false;
+        }
+
+        return true; // Gửi biểu mẫu khi không có lỗi
+    }
 </script>
 </html>

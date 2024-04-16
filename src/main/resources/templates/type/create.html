@@ -22,13 +22,14 @@
                             <h5 class="card-title" style="text-align: center;">Thêm thể loại</h5>
                         </div>
                         <div class="card-body">
-                            <form th:action="@{/admin/types/create}" th:object="${type}" method="POST" novalidate="novalidate" >
-                                <input type="hidden" th:field="*{idType}"/>
+                            <form th:action="@{/admin/types/create}" th:object="${type}" method="POST" novalidate="novalidate" onsubmit="return validateForm()">
+                                <input type="hidden" th:field="*{idType}" />
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Thể loại</label>
-                                            <input type="text" class="form-control" placeholder="Thể loại" th:field="*{nameType}"/>
+                                            <input type="text" class="form-control" placeholder="Thể loại" th:field="*{nameType}" id="typeInput"/>
+                                            <span id="typeError" style="color: red;"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -38,6 +39,8 @@
                                     </div>
                                 </div>
                             </form>
+
+
                         </div>
                     </div>
                 </div>
@@ -102,21 +105,21 @@
         </footer>
     </div>
 </div>
-<!--   Core JS Files   -->
-<script src="../assets/js/core/jquery.min.js"></script>
-<script src="../assets/js/core/popper.min.js"></script>
-<script src="../assets/js/core/bootstrap.min.js"></script>
-<script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-<!-- Chart JS -->
-<script src="../assets/js/plugins/chartjs.min.js"></script>
-<!--  Notifications Plugin    -->
-<script src="../assets/js/plugins/bootstrap-notify.js"></script>
-<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-<script src="../assets/demo/demo.js"></script>
+<div th:replace="/layout_admin :: script"></div>
+<script>
+    function validateForm() {
+        var typeInput = document.getElementById('typeInput');
+        var typeError = document.getElementById('typeError');
 
+        if (typeInput.value.trim() === '') {
+            typeError.textContent = '*Vui lòng nhập thể loại.';
+            return false; // Ngăn không gửi biểu mẫu khi có lỗi
+        } else {
+            typeError.textContent = '';
+            return true; // Gửi biểu mẫu khi không có lỗi
+        }
+    }
+</script>
 </body>
 
 

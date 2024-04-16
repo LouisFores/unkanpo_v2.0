@@ -18,13 +18,13 @@
         <!-- End Navbar -->
         <div class="content">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="card card-user all-color">
                         <div class="image" style="height: 80px;">
                         </div>
                         <div class="card-body">
                             <div class="author">
-                                <img id="productImage" class="product-image" th:src="@{'/image/' + ${gameForm.game.nameGame.trim().replace(' ', '-')} + '.jpg'}" th:inline="none">
+                                <img id="productImage" class="product-image" th:src="${gameForm.getBackground()}" th:inline="none">
                             </div>
                         </div>
                         <div class="card-footer">
@@ -37,9 +37,8 @@
                             <div class="carousel-container">
                                 <div class="small-image carousel-slide " th:each="gameImage : ${gameForm.getBackground()}">
                                     <img class="small-product-image"
-                                         src=""
-                                         alt="Image 4"
-                                         onmouseover="changeMainImage()">
+                                         th:href="${gameImage}"
+                                         alt="Image 4">
                                 </div>
                             </div>
                         </div>
@@ -54,13 +53,13 @@
 
                         </div>
 
-                        <div class="card-body">
+                        <div class="card-body"  th:object="${gameForm}">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Tên game</label>
                                             <input type="text" class="form-control" id="name" style="color: black"
-                                                   placeholder="Tên game" th:field="*{gameForm.game.nameGame}">
+                                                   placeholder="Tên game" th:field="*{game.nameGame}">
                                         </div>
                                     </div>
                                 </div>
@@ -70,7 +69,7 @@
                                             <label>Mô tả</label>
                                             <textarea class="form-control textarea" id="description"
                                                       style="color: black"
-                                                      th:field="*{gameForm.getGame().descriptionGame}"></textarea>
+                                                      th:field="*{game.descriptionGame}"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +82,7 @@
                                     <div class="col-md-2" th:each="type : ${listType}">
                                         <div class="form-group">
                                             <div class="input-container">
-                                                <input name="types" type="checkbox" th:value="${type.idType}"/>
+                                                <input name="types" type="checkbox" th:checked="${gameForm.checkType(type.nameType)}" th:value="${type.idType}"/>
                                                 <span class="input-text" th:text="${type.nameType}"></span>
                                             </div>
                                         </div>

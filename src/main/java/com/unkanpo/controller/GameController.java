@@ -150,21 +150,9 @@ public class GameController {
     public ModelAndView findById(@PathVariable("id") Long id) {
         ModelAndView modelAndView = new ModelAndView("/game/information");
         modelAndView.addObject("gameForm", gameService.findById(id));
+        modelAndView.addObject("listType", typeService.findAll());
         modelAndView.addObject("alert", new AlertDTO());
         return modelAndView;
     }
 
-    @GetMapping("/{choice}")
-    public ModelAndView testChoice(@PathVariable("choice") int choice) {
-        ModelAndView modelAndView = new ModelAndView("/alert");
-        switch (choice) {
-            case 1:
-                modelAndView.addObject("alert", new AlertDTO(AlertStatus.Error,"error case"));break;
-            case 2:
-                modelAndView.addObject("alert", new AlertDTO(AlertStatus.Warning,"warning case"));break;
-            case 3:
-                modelAndView.addObject("alert", new AlertDTO(AlertStatus.Success,"supper long case"));break;
-        }
-        return modelAndView;
-    }
 }
