@@ -87,7 +87,7 @@ public class GameForm {
         this.images = images;
     }
 
-    public GameFormDTO gameFromDTO() {
+    public GameFormDTO ToGameFromDTO() {
         GameFormDTO gameFormDTO = new GameFormDTO();
         gameFormDTO.setIdGame(this.getGame().getIdGame())
                 .setNameGame(this.game.getNameGame())

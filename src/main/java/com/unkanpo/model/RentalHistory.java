@@ -3,10 +3,9 @@ package com.unkanpo.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @Entity
@@ -28,6 +27,7 @@ public class RentalHistory {
     private String lastTimeRequest;
     private boolean isOnline;
     private String endTime;
+    private int total;
 
     public RentalHistory() {
     }
@@ -67,18 +67,36 @@ public class RentalHistory {
 
     public void startRenting() {
         this.startTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        this.isOnline = true;
     }
 
     public String getEndTime() {
         return endTime;
     }
 
+    public int getTotal() {
+        return total;
+    }
+
+    public RentalHistory setTotal(int total) {
+        this.total = total;
+        return this;
+    }
+
     public void updateStatus() {
         this.endTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
     }
 
-//    public Boolean isRenting(){
-//        String now = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-//    }
+    public void endRent() {
+        this.setOnline(false);
+    }
 
+    public void totalCoin(int price) {
+        LocalDateTime startTime = LocalDateTime.parse(this.getStartTime(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        LocalDateTime endTime = LocalDateTime.parse(this.getEndTime(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        Duration duration = Duration.between(startTime, endTime);
+        int minutes = (int) duration.toMinutes() / 5;
+        this.setTotal(minutes*price);
+//        rentalHistory.setTotal(minutes*price);
+    }
 }

@@ -1,5 +1,6 @@
 package com.unkanpo.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameFormDTO {
@@ -61,7 +62,11 @@ public class GameFormDTO {
     }
 
     public GameFormDTO setImages(List<String> images) {
-        this.images = images;
+        List<String> urlImages = new ArrayList<String>();
+        for (String url : images) {
+            urlImages.add("http://localhost:8080/image/" + images + ".jpg");
+        }
+        this.images = urlImages;
         return this;
     }
 }

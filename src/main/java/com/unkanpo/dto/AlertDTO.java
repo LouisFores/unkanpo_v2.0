@@ -41,4 +41,31 @@ public class AlertDTO {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    public AlertStatus getAlertStatus() {
+        return alertStatus;
+    }
+
+    public AlertDTO setAlertStatus(AlertStatus alertStatus) {
+        this.alertStatus = alertStatus;
+        return this;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public AlertDTO setToken(String token) {
+        this.token = token;
+        return this;
+    }
+
+    public Long getIdRent() {
+        return idRent;
+    }
+
+    public AlertDTO setIdRent(Long idRent) {
+        this.idRent = idRent;
+        return this;
+    }
 }

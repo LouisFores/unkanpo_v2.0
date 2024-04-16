@@ -1,5 +1,6 @@
 package com.unkanpo.model;
 
+import com.unkanpo.dto.AccountDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,7 +10,7 @@ import lombok.Data;
 public class GameAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idAccount;
+    private long idAccount;
 
     @ManyToOne
     @JoinColumn(name = "idGame")
@@ -21,9 +22,9 @@ public class GameAccount {
     private String hideInfo;
     private Integer price;
     private String token;
-    private Boolean isOnline;
+    private Boolean isRent;
 
-    public Integer getIdAccount() {
+    public long getIdAccount() {
         return idAccount;
     }
 
@@ -72,10 +73,18 @@ public class GameAccount {
     }
 
     public Boolean getOnline() {
-        return isOnline;
+        return isRent;
     }
 
     public void setOnline(Boolean online) {
-        isOnline = online;
+        isRent = online;
+    }
+    public AccountDTO toAccountDTO() {
+        AccountDTO accountDTO = new AccountDTO();
+        accountDTO.setIdAccount(this.idAccount)
+                .setPrice(this.price)
+                .setToken(this.token)
+                .setOnline(this.isRent);
+        return accountDTO;
     }
 }
