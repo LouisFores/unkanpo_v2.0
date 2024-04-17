@@ -12,6 +12,6 @@ public interface IUserService {
     boolean checkUser(String userName, String password);
     public Long Login(String userName, String password) throws Exception;
     public Boolean checkUserToken(String token);
-    public void rechargeCoin(Long id,int amount) throws Exception;
+    public User rechargeCoin(Long id,int amount) throws Exception;
 
 }

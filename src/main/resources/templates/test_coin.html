@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout_admin :: head">
+</head>
+<body>
+
+<form th:action="@{/users/coins}" th:method="POST" th:object="${user}">
+    <input th:field="*{id_user}" hidden="hidden"/>
+    <input th:field="*{nickname}" th:value="${user.nickname}" readonly/>
+    <p>số tiền hiện có</p>
+    <input th:value="${user.coin}" readonly/>
+    <p>số tiền muốn nạp</p>
+    <input name="coin" th:value="${0}" type="number"/>
+    <input type="submit" value="nap">
+</form>
+
+<div th:if="${alert.getStatus() != 'None'}">
+    <div th:replace="/alert :: alert"></div>
+</div>
+<div th:replace="/layout_admin :: script"></div>
+</body>
+</html>
